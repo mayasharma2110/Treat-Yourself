@@ -52,30 +52,23 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a first time user, I want to know the purpose of the site.
 
-* As a first time user...
+* As a first time user, I want to be able to see products that appeal to me by filtering on the 4 main categories of the site, the subcategories within the 4 main categories and also sorting by price or overall rating.
 
-* As a first time user...
+* As a first time user, I want to be able to view my shopping basket and update this within the page.
 
-* As a first time user...
-
+* As a first time user, I want to be able to purchase products successfully and see these in my profile when logged in. 
 
 #### Returning Visitor Goals
 
 * As a returning user, I have similar needs of a first time user.
 
-* As a returning user...
-
-* As a returning user...
-
-* As a returning user...
+* As a returning user, I want to rate products I have tried to help other users find good products.
 
 #### Frequent User Goals
 
 * As a frequent user, I have similar needs of a first time and returning user.
 
-* As a frequent user...
-
-* As a frequent user...
+* As a frequent user, I want to subscribe so that I get my favourite products on a regular schedule that I can choose.
 
 ### Strategy
 
@@ -85,7 +78,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a business owner, I want to help users purchase products.
 
-* As a business owner, I want to be able to manage the products that are displayed on the site.
+* As a business owner, I want to be able to manage the products (price, description etc) that are displayed on the site.
 
 #### User Goals
 
@@ -94,6 +87,8 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 * To purchase any products as a one off or purchase on a subscription.
 
 * To have the ability to view past orders I have made from my profile.
+
+* To have the ability to rate products I have previously tried.
 
 ### Scope
 
