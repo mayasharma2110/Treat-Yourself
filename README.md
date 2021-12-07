@@ -1,108 +1,314 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Treat Yourself
 
-Welcome USER_NAME,
+[Link to live project.](.....)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a website for a site selling chocolate, hot chocolate, tea and coffee.  
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+It is aimed for those who are interested in purchasing any of the above, the site helps users pick the right products for them by having sorting options by price/ratings and also having different sections in the site for the 4 different cagetories of products.
 
-## Gitpod Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [UX](#ux)
+  * [User Stories](#user-stories)
+    * [First Time Visitor Goals](#first-time-visitor-goals)
+    * [Returning Visitor Goals](#returning-visitor-goals)
+    * [Frequent User Goals](#frequent-user-goals)
+  * [Strategy](#strategy)
+    * [Business Goals](#business-goals)
+    * [User Goals](#user-goals)
+  * [Scope](#scope)
+  * [Structure](#structure)
+   * [Wireframes](#wireframes)
+   * [Wireframes Comments](#wireframes-comments)
+  * [Skeleton](#skeleton)
+    * [Colours](#colours)
+    * [Imagery](#imagery)
+  * [Surface](#surface)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Features Left to Implement](#features-left-to-inplement)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+  * [Manual Testing](#manual-testing)
+  * [Online Validation](#online-validation)
+  * [Lighthouse Validation](#lighthouse-validation) 
+  * [User Stories from the UX Section](#user-stories-from-the-ux-section)
+* [Deployment](#deployment)
+  * [Creation](#creation)
+  * [Heroku](#heroku)
+  * [Local Clone](#local-clone)
+  * [Forking](#forking)
+* [Credits](#credits)
+  * [Code](#code)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
 
-`python3 -m http.server`
+## UX
 
-A blue button should appear to click: _Make Public_,
+### User Stories
 
-Another blue button should appear to click: _Open Browser_.
+#### First Time Visitor Goals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* As a first time user, I want to know the purpose of the site.
 
-A blue button should appear to click: _Make Public_,
+* As a first time user...
 
-Another blue button should appear to click: _Open Browser_.
+* As a first time user...
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* As a first time user...
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Returning Visitor Goals
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* As a returning user, I have similar needs of a first time user.
 
-------
+* As a returning user...
 
-## Release History
+* As a returning user...
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+* As a returning user...
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Frequent User Goals
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+* As a frequent user, I have similar needs of a first time and returning user.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* As a frequent user...
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* As a frequent user...
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Strategy
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### Business goals
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* As a business owner, I want to help users find new products they may enjoy.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* As a business owner, I want to help users purchase products.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* As a business owner, I want to be able to manage the products that are displayed on the site.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+#### User Goals
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* To find existing and new products they may like.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* To purchase any products as a one off or purchase on a subscription.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* To have the ability to view past orders I have made from my profile.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Scope
 
-------
+Key features to be included based on user stories are:
 
-## FAQ about the uptime script
+* Responsive website on mobile, tablet and laptop size devices.
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Structure
 
-**How will this affect me?**
+All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, add products to their shopping basket and purchase them. Logged in users and admin(superusers) will be able to view their profile and see past orders.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+The website will use Materializecss grids to make the layout responsive to different devices and screen sizes.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Skeleton
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+I used pen and paper to make the wireframes for this project. The website was designed to have 7 pages - Home, Login, Register, Products, Bag, Checkout and Profile. The webiste also includes a logout link which logs out signed in users and takes them to the home page.
 
-**So….?**
+#### Wireframes
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![Navbar Wireframes](static/wireframes/navbar.jpg)  
 
-**Can I opt out?**
+#### Wireframes Comments
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Please note there are a few changes to the final site since the wireframes were made:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Surface
 
-**Anything more?**
+#### Colours
+I looked at pupolar sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#8e24aa purple darken-1) to represent a luxury brand for the site. The site [here](https://color.adobe.com/create/color-wheel) helped me fine square complementary colours of green (#43a047 green darken-1) and blue (#1e88e5 blue darken-1). General text for descriptions, prices etc of products uses dark grey (#424242 grey darken-3).
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+#### Imagery
+I picked an image of for the home screen. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
 
----
+## Features
 
-Happy coding!
+### Existing Features
+
+* The site is responsive on mobile, tablet and laptop size devices.
+
+### Features Left to Implement
+
+## Technologies Used
+
+* HTML - used to create the main content for the website.
+
+* CSS - used to add style and colour to the content.
+
+* [Materializecss](https://materializecss.com/)
+  * Used to help make this website responsive for different devices and to create the collapsible navbar.
+  * Used to make the cards on the home page reveal the review details for each book.
+  * Used to help create the colours and style on the site. 
+  * Used to validate user information in the add/edit review forms. 
+
+* Javascript - used to help make the site responsive to the user's input - defensive programming before deleting a review, book or genre to check if the user is sure they want to proceed.
+
+* jQuery - used to help make the site responsive to the user's input - defensive programming before deleting a review, book or genre to check if the user is sure they want to proceed.
+
+* [MongoDB](https://www.mongodb.com/) used to create, store and update the data used in this site.
+
+* [Python](https://www.python.org/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) - used to get data from the database in MongoDB to the live site.
+
+* [Gitpod](https://www.gitpod.io/) - used to write the code for the website.
+
+* [GitHub](https://github.com/) - used to store the current and previous versions of the code. 
+
+* [Heroku](https://www.heroku.com/) - used to host the live website.
+
+* [Tinypng](https://tinypng.com/) - used to compress the images so they loaded quicker on the website.
+
+* [Django](https://www.djangoproject.com/) - used to ...
+
+* [AWS](https://aws.amazon.com/) - used to ... 
+
+* [Stripe](https://stripe.com/gb) - used to ...
+
+## Testing
+
+### Manual Testing
+
+Expected -Feature is expected to do X why the user does Y
+Testing - Tested the feature by doing Y
+Result - The feature did not respond due to A,B,C
+or
+Result - The feature acted as normally and it did Y
+Fix - I did Z to the code because something was missing
+And test user stories with relevant screenshots.
+
+### Online Validation
+
+* I checked the website loads and responds as expected on Google Chrome and Microsoft Edge browsers. 
+
+* Used chrome developer tools to check responsiveness on mobile, tablet and laptop devices.  
+I also checked the website on my HP 15 inch laptop, Philips 20 inch monitor and Sony smartphone.
+
+* Used the [w3c validator](https://validator.w3.org/) to validate my html (for all pages of the website) to check for no errors or warnings. For html there was 1 warning on all pages due to the section for flash messages (shown below).
+  ![HTML warning](static/testing/html-warning.PNG) <br>
+  There were additionally some extra errors/warnings due to the materializecss being used that the validator did not have access to (see below also). <br>
+  ![Other HTML warnings](static/testing/other-html-warnings.png)
+
+* Used the [jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my style.css file to check for no errors or warnings. 
+I did not validate css of the whole website as this included the imported materializecss files.
+
+* Used [Jshint](https://jshint.com/) to validate my js files and ensure no warnings or errors.
+
+* Used [PEP8 Online](http://pep8online.com/) to validate my python files and ensure no warnings or errors.
+
+### Lighthouse Validation
+
+I used [lighthouse](https://developers.google.com/web/tools/lighthouse) in chrome developer tools to check the websites performance in terms of 
+performance, accessibility, best practises and SEO.
+This was done for all pages of the website and for desktop devices only due to time.
+The summary table below shows these metrics.
+
+| Device | Page |  Performance | Accessibility  | Best Practises  | SEO |
+|---|---|---|---|---|---|
+| Desktop  |  Home | % | % | % | % |
+
+Full reports can be found below:
+
+### User Stories from the UX Section
+
+* First Time Visitor Goals  
+
+  * As a first time user, I want to ...
+    * How the site meets this user need.
+
+* Returning Visitor Goals
+
+  * As a returning user, I want to ...
+    * How the site meets this user need.
+
+* Frequent User Goals
+    
+  * As a frequent user, I want to ...
+    * How the site meets this user need.
+
+* Business Goals
+
+  * As a business owner, I want to ...
+    * How the site meets this business need.
+
+## Deployment
+
+### Creation
+
+* All code was written in Gitpod and used [this template](https://github.com/Code-Institute-Org/gitpod-full-template) from Code Institute.
+* Files were added to the staging area using "git add ."
+* Files were committed to the local repository using "git commit -m 'commit message here'".
+* Committed changes were pushed to the GitHub repository.
+
+### Heroku
+
+To deploy the project to a live website the below steps were followed:
+
+* Go to Heroku.com and log in (if not registered you must create an account first).
+* Make sure your project has a file specifying which applications are needed to run your site, use the below code to automatically generate this
+> pip3 freeze --local > requirements.txt
+* Also make sure you have a Procfile which tells Heroku which file runs the app (in our case it is app.py), use the below code to generate this. The Procfile may add a blank line which can cause issues so check and remove this if needed.
+>  echo web: python app.py > Procfile (note that this has no extension)
+* In Heroku click on create a new app. The Heroku app name must be unique and generally uses - instead of spaces and all lowercase letters. Then select the region closest to you and create app.
+* To connect our app to Heroku we can setup an automatic deployment from our GitHub repo. Within your Heroku app go to the deployment tab and click on GitHub for the deployment method. Make sure your GitHub profile is displayed below and enter the repository name and search. Make sure your repo is displayed and click connect to this app.
+* Before enabling automatic deployment, we still have a couple more steps.
+* Click on the settings tab in your app and click on reveal config vars, you can then enter the information that is in the hidden env.py file. Typically, you need to include IP, PORT, SECRET_KEY, MONGO_URI and MONGO_DBNAME.
+* Git add, commit and push the changes in your Gitpod (adding the requirements and Procfile files) as epxplained in the above section.
+* Go back to your Heroku app and the deployment tab - now click to enable automatic deployment and then click deploy branch.
+* Heroku will now receive the code from GitHub and build your app, once it is complete you should see that your app has been successfully deployed.
+* Now the deployed site is available and should automatically update whenever changes are pushed to GitHub from Gitpod.
+
+### Local Clone
+To make a local copy of a repository on your own GitHub account you can clone it.
+This allows others to view the original code and/or make changes to it (on their own local copy).
+Changing the code on your local repository will not affect the original code or deployed website.
+
+To clone a repository in GitHub you can follow the steps below:
+* Log into GitHub and locate the repository you wish to clone.
+* Click on the code button (to the left of the green Gitpod button) and copy the https URL given.
+* Open Gitpod (or another editor if you prefer).
+* Use the "git clone 'insert copied URL here'" command.
+* A clone of the original repository will now be available for you locally 
+on your own repository to view/edit as you wish.
+
+### Forking
+
+Forking is another way to  make a local copy of a repository on your own GitHub account to do this follow the below steps:
+
+* Log into GitHub and locate the repository you wish to fork.
+* At the top-right of the repository (and top-right of the green Gitpod button), locate the fork button.
+* A copy of the original repository will now be available for you locally 
+on your own repository to view/edit as you wish.
+
+## Credits
+
+### Code
+
+* The Materializecss library was used to help make this website responsive for different devices and to create the collapsible navbar. 
+
+### Content
+
+* For each of the products on the site I had a look at popular sites [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/) to gain inspiration for the products on this site. Additioanlly these sites helped me get an idea for a good layout of the site.
+
+* I used an images from online, information below in the media section.
+
+### Media
+
+* I found the following image online from [xxx](xxx), this is the file static/images/xxx.jpg. The owner of the image is xxx and their page on the site is [here](xxx). Please note I did some cropping to the original image but no other changes were made.
+  
+### Acknowledgments
+
+* Code Institute for teaching me the basics of HTML, CSS, Materializecss, JavaScript, jQuery, Python, MongoDB, Flask, Django, AWS and Stripe to allow me to create this website.
+
+* My mentor Antonio Rodriguez who helped provide feedback on this website and improvements that could be made.
+
+* The Slack community for providing support throughout the course so far.  
+
+* Thanks to the fellow students on Slack and my friends who viewed the website and gave feedback on any improvements/changes that could be made. 
+
+* The websites that I used to gain inspiration for creating my own book review site: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/).
