@@ -52,17 +52,28 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a first time user, I want to know the purpose of the site.
 
-* As a first time user, I want to be able to see products that appeal to me by filtering on the 4 main categories of the site, the subcategories within the 4 main categories and also sorting by price or overall rating.
+* As a first time user, I want to be able to see products that appeal to me by filtering on the 4 main categories of the site, the subcategories within the 4 main categories and also sorting by price or overall rating. I want to be able to quickly add a product to my basket from this page (default of 1 quantity and not on subscription).
 
-* As a first time user, I want to be able to view my shopping basket and update this within the page.
+* As a first time user, I want to be able to the specific details of a product I am interested in (description, price and rating) from here I want to be able to add products to my shopping basket.
 
-* As a first time user, I want to be able to purchase products successfully and see these in my profile when logged in. 
+* As a first time user I want to be able to search for a specific term (for the name or description of a product), on filtering or searching for a term I want to see the number of results displayed.
+
+* As a first time user, I want to be able to see the total in my shopping basket at any given time.
+
+* As a first time user, I want to be able to view my shopping basket and update the quantity of a product or remove it within the page.
+
+* As a first time user, I want to be able to purchase products successfully (get taken to a page which confirms the order has been successful) and see these in my profile when logged in. 
 
 #### Returning Visitor Goals
 
 * As a returning user, I have similar needs of a first time user.
 
-* As a returning user, I want to rate products I have tried to help other users find good products.
+* As a returning user, I want to be able to register for an account, log in and log out.
+
+* As a returning user, I want to receive an email confirmation once I sign up to the site and I also want to be able to recover my password if I forget it.
+
+* As a returning user, I want the site to save my default shipping and billing information for easier checkout in the future (if I am registered to the site and logged in).
+
 
 #### Frequent User Goals
 
@@ -78,7 +89,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a business owner, I want to help users purchase products.
 
-* As a business owner, I want to be able to manage the products (price, description etc) that are displayed on the site.
+* As a business owner, I want to be able to manage the products (picture, price, description etc) that are displayed on the site and remove any that are not for sale anymore.
 
 #### User Goals
 
@@ -88,24 +99,65 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * To have the ability to view past orders I have made from my profile.
 
-* To have the ability to rate products I have previously tried.
-
 ### Scope
 
 Key features to be included based on user stories are:
 
 * Responsive website on mobile, tablet and laptop size devices.
 
+* The home page will contain a selection of the products available on the site to entice users to view the products in more detail and hopefully make a purchase.
+
+* The register page will allow users to create their own account for the site by entering a username, email address and password.
+
+* The login page will allow registered users to login with thier username or email and password.
+
+* The logout page will be a check to confirm a user definately wants to logout.
+
+* The products page will show the users the products with some main details like price and rating.
+
+* The product detail page will show the further details of the product like the description. 
+
+* The shopping bag pag will show what a user currently has in their basket and a link for them to checkout and complete thier purchase.
+
+* The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated.
+
+* The profile page will show a users past orders and it will also allow then to update their default delivery information.
+
+* The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
+
+* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
 
 ### Structure
 
-All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, add products to their shopping basket and purchase them. Logged in users and admin(superusers) will be able to view their profile and see past orders.
+All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subgategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nuts, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site.
 
 The website will use Materializecss grids to make the layout responsive to different devices and screen sizes.
 
+* The home page will contain a selection of the products available on the site to entice users to view the products in more detail and hopefully make a purchase. This will also contain a link to enter the store and view the specific products.
+
+* The register page will allow users to create their own account for the site by entering a username, email address and password. This will also contain a link for registered users to login.
+
+* The login page will allow registered users to login with thier username or email and password. This will also contain a link for unregistered users to register an account and a link for users who are registered to reset thier password if they forgot it.
+
+* The logout page will be a check to confirm a user definately wants to logout.
+
+* The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page.
+
+* The product detail page will show the description of the product with the other variables like price rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. 
+
+* The shopping bag pag will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
+
+* The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
+
+* The profile page will show a users past orders and it will also allow then to update their default delivery information. 
+
+* The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
+
+* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
+
 ### Skeleton
 
-I used pen and paper to make the wireframes for this project. The website was designed to have 7 pages - Home, Login, Register, Products, Bag, Checkout and Profile. The webiste also includes a logout link which logs out signed in users and takes them to the home page.
+I used pen and paper to make the wireframes for this project. The website was designed to have 11 pages - Home, Login, Register, Logout, Products, Product detail, Bag, Checkout, Profile, Add product (admin only) and Edit product (admin only). 
 
 #### Wireframes
 
@@ -121,7 +173,7 @@ Please note there are a few changes to the final site since the wireframes were 
 I looked at pupolar sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#8e24aa purple darken-1) to represent a luxury brand for the site. The site [here](https://color.adobe.com/create/color-wheel) helped me fine square complementary colours of green (#43a047 green darken-1) and blue (#1e88e5 blue darken-1). General text for descriptions, prices etc of products uses dark grey (#424242 grey darken-3).
 
 #### Imagery
-I picked an image of for the home screen. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
+I picked a selection of the product images to show on the home screen to entice users to view the products in more detail and hopefully make a purchase. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
 
 ## Features
 
