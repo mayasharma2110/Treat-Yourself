@@ -74,6 +74,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a returning user, I want the site to save my default shipping and billing information for easier checkout in the future (if I am registered to the site and logged in).
 
+* As a returning user, I want to rate products I have tried to help other users find good products.
 
 #### Frequent User Goals
 
@@ -98,6 +99,8 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 * To purchase any products as a one off or purchase on a subscription.
 
 * To have the ability to view past orders I have made from my profile.
+
+* To have the ability to rate products I have previously tried.
 
 ### Scope
 
@@ -149,7 +152,7 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
-* The profile page will show a users past orders and it will also allow then to update their default delivery information. 
+* The profile page will show a users past orders and it will also allow then to update their default delivery information. The profile page will also list any products a user has purchased in the past and allow them to rate the products they have tried before to help other users pick good products.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
 
