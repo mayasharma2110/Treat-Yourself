@@ -1,9 +1,9 @@
+/* general css */
 html {
     height: 100%;
 }
 
 body {
-    height: calc(100vh - 125px);
     /* color: #555; */
     font-family: "Lato";
     /* color: red; */
@@ -18,51 +18,8 @@ body {
     width: 1.5rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.see-products-banner {
-    margin-top: 10px;
-}
-
-#photos {
-    margin-top: 10px;
-}
-
-#photo-section {
-    clear: both;
-    line-height: 0;
-    column-count: 4;
-    column-gap: 0;
-  }
-  
-  #photo-section img {
-    width: 100%;
-  }
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
 .btn-black {
     background: black;
-    color: white;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
     color: white;
 }
 
@@ -78,7 +35,71 @@ body {
     background: #000 !important;
 }
 
-/* --------------------------------- Media queries */
+/* navbar */
+
+#topnav {
+    background: mediumpurple;
+    border-bottom: 5px solid black;
+}
+
+#delivery-banner, .see-products-banner a {
+    color: mediumpurple;
+}
+
+.mobile-search {
+    background: mediumpurple;
+    padding: 1rem;
+}
+
+.navbar-expand-lg {
+    background: white;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.see-products-banner {
+    margin-top: 10px;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* home page */
+#photos {
+    margin-top: 10px;
+}
+
+#photo-section {
+    clear: both;
+    line-height: 0;
+    column-count: 4;
+    column-gap: 0;
+  }
+  
+#photo-section img {
+    width: 100%;
+}
+
+/* Media queries */
 
 /* Slightly larger container on xl screens */
 /* @media (min-width: 1200px) {
@@ -102,20 +123,62 @@ body {
     }
 } */
 
-/* criteria if sceen width is at or below 1200 */
-@media screen and (max-width: 1200px) {
+/* extra large per bootstrap sizing */
+/* @media screen and (min-width: 1200px) {
   
+} */
+
+/* large per bootstrap sizing */
+/* @media screen and (min-width: 992px) {
+  
+} */
+
+/* medium per bootstrap sizing */
+@media screen and (max-width: 991px) {
+
     #photo-section {
-    column-count: 3;
+        column-count: 3;
     }
   
-  }
+    .navbar-expand-lg {
+        background: mediumpurple;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-toggler {
+        margin-left: 1rem;
+    }
+
+    .navbar-expand-lg ul {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
+
+    .navbar-collapse {
+        background: white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
   
-  @media screen and (max-width: 800px) {
+}  
+
+/* small and extra small per bootstrap sizing */
+@media screen and (max-width: 765px) {
   
     #photo-section {
     column-count: 2;
     }
   
-  }
+}
+
+/* very small per bootstrap sizing */
+/* @media screen and (max-width: 575px) {
+  
+} */
+
+
   
