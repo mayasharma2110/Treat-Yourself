@@ -99,6 +99,33 @@ body {
     width: 100%;
 }
 
+/* products page */
+.page-heading {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0.5rem;
+}
+
+.products-col {
+    padding: 12px;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 0.5rem;
+    height: 100%;
+}
+
+.card-title1 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.card-image img {
+    width: 100%;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */

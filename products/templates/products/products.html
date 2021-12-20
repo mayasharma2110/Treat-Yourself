@@ -11,12 +11,31 @@
 
 {% block content %}
 
-<h2 class="logo-font">Products</h2>
+<h2 class="page-heading">Products</h2>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            {{ products }}
+        {% for product in products %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 products-col">
+            <div class="card">
+                <a href="">
+                    <span class="card-title1">{{ product.name }}</span>
+                </a>
+                <div class="card-image">
+                    <a href="">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>    
+                </div>
+                <div class="card-content">
+                  <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }})</p>
+                </div>
+                <a href="#">Add Now</a>
+                <div class="card-action">
+                  <a href="#">Edit</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
