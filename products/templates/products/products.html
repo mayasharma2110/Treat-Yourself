@@ -17,11 +17,9 @@
         {% for product in products %}
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 products-col">
             <div class="card">
-                <a href="">
-                    <span class="card-title1">{{ product.name }}</span>
-                </a>
                 <div class="card-image">
-                    <a href="">
+                    <a href="{% url 'product_detail' product.id %}" target="_blank">
+                        <span class="card-title1">{{ product.name }}</span>
                         <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>    
                 </div>
