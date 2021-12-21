@@ -106,6 +106,19 @@ body {
     margin: 0.5rem;
 }
 
+.category-badge {
+    border: 1px solid black;
+    color: black;
+    margin: 0.5rem;
+    padding: 2px;
+}
+
+.category-badge:hover {
+    border: 1px solid black;
+    background: mediumpurple;
+    color: black;
+}
+
 .products-col {
     padding: 12px;
 }
@@ -124,6 +137,18 @@ body {
 
 .card-image img {
     width: 100%;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+}
+.btt-link{
+    cursor: pointer;
 }
 
 /* Media queries */

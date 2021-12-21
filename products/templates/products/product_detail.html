@@ -24,6 +24,7 @@
                 <div class="product-details-container mb-5 mt-md-5">
                     <p>£{{ product.price }}</p>
                     <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }})</p>
+                    <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     <p>{{ product.description }}</p>
                 </div>
             </div>
