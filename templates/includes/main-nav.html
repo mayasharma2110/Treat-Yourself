@@ -17,10 +17,10 @@
                 Chocolate
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="chocolate-link">
-                <a href="" class="dropdown-item">Milk</a>
-                <a href="" class="dropdown-item">Dark</a>
-                <a href="" class="dropdown-item">White</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Chocolate</a>
+                <a href="{% url 'products' %}?category=milk_chocolate" class="dropdown-item">Milk</a>
+                <a href="{% url 'products' %}?category=dark_chocolate" class="dropdown-item">Dark</a>
+                <a href="{% url 'products' %}?category=white_chocolate" class="dropdown-item">White</a>
+                <a href="{% url 'products' %}?category=milk_chocolate,dark_chocolate,white_chocolate" class="dropdown-item">All Chocolate</a>
             </div>
         </li>
 
@@ -29,10 +29,10 @@
             Hot Chocolate
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="hot-chocolate-link">
-                <a href="" class="dropdown-item">Classic</a>
-                <a href="" class="dropdown-item">Nutty</a>
-                <a href="" class="dropdown-item">Other</a>
-                <a href="" class="dropdown-item">All Hot Chocolate</a>
+                <a href="{% url 'products' %}?category=classic_hot_chocolate" class="dropdown-item">Classic</a>
+                <a href="{% url 'products' %}?category=nutty_hot_chocolate" class="dropdown-item">Nutty</a>
+                <a href="{% url 'products' %}?category=other_hot_chocolate" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=classic_hot_chocolate,nutty_hot_chocolate,other_hot_chocolate" class="dropdown-item">All Hot Chocolate</a>
             </div>
         </li>
 
@@ -41,10 +41,10 @@
                 Tea
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="tea-link">
-                <a href="" class="dropdown-item">Black</a>
-                <a href="" class="dropdown-item">White</a>
-                <a href="" class="dropdown-item">Other</a>
-                <a href="" class="dropdown-item">All Tea</a>
+                <a href="{% url 'products' %}?category=black_tea" class="dropdown-item">Black</a>
+                <a href="{% url 'products' %}?category=white_tea" class="dropdown-item">White</a>
+                <a href="{% url 'products' %}?category=other_tea" class="dropdown-item">Other</a>
+                <a href="{% url 'products' %}?category=black_tea,white_tea,other_tea" class="dropdown-item">All Tea</a>
             </div>
         </li>
 
@@ -53,10 +53,10 @@
                 Coffee
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="coffee-link">
-                <a href="" class="dropdown-item">Medium</a>
-                <a href="" class="dropdown-item">Dark</a>
-                <a href="" class="dropdown-item">Light</a>
-                <a href="" class="dropdown-item">All Coffee</a>
+                <a href="{% url 'products' %}?category=medium_coffee" class="dropdown-item">Medium</a>
+                <a href="{% url 'products' %}?category=dark_coffee" class="dropdown-item">Dark</a>
+                <a href="{% url 'products' %}?category=light_coffee" class="dropdown-item">Light</a>
+                <a href="{% url 'products' %}?category=medium_coffee,dark_coffee,light_coffee" class="dropdown-item">All Coffee</a>
             </div>
         </li>
 
