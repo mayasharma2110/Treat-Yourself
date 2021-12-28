@@ -18,7 +18,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
     * [User Goals](#user-goals)
   * [Scope](#scope)
   * [Structure](#structure)
-   * [Wireframes](#wireframes)
+  * [Skeleton](#skeleton)
    * [Wireframes Navbar](#wireframes-navbar)
    * [Wireframes Home](#wireframes-home)
    * [Wireframes Login](#wireframes-login)
