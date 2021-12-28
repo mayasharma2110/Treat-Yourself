@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load media %}
 
 {% block page_header %}
     <div class="container header-contianer">
@@ -19,7 +18,6 @@
     <!-- photos section -->
     <div id="photos">
         <section id="photo-section">
-            <img src="{{ url_for('media', filename='home-chocolate.jpg') }}" alt="Chocolate">
             <img src="/media/home-chocolate.jpg" alt="Chocolate">
             <img src="/media/home-hot-chocolate.jpg" alt="Hot chocolate">
             <img src="/media/home-tea.jpg" alt="Tea">
