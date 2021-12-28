@@ -19,11 +19,22 @@ It is aimed for those who are interested in purchasing any of the above, the sit
   * [Scope](#scope)
   * [Structure](#structure)
    * [Wireframes](#wireframes)
+   * [Wireframes Navbar](#wireframes-navbar)
+   * [Wireframes Home](#wireframes-home)
+   * [Wireframes Login](#wireframes-login)
+   * [Wireframes Register](#wireframes-register)
+   * [Wireframes Logout](#wireframes-logout)
+   * [Wireframes Products](#wireframes-products)
+   * [Wireframes Product Detail](#wireframes-product-detail)
+   * [Wireframes Bag](#wireframes-bag)
+   * [Wireframes Checkout](#wireframes-checkout)
+   * [Wireframes Profile](#wireframes-profile)
+   * [Wireframes Add Product](#wireframes-add-product)
+   * [Wireframes Edit Product](#wireframes-edit-product)
    * [Wireframes Comments](#wireframes-comments)
-  * [Skeleton](#skeleton)
+  * [Surface](#surface)
     * [Colours](#colours)
     * [Imagery](#imagery)
-  * [Surface](#surface)
 * [Features](#features)
     * [Existing Features](#existing-features)
     * [Features Left to Implement](#features-left-to-inplement)
@@ -152,7 +163,7 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
-* The profile page will show a users past orders and it will also allow then to update their default delivery information. The profile page will also list any products a user has purchased in the past and allow them to rate the products they have tried before to help other users pick good products.
+* The profile page will show a users past orders and it will also allow then to update their default delivery information. The profile page will also list any products a user has purchased in the past and allow them to rate the products they have tried before to help other users pick good products and also an option to add one of these products quickly and easily to thier bag.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
 
@@ -162,9 +173,53 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 I used pen and paper to make the wireframes for this project. The website was designed to have 11 pages - Home, Login, Register, Logout, Products, Product detail, Bag, Checkout, Profile, Add product (admin only) and Edit product (admin only). 
 
-#### Wireframes
+#### Wireframes Navbar
 
 ![Navbar Wireframes](static/wireframes/navbar.jpg)  
+
+#### Wireframes Home
+
+![Home Wireframes](static/wireframes/home.jpg)  
+
+#### Wireframes Login
+
+![Login Wireframes](static/wireframes/login.jpg)  
+
+#### Wireframes Register
+
+![Register Wireframes](static/wireframes/register.jpg)  
+
+#### Wireframes Logout
+
+![Logout Wireframes](static/wireframes/logout.jpg)  
+
+#### Wireframes Products
+
+![Products Wireframes](static/wireframes/products.jpg)  
+
+#### Wireframes Product Detail
+
+![Product Detail Wireframes](static/wireframes/product_detail.jpg)  
+
+#### Wireframes Bag
+
+![Bag Wireframes](static/wireframes/bag.jpg)  
+
+#### Wireframes Checkout
+
+![Checkout Wireframes](static/wireframes/checkout.jpg)  
+
+#### Wireframes Profile
+
+![Profile Wireframes](static/wireframes/profile.jpg)  
+
+#### Wireframes Add Product 
+
+![Add Product Wireframes](static/wireframes/add_product.jpg)  
+
+#### Wireframes Edit
+
+![Edit Product Wireframes](static/wireframes/edit_product.jpg)  
 
 #### Wireframes Comments
 
