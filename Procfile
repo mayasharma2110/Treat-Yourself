@@ -1,0 +1,1 @@
+web: gunicorn treat_yourself.wsgi:application
