@@ -16,17 +16,28 @@ def add_to_bag(request, item_id):
 
     if request.POST.get('type-quantity') == "subscribe-monthly":
         type = "subscribe-monthly"
-        # users can only have 1 subscription per product in the bag
         quantity = 1
-        bag[item_id] = {"type": type, "quantity": quantity}
-    else:
+    else: 
         type = "one-off"
         quantity = int(request.POST.get('type-quantity'))
-        if item_id in list(bag.keys()):
-            quantity1 = bag[item_id]["quantity"] + quantity
-            bag[item_id] = {"type": type, "quantity": quantity1}
+
+    # item id is already in bag
+    if item_id in list(bag.keys()):
+        # if item id in bag with same type update the quantity
+        if type in bag[item_id]['items_by_type'].keys() and type == "one-off":
+            quantity_add = int(request.POST.get('type-quantity'))
+            quantity_old = bag[item_id]['items_by_type'][type]
+            quantity = quantity_old + quantity_add
+            bag[item_id]['items_by_type'][type] = quantity
+        # users can only have 1 subscription per product in the bag
+        elif type in bag[item_id]['items_by_type'].keys() and type == "subscribe-monthly":
+            pass
+        # if item id in bag with different type add this in also
         else:
-            bag[item_id] = {"type": type, "quantity": quantity}
+            bag[item_id]['items_by_type'][type] = quantity
+    # item id is not already in bag add this in
+    else:
+        bag[item_id] = {"items_by_type": {type: quantity}}
 
     request.session['bag'] = bag
     print(request.session['bag'])

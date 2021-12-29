@@ -13,18 +13,19 @@ def bag_contents(request):
 
     for item_id, info in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        subtotal = info["quantity"] * product.price
-        total += info["quantity"] * product.price
-        type = info["type"]
-        quantity = info["quantity"]
-        product_count += info["quantity"]
-        bag_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'type': type,
-            'subtotal': subtotal,
-            'product': product,
-        })
+        for type, quantity in info['items_by_type'].items():
+            subtotal = quantity * product.price
+            total += quantity * product.price
+            type = type
+            quantity = quantity
+            product_count += quantity
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+                'subtotal': subtotal,
+                'type': type,
+            })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal(settings.STANDARD_DELIVERY)
