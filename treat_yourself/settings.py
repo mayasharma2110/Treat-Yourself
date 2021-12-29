@@ -80,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'bag.contexts.bag_contents',
             ],
         },
     },
@@ -159,6 +160,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+# Delivery variables
+FREE_DELIVERY_THRESHOLD = 40
+STANDARD_DELIVERY = 4.99
 
 
 # Static files (CSS, JavaScript, Images)
