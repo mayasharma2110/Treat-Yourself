@@ -16,6 +16,7 @@ def add_to_bag(request, item_id):
 
     if request.POST.get('type-quantity') == "subscribe-monthly":
         type = "subscribe-monthly"
+        # users can only have 1 subscription per product in the bag
         quantity = 1
         bag[item_id] = {"type": type, "quantity": quantity}
     else:

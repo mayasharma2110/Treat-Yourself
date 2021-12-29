@@ -24,17 +24,21 @@
                         <table>
                             <thead>
                             <tr>
-                              <th>Product Name</th>
-                              <th>Type</th>
-                              <th>Price</th>
-                              <th>Quantity</th>
-                              <th>Subtotal</th>
+                              <th class="w-25">Product Picture</th>
+                              <th class="w-25">Product Name</th>
+                              <th class="w-25">Type</th>
+                              <th class="w-25">Price</th>
+                              <th class="w-25">Quantity</th>
+                              <th class="w-25">Subtotal</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- for each product in bag create a new row -->
                             {% for item in bag_items %}
                             <tr>
+                              <td>
+                                  <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                              </td>
                               <td>{{ item.product.name }}</td>
                               <td>{{ item.type }}</td>
                               <td>£{{ item.product.price }}</td>
@@ -42,14 +46,28 @@
                               <td>£{{ item.subtotal }}</td>
                             </tr>
                             {% endfor %}
+                            <tr>
+                                <td colspan="6" class="text-right">
+                                    <p>Pre-shipping total: £{{ total }}</p>
+                                    <p>Shipping: £{{ delivery }}</p>
+                                    <p>Total: £{{ grand_total }}</p>
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Back to products</span>
+                                    </a>
+                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <p>Pre-shipping total: £{{ total }}</p>
-                    <p>Shipping: £{{ delivery }}</p>
-                    <p>Total: £{{ grand_total }}</p>
-
                 {% else %}
                     <p>Your bag is empty, please add some items.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
