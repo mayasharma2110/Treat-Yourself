@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-contianer">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h2 class="page-heading">Shopping Bag</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                    <div class="table-responsive rounded">
+                        <thead>
+                            <tr>
+                              <th scope="col">Product Name</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Subtotal</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <!-- for each product in bag create a new row -->
+                            <tr>
+                              <td>@mdo</td>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                            </tr>
+                          </tbody>
+                    </div>
+                    Pre-shipping total: £
+                    Shipping: £
+                    Total: £
+                {% else %}
+                    <p>Your bag is empty, please add some items.</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to products</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+     </div>
+
+{% endblock %}
