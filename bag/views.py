@@ -11,20 +11,21 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
-    if request.POST.get('type-quantity') == "subscribe-monthly":
-        # quantity = 0
-        type = "subscribe-monthly"
-    else:
-        # type = "one-off"
-        quantity = int(request.POST.get('type-quantity'))
-    
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    if request.POST.get('type-quantity') == "subscribe-monthly":
+        type = "subscribe-monthly"
+        quantity = 1
+        bag[item_id] = {"type": type, "quantity": quantity}
     else:
-        bag[item_id] = quantity
+        type = "one-off"
+        quantity = int(request.POST.get('type-quantity'))
+        if item_id in list(bag.keys()):
+            quantity1 = bag[item_id]["quantity"] + quantity
+            bag[item_id] = {"type": type, "quantity": quantity1}
+        else:
+            bag[item_id] = {"type": type, "quantity": quantity}
 
     request.session['bag'] = bag
     print(request.session['bag'])
