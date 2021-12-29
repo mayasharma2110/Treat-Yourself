@@ -4,7 +4,6 @@ html {
 }
 
 body {
-    /* color: #555; */
     font-family: "Lato";
     color: #424242;
 }
@@ -87,15 +86,8 @@ body {
 #photos {
     margin-top: 10px;
 }
-
-#photo-section {
-    clear: both;
-    line-height: 0;
-    column-count: 4;
-    column-gap: 0;
-  }
   
-#photo-section img {
+#photos img {
     width: 100%;
 }
 
@@ -188,10 +180,6 @@ body {
 
 /* medium per bootstrap sizing */
 @media screen and (max-width: 991px) {
-
-    #photo-section {
-        column-count: 3;
-    }
   
     .navbar-expand-lg {
         background: mediumpurple;
@@ -220,13 +208,9 @@ body {
 }  
 
 /* small and extra small per bootstrap sizing */
-@media screen and (max-width: 765px) {
+/* @media screen and (max-width: 765px) {
   
-    #photo-section {
-    column-count: 2;
-    }
-  
-}
+} */
 
 /* very small per bootstrap sizing */
 /* @media screen and (max-width: 575px) {
