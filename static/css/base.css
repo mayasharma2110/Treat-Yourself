@@ -34,6 +34,12 @@ body {
     background: #000 !important;
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
 /* navbar */
 
 #topnav {
@@ -143,6 +149,8 @@ body {
 .btt-link{
     cursor: pointer;
 }
+
+/* bag */
 
 /* Media queries */
 
