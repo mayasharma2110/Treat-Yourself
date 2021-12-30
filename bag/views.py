@@ -27,8 +27,12 @@ def add_to_bag(request, item_id):
         if type in bag[item_id]['items_by_type'].keys() and type == "one-off":
             quantity_add = int(request.POST.get('type-quantity'))
             quantity_old = bag[item_id]['items_by_type'][type]
+            # dont allow users to add more than 10 of any item at a time, if they try show an error message explaining the issue
             quantity = quantity_old + quantity_add
-            bag[item_id]['items_by_type'][type] = quantity
+            if quantity > 10:
+                pass
+            else:
+                bag[item_id]['items_by_type'][type] = quantity
         # users can only have 1 subscription per product in the bag
         elif type in bag[item_id]['items_by_type'].keys() and type == "subscribe-monthly":
             pass
@@ -40,5 +44,5 @@ def add_to_bag(request, item_id):
         bag[item_id] = {"items_by_type": {type: quantity}}
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    # print(request.session['bag'])
     return redirect(redirect_url)

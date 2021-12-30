@@ -152,6 +152,10 @@ body {
 
 /* bag */
 
+.remove-item, .update-link {
+    cursor: pointer;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */
