@@ -97,6 +97,23 @@ body {
     width: 100%;
 }
 
+/* toasts messages */
+
+.message-container {
+    position: fixed;
+    top: 170px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* products page */
 .page-heading {
     text-align: center;
