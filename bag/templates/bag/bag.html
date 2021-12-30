@@ -45,7 +45,8 @@
                               <td>
                                   <!-- allow users to update the quantity -->
                                   {% if item.type == "one-off" %}
-                                    <form class="form update-form" action="" method="POST">
+                                  Current quantity: {{ item.quantity }}
+                                    <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                         {% csrf_token %}
                                         <div class="input-field">
                                             <label>Update quantity</label>
@@ -123,7 +124,8 @@
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        var form = $(".update-form");
+        // console.log("submitting form");
         form.submit();
     })
 
@@ -132,8 +134,14 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var type = $(this).data('type');
-        var url = `/bag/remove/${itemId}`;
+        var url = `/bag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'type': type};
+
+        console.log(csrfToken)
+        console.log(itemId)
+        console.log(type)
+        console.log(url)
+        console.log(data)
 
         $.post(url, data)
          .done(function() {
