@@ -289,7 +289,7 @@ And test user stories with relevant screenshots.
 
 - There was an issue with users being able to add more than 10 of any item at a time - for example - by adding 6 of an item and then going back and adding another 5. I had to update my logic in the bag views to hadle this and return an message error if a user tries to do this by.
 - Users can only update the quantity of one-off purchases and not for subscriptions, this is on purpose. They cant add more than one subscription for the same product from either the product detail page or the bag.
-- Subscription only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra secrity steps and to save the users billing information which is more complex than this course covers.
+- Subscription only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra secrity steps and to save the users card details and billing information which is more complex than this course covers.
 - It would be good to allow users to choose the frequency of their subscription (monthly, every 2 months etc).
 
 ### Online Validation

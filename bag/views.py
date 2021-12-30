@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 
-# Create your views here.
 
 def view_bag(request):
     """ A view that renders the bag contents page """
@@ -17,7 +16,7 @@ def add_to_bag(request, item_id):
     if request.POST.get('type-quantity') == "subscribe-monthly":
         type = "subscribe-monthly"
         quantity = 1
-    else: 
+    else:
         type = "one-off"
         quantity = int(request.POST.get('type-quantity'))
 

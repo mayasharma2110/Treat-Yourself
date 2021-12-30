@@ -1,10 +1,11 @@
 from decimal import Decimal
-import math
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
+    """ Create bag_items variable from the bag in session """
 
     bag_items = []
     total = 0
@@ -16,8 +17,6 @@ def bag_contents(request):
         for type, quantity in info['items_by_type'].items():
             subtotal = quantity * product.price
             total += quantity * product.price
-            type = type
-            quantity = quantity
             product_count += quantity
             bag_items.append({
                 'item_id': item_id,
@@ -36,7 +35,7 @@ def bag_contents(request):
         free_delivery_delta = 0
 
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
