@@ -47,7 +47,7 @@ body {
     border-bottom: 5px solid black;
 }
 
-#delivery-banner, .see-products-banner a {
+#delivery-banner {
     color: mediumpurple;
 }
 
@@ -68,10 +68,6 @@ body {
     width: fit-content;
 }
 
-.see-products-banner {
-    margin-top: 10px;
-}
-
 .shop-now-button {
     background: black;
     color: white;
@@ -88,13 +84,71 @@ body {
     color: white;
 }
 
-/* home page */
-#photos {
-    margin-top: 10px;
+.text-success1 {
+    color: #70DB93;
 }
-  
+
+/* home page */
+
+.see-products-banner {
+    background-color: rgba(1,1,1,0.8);
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.see-products-banner1 {
+    background-color: rgba(1,1,1,0.8);
+    position: fixed;
+}
+
+.see-products-banner a {
+    color: mediumpurple;
+}
+
 #photos img {
     width: 100%;
+}
+
+/* register, login and logout */
+
+.register1, .login1, .reset1 {
+    background: mediumpurple;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.register1:hover, .login1:hover, .reset1:hover {
+    background: black;
+    border: 2px solid mediumpurple;
+    color: mediumpurple;
+}
+
+.logout-yes {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.logout-no {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.logout-yes:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
+
+.logout-no:hover {
+    background: black;
+    border: 2px solid #DB9370;
+    color: #DB9370;
 }
 
 /* toasts messages */

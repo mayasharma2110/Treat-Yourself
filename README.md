@@ -228,7 +228,7 @@ Please note there are a few changes to the final site since the wireframes were 
 ### Surface
 
 #### Colours
-I looked at pupolar sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#8e24aa purple darken-1) to represent a luxury brand for the site. The site [here](https://color.adobe.com/create/color-wheel) helped me fine square complementary colours of green (#43a047 green darken-1) and blue (#1e88e5 blue darken-1). General text for descriptions, prices etc of products uses dark grey (#424242 grey darken-3).
+I looked at pupolar sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#9370DB) to represent a luxury brand for the site. The site [here](https://www.99colors.net/name/medium-purple) helped me find triad colours of orange (#DB9370) and green (#70DB93). General text for descriptions, prices etc of products uses dark grey (#424242).
 
 #### Imagery
 I picked a selection of the product images to show on the home screen to entice users to view the products in more detail and hopefully make a purchase. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.

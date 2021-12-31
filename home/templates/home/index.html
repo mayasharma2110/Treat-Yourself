@@ -10,13 +10,14 @@
 {% endblock %}
 
 {% block content %}
-    <!-- see products link -->
-    <div class="container-fluid text-center bg-black see-products-banner">
-        <a href="{% url 'products' %}" class="see-products-button btn btn-ls rounded-0 text-uppercase py-3">See our products here!</a>    
-    </div>
-    
     <!-- photos section -->
     <div class="container-fluid" id="photos">
+        <!-- see products link -->
+        <div class="row see-products-banner">
+            <div class="col text-center see-products-banner1">
+                <a href="{% url 'products' %}" class="see-products-button btn btn-ls rounded-0 text-uppercase py-3">See our products here!</a>    
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-0">
                 <img src="{{ MEDIA_URL }}home-chocolate.jpg" alt="Chocolate">
