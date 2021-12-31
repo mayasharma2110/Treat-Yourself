@@ -74,12 +74,8 @@ body {
     min-width: 260px;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+
+.btn-black:hover {
     background: #222;
     color: white;
 }
@@ -88,22 +84,29 @@ body {
     color: #70DB93;
 }
 
+.text-success1:hover {
+    color: #70DB93;
+}
+
 /* home page */
 
 .see-products-banner {
-    background-color: rgba(1,1,1,0.8);
     position: relative;
     top: 0;
     left: 0;
 }
 
 .see-products-banner1 {
-    background-color: rgba(1,1,1,0.8);
+    background-color: rgb(1,1,1, 0.8);
     position: fixed;
 }
 
 .see-products-banner a {
     color: mediumpurple;
+}
+
+.see-products-banner a:hover {
+    color: #70DB93;
 }
 
 #photos img {
@@ -176,16 +179,24 @@ body {
 }
 
 .category-badge {
-    border: 1px solid black;
+    border: 2px solid black;
+    background: mediumpurple;
     color: black;
     margin: 0.5rem;
-    padding: 2px;
+    padding: 2px 0.5rem;
 }
 
 .category-badge:hover {
-    border: 1px solid black;
-    background: mediumpurple;
     color: black;
+}
+
+.num-results {
+    padding-left: 0.5rem;
+}
+
+#sort-selector {
+    /* float: right; */
+    border: 1px solid black;
 }
 
 .products-col {
@@ -193,19 +204,80 @@ body {
 }
 
 .card {
-    border: 1px solid black;
-    padding: 0.5rem;
+    border: 2px solid black;
     height: 100%;
+}
+
+.card-content {
+    padding: 0.5rem;
+}
+
+.card-image {
+    text-align: center;
 }
 
 .card-title1 {
     margin-bottom: 1rem;
     font-weight: bold;
-    text-decoration: underline;
+    text-transform: uppercase;
+    color: mediumpurple;
+}
+
+.card-title1:hover {
+    color: #70DB93;
 }
 
 .card-image img {
     width: 100%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.card-image a {
+    text-decoration: none;
+}
+
+.add-now {
+    text-align: center;
+    width: 100%;
+    padding: 2px 0.5rem;
+    background: mediumpurple;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.add-now:hover {
+    background: black;
+    border: 2px solid mediumpurple;
+    color: mediumpurple;
+}
+
+.card-action .edit, .card-action .del {
+    display: inline-block;
+    width: 49.95%;
+}
+
+.card-action .del {
+    float: right;
+}
+
+.card-action .edit1, .card-action .del1 {
+    width: 100%;
+}
+
+.edit1 {
+    background: #70DB93;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    color: black;
+}
+
+.del1 {
+    background: #DB9370;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    color: black;
 }
 
 .btt-button {
@@ -217,8 +289,19 @@ body {
     background: mediumpurple;
 }
 
+/* products - back to top button */
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: mediumpurple;
+}
+
 .btt-link{
     cursor: pointer;
+    text-decoration: none;
 }
 
 /* bag */
@@ -258,7 +341,7 @@ body {
 
 /* large per bootstrap sizing */
 /* @media screen and (min-width: 992px) {
-  
+    
 } */
 
 /* medium per bootstrap sizing */
@@ -286,13 +369,16 @@ body {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
   
 }  
 
 /* small and extra small per bootstrap sizing */
 /* @media screen and (max-width: 765px) {
   
+    #sort-selector {
+        float: left;
+    }
+
 } */
 
 /* very small per bootstrap sizing */
