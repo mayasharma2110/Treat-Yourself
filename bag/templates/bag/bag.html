@@ -20,29 +20,28 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-                    <div class="table-responsive rounded">
-                        <table>
+                    <div class="table-responsive-md">
+                        <table class="table">
                             <thead>
                             <tr>
-                              <th class="w-25">Product Picture</th>
-                              <th class="">Product Name</th>
-                              <th class="">Type</th>
-                              <th class="">Price</th>
-                              <th class="">Quantity</th>
-                              <th class="">Subtotal</th>
+                              <th class="minwidth">Product</th>
+                              <th>Type</th>
+                              <th>Price</th>
+                              <th class="minwidth">Quantity</th>
+                              <th>Subtotal</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- for each product in bag create a new row -->
                             {% for item in bag_items %}
                             <tr>
-                              <td>
+                              <td class="w20">
+                                <p>Name: {{ item.product.name }} {{ item.item_id }}</p>
                                   <img class="img-fluid rounded" src="{{ item.product.image.url }}">
                               </td>
-                              <td>{{ item.product.name }}</td>
                               <td>{{ item.type }}</td>
                               <td>£{{ item.product.price }}</td>
-                              <td>
+                              <td class="w20">
                                   <!-- allow users to update the quantity -->
                                   {% if item.type == "one-off" %}
                                   Current quantity: {{ item.quantity }}
@@ -65,6 +64,7 @@
                                             </optgroup>
                                             </select>
                                         </div>
+                                        <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
                                     </form>
                                     <!-- cancel update -->
                                     <a class="no-update-link text-info" href="{% url 'view_bag' %}"><small>Cancel update</small></a>
@@ -80,36 +80,24 @@
                               <td>£{{ item.subtotal }}</td>
                             </tr>
                             {% endfor %}
-                            <tr>
-                                <td colspan="6" class="text-right">
-                                    <p>Pre-shipping total: £{{ total }}</p>
-                                    <p>Shipping: £{{ delivery }}</p>
-                                    <p>Total: £{{ grand_total }}</p>
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Back to products</span>
-                                    </a>
-                                    <a href="" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
+                    <!-- shipping info -->
+                    <div class="col-12 shipping-info">
+                        <p>Pre-shipping total: £{{ total }}</p>
+                        <p>Shipping: £{{ delivery }}</p>
+                        <p>Total: £{{ grand_total }}</p>
+                    </div>
+                    <!-- back to products or checkout -->
+                    <div class="col-12">
+                        <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
+                        <a href=""><button type="button" class="checkout text-uppercase">Checkout</button></a>
+                    </div>
+                    </div>
                 {% else %}
                     <p>Your bag is empty, please add some items.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Back to products</span>
-                    </a>
+                    <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
                 {% endif %}
             </div>
         </div>
@@ -124,8 +112,7 @@
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(".update-form");
-        // console.log("submitting form");
+        var form = $(this).prev().prev('.update-form');
         form.submit();
     })
 

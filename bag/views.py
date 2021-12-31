@@ -63,6 +63,9 @@ def adjust_bag(request, item_id):
     type = "one-off"
     quantity = int(request.POST.get('type-quantity'))
 
+    # print(item_id)
+    # print(quantity)
+
     # update quantity of item
     bag[item_id]["items_by_type"][type] = quantity
     messages.success(request, f'Updated quantity of {product.name} to {quantity} in your bag.')
