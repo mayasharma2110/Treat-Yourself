@@ -15,7 +15,7 @@
             <h2 class="page-heading">{{ product.name }}</h2>
             <!-- image -->
             <div class="col-12 col-md-6">
-                <div class="image-container my-5">    
+                <div class="image-container">    
                     <a href="{{ product.image.url }}" target="_blank">
                         <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
@@ -23,19 +23,20 @@
             </div>
             <!-- price, category, description and rating -->
             <div class="col-12 col-md-6">
-                <div class="product-details-container mb-5 mt-md-5">
-                    <p>£{{ product.price }}</p>
-                    <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }})</p>
+                <div class="product-details-container">
+                    <h3>Product Information</h3>
+                    <p>Price: £{{ product.price }}</p>
+                    <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }} reviews)</p>
                     <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     <p>{{ product.description }}</p>
                 </div>
                 <!-- form to add products to the shoopping bag -->
-                <P>Add to bag:</P>
+                <h3>Purchase Product</h3>
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <!-- type - one off or subscription -->
                     <div class="input-field col s12">
-                        <label>Choose type and quantity</label>
+                        <label>Select type and quantity:</label>
                         <select name="type-quantity" >
                           <optgroup label="Subscribe">
                             <option value="subscribe-monthly">Subscription (Monthly)</option>
@@ -56,13 +57,8 @@
                     </div>
                     <!-- add to bag or back to products -->
                     <div class="col-12">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Back to products</span>
-                        </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Bag">
+                        <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
+                        <input type="submit" class="rounded-0 text-uppercase add-to-bag" value="Add to Bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>

@@ -304,6 +304,31 @@ body {
     text-decoration: none;
 }
 
+/* product detail */
+.back-to-products {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.add-to-bag {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.add-to-bag:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
+
+label, select {
+    margin-bottom: 1rem;
+}
+
 /* bag */
 
 .remove-item, .update-link {
