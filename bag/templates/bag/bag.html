@@ -92,7 +92,7 @@
                     <!-- back to products or checkout -->
                     <div class="col-12">
                         <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
-                        <a href=""><button type="button" class="checkout text-uppercase">Checkout</button></a>
+                        <a href="{% url 'checkout' %}"><button type="button" class="checkout text-uppercase">Checkout</button></a>
                     </div>
                     </div>
                 {% else %}

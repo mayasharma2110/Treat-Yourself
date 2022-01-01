@@ -376,6 +376,28 @@ td, th {
     color: #70DB93;
 }
 
+/* checkout */
+
+.back-to-bag {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.complete-order {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.complete-order:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */
