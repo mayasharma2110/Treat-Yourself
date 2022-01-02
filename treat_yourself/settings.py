@@ -177,6 +177,11 @@ USE_TZ = True
 FREE_DELIVERY_THRESHOLD = 40
 STANDARD_DELIVERY = 4.99
 
+# Stripe
+
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
