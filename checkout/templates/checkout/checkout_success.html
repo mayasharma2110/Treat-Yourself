@@ -24,8 +24,8 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-7">
-                <div class="order-confirmation-wrapper p-2 border">
+            <div class="col-12">
+                <div class="order-confirmation-wrapper p-3 border">
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Order Info:</small>
@@ -57,11 +57,11 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="small mb-0 text-black font-weight-bold">
-                                {{ item.product.name }} - type {{ item.type }}
+                                {{ item.product.name }} ({{ item.type }})
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                            <p class="small mb-0">{{ item.quantity }} @ £{{ item.product.price }} each</p>
                         </div>
                     </div>
                     {% endfor %}
@@ -157,7 +157,7 @@
                             <p class="mb-0 text-black font-weight-bold">Order Total</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.order_total }}</p>
+                            <p class="mb-0">£{{ order.order_total }}</p>
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@
                             <p class="mb-0 text-black font-weight-bold">Delivery</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.delivery_cost }}</p>
+                            <p class="mb-0">£{{ order.delivery_cost }}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -174,7 +174,7 @@
                             <p class="mb-0 text-black font-weight-bold">Grand Total</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.grand_total }}</p>
+                            <p class="mb-0"><strong>£{{ order.grand_total }}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -183,21 +183,12 @@
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
                 <!-- back to profile and back to products links -->
-                {% if from_profile %}
                 <a href="#" class="btn btn-black rounded-0 my-2">
-					<span class="icon mr-2">
-						<i class="fas fa-angle-left"></i>
-					</span>
-					<span class="text-uppercase">Back to Profile</span>
+					<span class="text-uppercase">My Profile</span>
 				</a>
-                {% else %}
 				<a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
-					<span class="icon mr-2">
-						<i class="fas fa-gifts"></i>
-					</span>
 					<span class="text-uppercase">Back to products</span>
 				</a>
-                {% endif %}
 			</div>
 		</div>
     </div>
