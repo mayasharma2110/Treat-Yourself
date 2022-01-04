@@ -21,7 +21,13 @@
             <div class="col">
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{form | crispy}}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
                     <div class="text-right">
                         <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
                         <button class="add-product text-uppercase" type="submit">Add Product</button>
