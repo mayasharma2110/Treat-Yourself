@@ -59,12 +59,20 @@
                 <div class="card-image">
                     <a href="{% url 'product_detail' product.id %}" target="_blank">
                         <span class="card-title1">{{ product.name }}</span>
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% if product.image %}
+                        <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                        {% endif %}
                     </a>    
                 </div>
                 <div class="card-content">
                   <p>Price: £{{ product.price }}</p>
-                  <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  reviews)</p>
+                  {% if product.rating %}
+                    <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  reviews)</p>
+                  {% else %}
+                    <p>Rating: -/5 (0 reviews)</p>
+                  {% endif %}
                   <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                 </div>
                 <a href="#"><button class="add-now" type="button">Add now</button></a>

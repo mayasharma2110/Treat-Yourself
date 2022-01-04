@@ -36,8 +36,12 @@
                             {% for item in bag_items %}
                             <tr>
                               <td class="w20">
-                                <p>Name: {{ item.product.name }} {{ item.item_id }}</p>
-                                  <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                <p>Name: {{ item.product.name }}</p>
+                                {% if item.product.image %}
+                                <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                <img class="img-fluid" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.product.name }}">
+                                {% endif %}
                               </td>
                               <td>{{ item.type }}</td>
                               <td>£{{ item.product.price }}</td>
