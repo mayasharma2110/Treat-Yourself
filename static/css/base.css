@@ -305,6 +305,24 @@ body {
 }
 
 /* product detail */
+.card-action1 .edit, .card-action1 .del {
+    display: inline-block;
+}
+
+.edit1 {
+    background: #70DB93;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    color: black;
+}
+
+.del1 {
+    background: #DB9370;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    color: black;
+}
+
 .back-to-products {
     background: #DB9370;
     border: 2px solid black;
@@ -327,6 +345,34 @@ body {
 
 label, select {
     margin-bottom: 1rem;
+}
+
+/* add product */
+.add-product {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.add-product:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
+
+/* edit product */
+.edit-product {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.edit-product:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
 }
 
 /* bag */

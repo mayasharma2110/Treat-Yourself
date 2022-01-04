@@ -77,12 +77,14 @@
                 </div>
                 <a href="#"><button class="add-now" type="button">Add now</button></a>
                 <div class="card-action">
+                    {% if request.user.is_superuser %}
                     <div class="edit">
-                        <a href="#"><button class="edit1" type="button">Edit</button></a>
+                        <a href="{% url 'edit_product' product.id %}"><button class="edit1" type="button">Edit</button></a>
                     </div>
                     <div class="del">
-                        <a href="#"><button class="del1" type="button">Delete</button></a>
+                        <a href="{% url 'delete_product' product.id %}"><button class="del1" type="button">Delete</button></a>
                     </div>
+                    {% endif %}
                 </div>
               </div>
         </div>

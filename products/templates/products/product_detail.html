@@ -37,6 +37,18 @@
                     {% else %}
                         <p>No Rating: -/5 (0 reviews)</p>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                    <div class="card-action1">
+                        {% if request.user.is_superuser %}
+                        <div class="edit">
+                            <a href="{% url 'edit_product' product.id %}"><button class="edit1" type="button">Edit</button></a>
+                        </div>
+                        <div class="del">
+                            <a href="{% url 'delete_product' product.id %}"><button class="del1" type="button">Delete</button></a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
                     <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     <p>{{ product.description }}</p>
                 </div>
