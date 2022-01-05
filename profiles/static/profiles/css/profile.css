@@ -1,0 +1,38 @@
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country {
+    border: 1px solid black;
+    border-radius: 0;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+#profile-update-form label {
+    display: none;
+}
+
+.update-profile {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.update-profile:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
