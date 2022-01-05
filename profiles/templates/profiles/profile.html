@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6">
                 <p class="text-muted">Default Delivery Information</p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
@@ -29,7 +29,7 @@
                     <button class="update-profile text-uppercase">Update Information</button>
                 </form>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6">
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
@@ -57,7 +57,7 @@
                                                 <li class="small">
                                                     Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> x{{ item.quantity }} ({{ item.type }})
                                                     <br>
-                                                    <a href="#"><button class="add-again" type="button">Add product again</button></a>
+                                                    <a href="{% url 'add_now' item.product.id %}"><button class="add-again" type="button">Add product again</button></a>
                                                 </li>
                                                 <br>
                                             {% endfor %}
