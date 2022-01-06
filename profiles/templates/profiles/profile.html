@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Default Delivery Information</p>
+                <h4 class="text-muted">Default Delivery Information</h4>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -31,7 +31,7 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
+                <h4 class="text-muted">Order History</h4>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -71,10 +71,47 @@
                                     <td>£{{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
+                            
                         </tbody>
                     </table>
                 </div>
-                <p class="text-muted">Products on Subscription</p>
+                <h4 class="text-muted">Products on Subscription</h4>
+                <div class="subscribed-products table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Item(s)</th>
+                                <th>Start Date</th>
+                                <th>Order Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                {% for item in order.lineitems.all %}
+                                    {% if item.type == "subscribe-monthly" %}
+                                    <tr>
+                                        <td>
+                                            <ul class="list-unstyled">
+                                                    <li class="small">
+                                                        <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a>
+                                                    </li>
+                                                    <br>
+                                            </ul>
+                                        </td>
+                                        <td>{{ order.date }}</td>
+                                        <td>
+                                            <a href="{% url 'order_history' order.order_number %}"
+                                            title="{{ order.order_number }}">
+                                                {{ order.order_number|truncatechars:6 }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>   
             </div>
         </div>
 {% endblock %}

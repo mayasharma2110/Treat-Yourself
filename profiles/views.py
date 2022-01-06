@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 
 
 @login_required
@@ -23,6 +23,7 @@ def profile(request):
         form = UserProfileForm(instance=profile)
 
     orders = profile.orders.all()
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
