@@ -87,7 +87,13 @@
                                   <!-- remove item -->
                                   <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-type="{{ item.type }}"><small>Remove Item</small></a>
                               </td>
-                              <td>£{{ item.subtotal }}</td>
+                              <td>
+                                {% if item.type == "one-off" %}
+                                £{{ item.subtotal }}
+                                {% else %}
+                                    <span class="strikethrough">£{{ item.price }}</span> <span class="rebbold">£{{ item.disc_price }}</span>
+                                {% endif %}
+                              </td>
                             </tr>
                             {% endfor %}
                             </tbody>
