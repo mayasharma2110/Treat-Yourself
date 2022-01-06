@@ -44,7 +44,13 @@
                                 {% endif %}
                               </td>
                               <td>{{ item.type }}</td>
-                              <td>£{{ item.product.price }}</td>
+                              <td>
+                                {% if item.type == "one-off" %}
+                                    £{{ item.price }}
+                                {% else %}
+                                    <span class="strikethrough">£{{ item.price }}</span> <span class="rebbold">£{{ item.disc_price }}</span>
+                                {% endif %}
+                            </td>
                               <td class="w20">
                                   <!-- allow users to update the quantity -->
                                   {% if item.type == "one-off" %}

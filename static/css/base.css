@@ -377,6 +377,15 @@ label, select {
 
 /* bag */
 
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.rebbold {
+    color: red;
+    font-weight: bold;
+}
+
 .w20 {
     width: 20%;
 }

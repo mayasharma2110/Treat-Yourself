@@ -15,16 +15,25 @@ def bag_contents(request):
     for item_id, info in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         for type, quantity in info['items_by_type'].items():
-            subtotal = quantity * product.price
-            total += quantity * product.price
+            price = Decimal(product.price)
+            disc_price = round(Decimal('.90')*Decimal(product.price),2)
+            if type == "subscribe-monthly":
+                subtotal = quantity * disc_price
+            else:
+                subtotal = quantity * price
+            total += quantity * price
             product_count += quantity
             bag_items.append({
                 'item_id': item_id,
                 'quantity': quantity,
                 'product': product,
-                'subtotal': subtotal,
                 'type': type,
+                'price': price,
+                'disc_price': disc_price,
+                'subtotal': subtotal,
             })
+    print(bag_items[0]['price'])
+    print(bag_items[0]['disc_price'])
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal(settings.STANDARD_DELIVERY)
