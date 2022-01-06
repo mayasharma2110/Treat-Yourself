@@ -304,6 +304,17 @@ body {
     text-decoration: none;
 }
 
+/* product detail, bag, checkout and checkoutsuccess */
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.redbold {
+    color: red;
+    font-weight: bold;
+}
+
 /* product detail */
 .card-action1 .edit, .card-action1 .del {
     display: inline-block;
@@ -376,15 +387,6 @@ label, select {
 }
 
 /* bag */
-
-.strikethrough {
-    text-decoration: line-through;
-}
-
-.rebbold {
-    color: red;
-    font-weight: bold;
-}
 
 .w20 {
     width: 20%;

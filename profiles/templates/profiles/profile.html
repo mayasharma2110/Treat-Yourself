@@ -19,7 +19,6 @@
             <div class="col">
                 <h2 class="page-heading">My Profile</h2>
                 <h3 class="username">Username: {{ profile }}</h3>
-                <h3 class="email">Email address: </h3>
             </div>
         </div>
         <div class="row">
@@ -57,7 +56,11 @@
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
-                                                    Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> x{{ item.quantity }} ({{ item.type }})
+                                                    {% if item.type == "one-off" %}
+                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})
+                                                    {% else %}
+                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
+                                                    {% endif %}
                                                     <br>
                                                     <a href="{% url 'add_now' item.product.id %}"><button class="add-again" type="button">Add product again</button></a>
                                                 </li>
@@ -65,7 +68,7 @@
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
+                                    <td>£{{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
