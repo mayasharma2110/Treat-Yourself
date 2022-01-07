@@ -18,11 +18,11 @@ def bag_contents(request):
             price = Decimal(product.price)
             disc_price = round(Decimal('.90')*Decimal(product.price),2)
             if type == "subscribe-monthly":
-                subtotal = quantity * disc_price
-                total += quantity * disc_price
+                subtotal =  quantity*disc_price
+                total += quantity*disc_price
             else:
-                subtotal = quantity * price
-                total += quantity * price
+                subtotal = quantity*price
+                total += quantity*price
             product_count += quantity
             bag_items.append({
                 'item_id': item_id,

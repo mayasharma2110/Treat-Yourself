@@ -29,52 +29,6 @@
                     {{ form|crispy }}
                     <button class="update-profile text-uppercase">Update Information</button>
                 </form>
-            </div>
-            <div class="col-12 col-lg-6">
-                <h4 class="text-muted">Order History</h4>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.type == "one-off" %}
-                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})
-                                                    {% else %}
-                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
-                                                    {% endif %}
-                                                    <br>
-                                                    <a href="{% url 'add_now' item.product.id %}"><button class="add-again" type="button">Add product again</button></a>
-                                                </li>
-                                                <br>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>£{{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                            
-                        </tbody>
-                    </table>
-                </div>
                 <h4 class="text-muted">Products on Subscription</h4>
                 <div class="subscribed-products table-responsive">
                     <table class="table table-sm table-borderless">
@@ -111,7 +65,53 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                </div>   
+                </div>  
+            </div>
+            <div class="col-12 col-lg-6">
+                <h4 class="text-muted">Order History</h4>
+                <div class="order-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li class="small">
+                                                    {% if item.type == "one-off" %}
+                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})
+                                                    {% else %}
+                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
+                                                    {% endif %}
+                                                    <br>
+                                                    <a class="add-again1" id="addagain_{{ item.product.id }}" data-type="{{ item.type }},{{ item.quantity }}"><button class="add-again">Add product again</button></a>
+                                                </li>
+                                                <br>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>£{{ order.grand_total }}</td>
+                                </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 {% endblock %}
@@ -119,4 +119,30 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+
+    <script type="text/javascript">
+        // Add again on click
+        $('.add-again1').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('addagain_')[1];
+            var type = $(this).data('type').split(',')[0];
+            var quantity = $(this).data('type').split(',')[1];
+            var url = `/bag/add_again/${itemId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken, 'type': type, 'quantity': quantity};
+
+            // console.log(itemId)
+            // console.log(data)
+
+            // console.log(`type is ${data['type']}`)
+            // console.log(`quantity is ${data['quantity']}`)
+
+            $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
+        })
+
+    </script>
+
 {% endblock %}
+

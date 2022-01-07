@@ -61,8 +61,8 @@ def add_now(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
-    type="one-off"
-    quantity=1
+    type = "one-off"
+    quantity = 1
     type_messages = ""
 
     # item id is already in bag
@@ -92,6 +92,57 @@ def add_now(request, item_id):
     return redirect(reverse('products'))
 
 
+def add_again(request, item_id):
+    """ Add a quantity of the specified product to the shopping bag """
+
+    product = get_object_or_404(Product, pk=item_id)
+    bag = request.session.get('bag', {})
+
+    # print(f'req post is {request.POST}')
+
+    type = request.POST['type']
+    quantity = int(request.POST['quantity'])
+
+    if type == "subscribe-monthly":
+        type_messages = "monthly subscription of"
+    else:
+        type_messages = ""
+
+    # print(item_id)
+    # print(type)
+    # print(quantity)
+
+    # item id is already in bag
+    if item_id in list(bag.keys()):
+        # if item id in bag with same type update the quantity
+        if type in bag[item_id]['items_by_type'].keys() and type == "one-off":
+            quantity_add = quantity
+            quantity_old = bag[item_id]['items_by_type'][type]
+            # dont allow users to add more than 10 of any item at a time, if they try show an error message explaining the issue
+            quantity = quantity_old + quantity_add
+            if quantity > 10:
+                messages.error(request, 'Sorry, you can only add a maximum of 10 items of any one product!')
+            else:
+                bag[item_id]['items_by_type'][type] = quantity
+                messages.success(request, f'Updated quantity of {product.name} to {quantity} in your bag.')
+        # users can only have 1 subscription per product in the bag
+        elif type in bag[item_id]['items_by_type'].keys() and type == "subscribe-monthly":
+            messages.error(request, 'Sorry, you can only have 1 subscription of any one product!')
+        # if item id in bag with different type add this in also
+        else:
+            bag[item_id]['items_by_type'][type] = quantity
+            messages.success(request, f'Added {type_messages} {product.name} to your bag.')
+    # item id is not already in bag add this in
+    else:
+        bag[item_id] = {"items_by_type": {type: quantity}}
+        messages.success(request, f'Added {type_messages} {product.name} to your bag.')
+
+    request.session['bag'] = bag
+    # print(request.session['bag'])
+    # return redirect(reverse('profile'))
+    return HttpResponse(status=200)
+
+
 def adjust_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
@@ -100,16 +151,13 @@ def adjust_bag(request, item_id):
     type = "one-off"
     quantity = int(request.POST.get('type-quantity'))
 
-    # print(item_id)
-    # print(quantity)
-
     # update quantity of item
     bag[item_id]["items_by_type"][type] = quantity
     messages.success(request, f'Updated quantity of {product.name} to {quantity} in your bag.')
 
     request.session['bag'] = bag
     # print(request.session['bag'])
-    return redirect(reverse('view_bag'))
+    return reverse('view_bag')
 
 
 def remove_from_bag(request, item_id):
