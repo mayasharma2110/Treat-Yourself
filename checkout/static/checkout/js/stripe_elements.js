@@ -114,7 +114,7 @@ form.addEventListener('submit', function(ev) {
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     // If everything is ok submit the form. 
-                    form.submit();
+                    // form.submit();
                 }
             }
         });
