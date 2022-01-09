@@ -61,7 +61,7 @@
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            {% if item.type == "one-off" %}
+                            {% if item.product_type == "one-off" %}
                                 <p class="small mb-0">{{ item.quantity }} @ £{{ item.product.price }} each</p>
                             {% else %}
                                 <p class="small mb-0">Monthly subscription @ £{{ item.lineitem_total }}</p>

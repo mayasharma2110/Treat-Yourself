@@ -46,7 +46,7 @@
                               </td>
                               <td class="w20">
                                 <!-- allow users to update the quantity -->
-                                {% if item.type == "one-off" %}
+                                {% if item.product_type == "one-off" %}
                                 Current quantity: {{ item.quantity }}
                                   <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                       {% csrf_token %}
@@ -67,7 +67,7 @@
                                           </optgroup>
                                           </select>
                                       </div>
-                                      <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
+                                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                   </form>
                                   <!-- cancel update -->
                                   <a class="no-update-link text-info" href="{% url 'view_bag' %}"><small>Cancel update</small></a>
@@ -78,17 +78,17 @@
                                   Monthly Subscription
                                 {% endif %}
                                 <!-- remove item -->
-                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-type="{{ item.type }}"><small>Remove Item</small></a>
+                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-product_type="{{ item.product_type }}"><small>Remove Item</small></a>
                               </td>
                               <td>
-                                {% if item.type == "one-off" %}
+                                {% if item.product_type == "one-off" %}
                                     £{{ item.price }}
                                 {% else %}
                                     <span class="strikethrough">£{{ item.price }}</span> <span class="redbold">£{{ item.disc_price }}</span>
                                 {% endif %}
                               </td>
                               <td>
-                                {% if item.type == "one-off" %}
+                                {% if item.product_type == "one-off" %}
                                     £{{ item.subtotal }}
                                 {% else %}
                                     <span class="strikethrough">£{{ item.price }}</span> <span class="redbold">£{{ item.disc_price }}</span>
@@ -134,11 +134,12 @@
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
+        console.log("removing item")
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var type = $(this).data('type');
+        var product_type = $(this).data('product_type');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'type': type};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_type': product_type};
 
         $.post(url, data)
          .done(function() {

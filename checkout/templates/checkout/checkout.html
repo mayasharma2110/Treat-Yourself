@@ -50,7 +50,7 @@
                                     <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a>
                                 </strong>
                             </p>
-                            {% if item.type == "one-off" %}
+                            {% if item.product_type == "one-off" %}
                                 <p class="my-0 small">Price: {{ item.price }}</p>
                                 <p class="my-0 small">Quantity: {{ item.quantity }}</p>
                             {% else %}
@@ -59,7 +59,7 @@
                             {% endif %}
                         </div>
                         <div class="col-3 text-right">
-                            {% if item.type == "one-off" %}
+                            {% if item.product_type == "one-off" %}
                                 <p class="my-0 small">£{{ item.subtotal }}</p>
                             {% else %}
                                 <p class="my-0 small"><span class="strikethrough">£{{ item.price }}</span> <span class="redbold">£{{ item.disc_price }}</span></p>

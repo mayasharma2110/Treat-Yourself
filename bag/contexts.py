@@ -14,11 +14,11 @@ def bag_contents(request):
 
     for item_id, info in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        for type, quantity in info['items_by_type'].items():
+        for product_type, quantity in info['items_by_type'].items():
             price = Decimal(product.price)
-            disc_price = round(Decimal('.90')*Decimal(product.price),2)
-            if type == "subscribe-monthly":
-                subtotal =  quantity*disc_price
+            disc_price = round(Decimal('.90')*Decimal(product.price), 2)
+            if product_type == "subscribe-monthly":
+                subtotal = quantity*disc_price
                 total += quantity*disc_price
             else:
                 subtotal = quantity*price
@@ -28,7 +28,7 @@ def bag_contents(request):
                 'item_id': item_id,
                 'quantity': quantity,
                 'product': product,
-                'type': type,
+                'product_type': product_type,
                 'price': price,
                 'disc_price': disc_price,
                 'subtotal': subtotal,

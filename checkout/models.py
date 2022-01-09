@@ -77,7 +77,7 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     # one-off or subscription
-    type = models.CharField(max_length=254, null=False, blank=False)
+    product_type = models.CharField(max_length=254, null=False, blank=False)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
@@ -88,7 +88,7 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        if self.type == "one-off":
+        if self.product_type == "one-off":
             self.lineitem_total = self.product.price * self.quantity
         else:
             self.lineitem_total = round(Decimal('.90')*Decimal(self.product.price),2)

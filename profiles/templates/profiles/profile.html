@@ -42,7 +42,7 @@
                         <tbody>
                             {% for order in orders %}
                                 {% for item in order.lineitems.all %}
-                                    {% if item.type == "subscribe-monthly" %}
+                                    {% if item.product_type == "subscribe-monthly" %}
                                     <tr>
                                         <td>
                                             <ul class="list-unstyled">
@@ -93,13 +93,13 @@
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
-                                                    {% if item.type == "one-off" %}
+                                                    {% if item.product_type == "one-off" %}
                                                         Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})
                                                     {% else %}
                                                         Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
                                                     {% endif %}
                                                     <br>
-                                                    <a class="add-again1" id="addagain_{{ item.product.id }}" data-type="{{ item.type }},{{ item.quantity }}"><button class="add-again">Add product again</button></a>
+                                                    <a class="add-again1" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}"><button class="add-again">Add product again</button></a>
                                                 </li>
                                                 <br>
                                             {% endfor %}
@@ -125,16 +125,10 @@
         $('.add-again1').click(function(e) {
             var csrfToken = "{{ csrf_token }}";
             var itemId = $(this).attr('id').split('addagain_')[1];
-            var type = $(this).data('type').split(',')[0];
+            var product_type = $(this).data('type').split(',')[0];
             var quantity = $(this).data('type').split(',')[1];
             var url = `/bag/add_again/${itemId}/`;
-            var data = {'csrfmiddlewaretoken': csrfToken, 'type': type, 'quantity': quantity};
-
-            // console.log(itemId)
-            // console.log(data)
-
-            // console.log(`type is ${data['type']}`)
-            // console.log(`quantity is ${data['quantity']}`)
+            var data = {'csrfmiddlewaretoken': csrfToken, 'product_type': product_type, 'quantity': quantity};
 
             $.post(url, data)
                 .done(function() {

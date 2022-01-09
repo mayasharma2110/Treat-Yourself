@@ -59,12 +59,12 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    for type, quantity in item_data['items_by_type'].items():
+                    for product_type, quantity in item_data['items_by_type'].items():
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=quantity,
-                            type=type,
+                            product_type=product_type,
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
