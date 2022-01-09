@@ -45,7 +45,7 @@ def all_products(request):
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query)  # noqa
             products = products.filter(queries)
 
     # if user clicks on a specific category from navbar
@@ -72,7 +72,7 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    disc_price = round(Decimal('.90')*Decimal(product.price),2)
+    disc_price = round(Decimal('.90')*Decimal(product.price), 2)
 
     context = {
         'product': product,
@@ -96,7 +96,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. ' +
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -143,7 +144,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only admin can delete a product.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')

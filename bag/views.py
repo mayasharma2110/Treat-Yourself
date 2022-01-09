@@ -44,10 +44,7 @@ def add_to_bag(request, item_id):
                 messages.success(request, 'Updated quantity of ' +
                                  f'{product.name} to {quantity} in your bag.')
         # users can only have 1 subscription per product in the bag
-        elif product_type in bag[item_id
-                                 ]['items_by_type'
-                                   ].keys(
-                                          ) and product_type == "subscribe-monthly":
+        elif product_type in bag[item_id]['items_by_type'].keys() and product_type == "subscribe-monthly":  # noqa
             messages.error(request, 'Sorry, you can only have 1 ' +
                            'subscription of any one product!')
         # if item id in bag with different type add this in also

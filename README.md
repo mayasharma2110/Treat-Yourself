@@ -91,7 +91,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a frequent user, I have similar needs of a first time and returning user.
 
-* As a frequent user, I want to subscribe so that I get my favourite products on a regular schedule that I can choose.
+* As a frequent user, I want to subscribe so that I get my favourite products on a regular schedule and also save some money.
 
 ### Strategy
 
@@ -135,6 +135,8 @@ Key features to be included based on user stories are:
 
 * The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated.
 
+* The checkout success page will show users details of what they have ordered.
+
 * The profile page will show a users past orders and it will also allow then to update their default delivery information.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
@@ -157,13 +159,15 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page.
 
-* The product detail page will show the description of the product with the other variables like price rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. 
+* The product detail page will show the description of the product with the other variables like price and rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. There will also be links for admin users to edit/delete a product from here.
 
 * The shopping bag pag will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
 
 * The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
-* The profile page will show a users past orders and it will also allow then to update their default delivery information. The profile page will also list any products a user has purchased in the past and allow them to rate the products they have tried before to help other users pick good products and also an option to add one of these products quickly and easily to thier bag.
+* The checkout success page will show users details of what they have ordered. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
+
+* The profile page will show a users past orders (and the option to add a previous product to their bag again of the same product type and quantity) and it will also allow then to update their default delivery information. The profile page will also list any products the user has on subscription. The profile allow them to rate the products they have tried before to help other users pick good products and also an option to add one of these products quickly and easily to thier bag.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
 
@@ -208,6 +212,10 @@ I used pen and paper to make the wireframes for this project. The website was de
 #### Wireframes Checkout
 
 ![Checkout Wireframes](static/wireframes/checkout.jpg)  
+
+#### Wireframes Checkout Success
+
+![Checkout Success Wireframes](static/wireframes/checkout_success.jpg)  
 
 #### Wireframes Profile
 
@@ -273,7 +281,7 @@ I picked a selection of the product images to show on the home screen to entice 
 
 * [AWS](https://aws.amazon.com/) - used to ... 
 
-* [Stripe](https://stripe.com/gb) - used to ...
+* [Stripe](https://stripe.com/gb) - used to facilatate the secure purchasing of products using a credit/debit card.
 
 ## Testing
 
@@ -293,6 +301,8 @@ And test user stories with relevant screenshots.
 - It would be good to allow users to choose the frequency of their subscription (monthly, every 2 months etc).
 - Issue with delivery variable in contexts.py, when changing to a decimal variable this added extra decimal places which we didnt need, from googling I gound the solution to use the code below to fix it
 > delivery = round(delivery, 2)
+- Issue with multiplying the product price by 0.9 to get the discounted price, I had to use the below to fix this
+> round(Decimal('.90')*Decimal(product.price), 2)
 
 ### Online Validation
 
