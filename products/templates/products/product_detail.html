@@ -36,9 +36,9 @@
                         <span class="redbold">Subscribe and save: </span><span>Save money by subscribing to this item for only <span class="redbold">£{{ disc_price }}</span></span>
                     </p>
                     {% if product.rating %}
-                        <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  reviews)</p>
+                        <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  ratings)</p>
                     {% else %}
-                        <p>No Rating: -/5 (0 reviews)</p>
+                        <p>No Rating: -/5 (0 ratings)</p>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <div class="card-action1">
@@ -52,40 +52,54 @@
                     {% endif %}
                     <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     <p>{{ product.description }}</p>
+                    <!-- form to add products to the shoopping bag -->
+                    <h3>Purchase Product</h3>
+                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <!-- type - one off or subscription -->
+                        <div class="input-field col s12">
+                            <label>Select type and quantity:</label>
+                            <select name="type-quantity" >
+                            <optgroup label="Subscribe">
+                                <option value="subscribe-monthly">Subscription (Monthly)</option>
+                            </optgroup>
+                            <optgroup label="one-off">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </optgroup>
+                            </select>
+                        </div>
+                        <!-- add to bag or back to products -->
+                        <div class="col-12">
+                            <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
+                            <input type="submit" class="rounded-0 text-uppercase add-to-bag" value="Add to Bag">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                    <h3>Product Reviews</h3>
+                    <div class="product-reviews">
+                        {% if any_reviews %}
+                            {% for productreview in product_reviews %}
+                            <p class="mb-0">User: {{ productreview.user_profile }}</p>
+                            <p class="mb-0">Review: {{ productreview.review }}</p>
+                            <p>Added/updated on: {{ productreview.date }}</p>
+                            {% endfor %}
+                            If you have tried this product please add another review here.
+                        {% else %}
+                        Sorry there are no reviews currently, please add one if you have tried this product here.
+                        {% endif %}
+                    </div>
+                    
                 </div>
-                <!-- form to add products to the shoopping bag -->
-                <h3>Purchase Product</h3>
-                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <!-- type - one off or subscription -->
-                    <div class="input-field col s12">
-                        <label>Select type and quantity:</label>
-                        <select name="type-quantity" >
-                          <optgroup label="Subscribe">
-                            <option value="subscribe-monthly">Subscription (Monthly)</option>
-                          </optgroup>
-                          <optgroup label="one-off">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                          </optgroup>
-                        </select>
-                    </div>
-                    <!-- add to bag or back to products -->
-                    <div class="col-12">
-                        <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
-                        <input type="submit" class="rounded-0 text-uppercase add-to-bag" value="Add to Bag">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
             </div>
         </div>
     </div>

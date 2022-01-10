@@ -69,9 +69,9 @@
                 <div class="card-content">
                   <p>Price: £{{ product.price }}</p>
                   {% if product.rating %}
-                    <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  reviews)</p>
+                    <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  ratings)</p>
                   {% else %}
-                    <p>Rating: -/5 (0 reviews)</p>
+                    <p>Rating: -/5 (0 ratings)</p>
                   {% endif %}
                   <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                 </div>

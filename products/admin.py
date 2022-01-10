@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, Category, ProductReview
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -30,5 +30,24 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
+class ProductReviewAdmin(admin.ModelAdmin):
+
+    # readonly_fields = ('user_profile',
+    #                    'product',
+    #                    'date',
+    #                    'review'
+    #                    )
+
+    list_display = (
+        'user_profile',
+        'product',
+        'review',
+        'date',
+    )
+
+    ordering = ('-date',)
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(ProductReview, ProductReviewAdmin)

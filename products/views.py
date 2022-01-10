@@ -6,7 +6,7 @@ from decimal import Decimal
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, ProductReview
 from .forms import ProductForm
 
 
@@ -74,9 +74,19 @@ def product_detail(request, product_id):
 
     disc_price = round(Decimal('.90')*Decimal(product.price), 2)
 
+    # reviews for the product
+    product_reviews = product.reviews.all()
+
+    if product_reviews.exists():
+        any_reviews = True
+    else:
+        any_reviews = False
+
     context = {
         'product': product,
         'disc_price': disc_price,
+        'product_reviews': product_reviews,
+        'any_reviews': any_reviews,
     }
 
     return render(request, 'products/product_detail.html', context)
