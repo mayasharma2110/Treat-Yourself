@@ -37,7 +37,7 @@ class Product(models.Model):
 class ProductReview(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True,
-                                     blank=True, 
+                                     blank=True,
                                      related_name="reviews")
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE,
