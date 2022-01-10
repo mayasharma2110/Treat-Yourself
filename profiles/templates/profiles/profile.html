@@ -66,6 +66,22 @@
                         </tbody>
                     </table>
                 </div>  
+                <!-- Show users reviews they made -->
+                <h4 class="text-muted">My Reviews</h4>
+                <div class="user-reviews">
+                    {% if any_reviews %}
+                        {% for userreview in user_reviews %}
+                        <p class="mb-0">Product Name: {{ userreview.product }}</p>
+                        <p class="mb-0">Review: {{ userreview.review }}</p>
+                        <p class="mb-0">Added/updated on: {{ userreview.date }}</p>
+                        <p class="mb-0">Edit Review</p>
+                        <p>Delete review</p>
+                        {% endfor %}
+                    {% else %}
+                    <!-- allow signed in users to add a review -->
+                    You have not made any reviews yet, go to a product to add a review and help other users!  
+                    {% endif %}
+                </div>
             </div>
             <div class="col-12 col-lg-6">
                 <h4 class="text-muted">Order History</h4>

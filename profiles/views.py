@@ -23,13 +23,24 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile1)
 
+    #orders made by the user
     orders = profile1.orders.all()
+
+    # reviews made by user
+    user_reviews = profile1.reviews.all()
+
+    if user_reviews.exists():
+        any_reviews = True
+    else:
+        any_reviews = False
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
         'profile': profile1,
+        'user_reviews': user_reviews,
+        'any_reviews': any_reviews,
     }
 
     return render(request, template, context)

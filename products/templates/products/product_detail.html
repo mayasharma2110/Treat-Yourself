@@ -85,6 +85,7 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
+                    <!-- show all product reviews -->
                     <h3>Product Reviews</h3>
                     <div class="product-reviews">
                         {% if any_reviews %}
@@ -93,9 +94,19 @@
                             <p class="mb-0">Review: {{ productreview.review }}</p>
                             <p>Added/updated on: {{ productreview.date }}</p>
                             {% endfor %}
-                            If you have tried this product please add another review here.
+                            <!-- allow signed in users to add a review -->
+                            {% if user.is_authenticated %}
+                                If you have tried this product please add another review here.
+                            {% else %}
+                                Please sign in to review this product.
+                            {% endif %}
                         {% else %}
-                        Sorry there are no reviews currently, please add one if you have tried this product here.
+                            <!-- allow signed in users to add a review -->
+                            {% if user.is_authenticated %}
+                                Sorry there are no reviews currently, please add one if you have tried this product here.
+                            {% else %}
+                                Sorry there are no reviews currently, please sign in to review this product.
+                            {% endif %}
                         {% endif %}
                     </div>
                     
