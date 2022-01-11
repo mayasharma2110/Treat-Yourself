@@ -36,10 +36,11 @@ class ProductReviewAdmin(admin.ModelAdmin):
         'user_profile',
         'product',
         'review',
-        'date',
+        'date_created',
+        'date_updated',
     )
 
-    ordering = ('-date',)
+    ordering = ('-date_updated',)
 
 
 admin.site.register(Product, ProductAdmin)

@@ -93,12 +93,13 @@
                             {% for productreview in product_reviews %}
                             <p class="mb-0">User: {{ productreview.user_profile }}</p>
                             <p class="mb-0">Review: {{ productreview.review }}</p>
-                            <p>Added/updated on: {{ productreview.date }}</p>
+                            <p class="mb-0">Added/updated on: {{ productreview.date_updated }}</p>
                                 <!-- Allow user who created it to edit the review -->
                                 <a href="{% url 'edit_review' productreview.id %}"><button class="edit1" type="button">Edit</button></a>
                                 <!-- Allow user who created it or admin to delete the review -->
                                 <a href=""><button class="del1" type="button">Delete</button></a>
                             {% endfor %}
+                            <br>
                             <!-- allow signed in users to add a review -->
                             {% if user.is_authenticated %}
                                 <p>If you have tried this product please add another review <a href="{% url 'add_review' product.id %}">here</a>.</p>
