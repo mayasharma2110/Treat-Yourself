@@ -32,12 +32,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ProductReviewAdmin(admin.ModelAdmin):
 
-    # readonly_fields = ('user_profile',
-    #                    'product',
-    #                    'date',
-    #                    'review'
-    #                    )
-
     list_display = (
         'user_profile',
         'product',
