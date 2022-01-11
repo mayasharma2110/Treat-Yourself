@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, ProductReview
+from .forms import ProductForm, ProductReviewForm
+from profiles.models import UserProfile
 
 
 def all_products(request):
@@ -159,3 +160,42 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_review(request, product_id):
+    """ Add a review of a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        profile = UserProfile.objects.get(user=request.user)
+        form = ProductReviewForm(request.POST)
+        form_data = {
+            'review': request.POST['review'],
+        }
+        productreview_form = ProductReviewForm(form_data)
+        # check if the user has already made a review for this 
+        # product previously
+
+        # check if form is valid
+        if productreview_form.is_valid():
+            productreview = productreview_form.save(commit=False)
+            productreview.product = product
+            productreview.user_profile = profile
+            productreview.save()
+            messages.success(request, 'Successfully added product review!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to add product review. ' +
+                           'Please ensure the form is valid.')
+    else:
+        form = ProductReviewForm()
+
+    template = 'products/add_review.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
