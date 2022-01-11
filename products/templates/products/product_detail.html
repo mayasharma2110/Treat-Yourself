@@ -97,7 +97,7 @@
                                 <!-- Allow user who created it to edit the review -->
                                 <a href="{% url 'edit_review' productreview.id %}"><button class="edit1" type="button">Edit</button></a>
                                 <!-- Allow user who created it or admin to delete the review -->
-                                <a href=""><button class="del1" type="button">Delete</button></a>
+                                <a href="{% url 'delete_review' productreview.id %}"><button class="del1" type="button">Delete</button></a>
                             {% endfor %}
                             <br>
                             <!-- allow signed in users to add a review -->
