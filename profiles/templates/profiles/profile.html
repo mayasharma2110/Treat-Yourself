@@ -74,8 +74,8 @@
                         <p class="mb-0">Product Name: {{ userreview.product }}</p>
                         <p class="mb-0">Review: {{ userreview.review }}</p>
                         <p class="mb-0">Added/updated on: {{ userreview.date }}</p>
-                        <p class="mb-0">Edit Review</p>
-                        <p>Delete review</p>
+                        <p class="mb-0"><a href="{% url 'edit_review' userreview.id %}"><button class="edit1" type="button">Edit</button></a></p>
+                        <p><a href=""><button class="del1" type="button">Delete</button></a></p>
                         {% endfor %}
                     {% else %}
                     <!-- allow signed in users to add a review -->

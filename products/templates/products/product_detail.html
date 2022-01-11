@@ -40,6 +40,7 @@
                     {% else %}
                         <p>No Rating: -/5 (0 ratings)</p>
                     {% endif %}
+                    <!-- allow admin to edit or delete a product -->
                     {% if request.user.is_superuser %}
                     <div class="card-action1">
                         <div class="edit">
@@ -93,19 +94,23 @@
                             <p class="mb-0">User: {{ productreview.user_profile }}</p>
                             <p class="mb-0">Review: {{ productreview.review }}</p>
                             <p>Added/updated on: {{ productreview.date }}</p>
+                                <!-- Allow user who created it to edit the review -->
+                                <a href="{% url 'edit_review' productreview.id %}"><button class="edit1" type="button">Edit</button></a>
+                                <!-- Allow user who created it or admin to delete the review -->
+                                <a href=""><button class="del1" type="button">Delete</button></a>
                             {% endfor %}
                             <!-- allow signed in users to add a review -->
                             {% if user.is_authenticated %}
-                                If you have tried this product please add another review <a href="{% url 'add_review' product.id %}">here</a>.
+                                <p>If you have tried this product please add another review <a href="{% url 'add_review' product.id %}">here</a>.</p>
                             {% else %}
-                                Please sign in to review this product.
+                                <p>Please sign in to review this product.</p>
                             {% endif %}
                         {% else %}
                             <!-- allow signed in users to add a review -->
                             {% if user.is_authenticated %}
-                                Sorry there are no reviews currently, please add one if you have tried this product <a href="{% url 'add_review' product.id %}">here</a>.
+                                <p>Sorry there are no reviews currently, please add one if you have tried this product <a href="{% url 'add_review' product.id %}">here</a>.</p>
                             {% else %}
-                                Sorry there are no reviews currently, please sign in to review this product.
+                                <p>Sorry there are no reviews currently, please sign in to review this product.</p>
                             {% endif %}
                         {% endif %}
                     </div>

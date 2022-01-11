@@ -72,7 +72,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-
+  
     disc_price = round(Decimal('.90')*Decimal(product.price), 2)
 
     # reviews for the product
@@ -175,8 +175,8 @@ def add_review(request, product_id):
             'review': request.POST['review'],
         }
         productreview_form = ProductReviewForm(form_data)
-        # check if the user has already made a review for this 
-        # product previously
+        # check if the user has already made a review
+        # for this product previously
 
         # check if form is valid
         if productreview_form.is_valid():
@@ -184,6 +184,7 @@ def add_review(request, product_id):
             productreview.product = product
             productreview.user_profile = profile
             productreview.save()
+            print(productreview.id)
             messages.success(request, 'Successfully added product review!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -197,5 +198,38 @@ def add_review(request, product_id):
         'form': form,
         'product': product,
     }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """ Edit a review of a product """
+
+    review = get_object_or_404(ProductReview, pk=review_id)
+    if request.method == 'POST':
+        form = ProductReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product review!')
+            print(review_id)
+            print(review.product)
+            return redirect(reverse('product_detail', args=[review.product.id]))
+        else:
+            messages.error(request, 'Failed to update product review. Please ensure the form is valid.')
+    else:
+        form = ProductReviewForm(instance=review)
+        messages.info(request, f'You are editing your review for {review.product.name}')
+
+    template = 'products/edit_review.html'
+    context = {
+        'form': form,
+        'review': review,
+    }
+    print(context)
+    print(request)
+    print(review_id)
+    print(review.product.id)
+
 
     return render(request, template, context)
