@@ -29,62 +29,41 @@
                     {{ form|crispy }}
                     <button class="update-profile text-uppercase">Update Information</button>
                 </form>
-                <h4 class="text-muted">Products on Subscription</h4>
-                <div class="subscribed-products table-responsive">
+                <!-- Show users reviews they made -->
+                <h4 class="text-muted">My Reviews</h4>
+                {% if user_reviews %}
+                <div class="my-reviews table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Item(s)</th>
-                                <th>Start Date</th>
-                                <th>Order Number</th>
+                                <th>Product Name</th>
+                                <th>Review</th>
+                                <th>Added/updated on</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for order in orders %}
-                                {% for item in order.lineitems.all %}
-                                    {% if item.product_type == "subscribe-monthly" %}
-                                    <tr>
-                                        <td>
-                                            <ul class="list-unstyled">
-                                                    <li class="small">
-                                                        <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a>
-                                                    </li>
-                                                    <br>
-                                            </ul>
-                                        </td>
-                                        <td>{{ order.date }}</td>
-                                        <td>
-                                            <a href="{% url 'order_history' order.order_number %}"
-                                            title="{{ order.order_number }}">
-                                                {{ order.order_number|truncatechars:6 }}
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% endif %}
-                                {% endfor %}
+                            {% for userreview in user_reviews %}
+                                <tr>
+                                    <td>{{ userreview.product }}</td>
+                                    <td>{{ userreview.review|truncatechars:20 }}</td>
+                                    <td>{{ userreview.date_updated }}</td>
+                                    <td><a href="{% url 'edit_review' userreview.id %}"><button class="edit1" type="button">Edit</button></a></td>
+                                    <td><a href="{% url 'delete_review' userreview.id %}"><button class="del1" type="button">Delete</button></a></td>
+                                </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>  
-                <!-- Show users reviews they made -->
-                <h4 class="text-muted">My Reviews</h4>
-                <div class="user-reviews">
-                    {% if any_reviews %}
-                        {% for userreview in user_reviews %}
-                        <p class="mb-0">Product Name: {{ userreview.product }}</p>
-                        <p class="mb-0">Review: {{ userreview.review }}</p>
-                        <p class="mb-0">Added/updated on: {{ userreview.date }}</p>
-                        <p class="mb-0"><a href="{% url 'edit_review' userreview.id %}"><button class="edit1" type="button">Edit</button></a></p>
-                        <p><a href="{% url 'delete_review' userreview.id %}"><button class="del1" type="button">Delete</button></a></p>
-                        {% endfor %}
-                    {% else %}
-                    <!-- allow signed in users to add a review -->
-                    You have not made any reviews yet, go to a product to add a review and help other users!  
-                    {% endif %}
-                </div>
+                {% else %}
+                <!-- allow signed in users to add a review -->
+                You have not made any reviews yet, go to a product to add a review and help other users!  
+                {% endif %}      
             </div>
             <div class="col-12 col-lg-6">
                 <h4 class="text-muted">Order History</h4>
+                {% if orders %}
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -128,6 +107,9 @@
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                Currently you have not made any orders.
+                {% endif %}  
             </div>
         </div>
 {% endblock %}

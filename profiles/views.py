@@ -29,10 +29,7 @@ def profile(request):
     # reviews made by user
     user_reviews = profile1.reviews.all()
 
-    if user_reviews.exists():
-        any_reviews = True
-    else:
-        any_reviews = False
+   
 
     template = 'profiles/profile.html'
     context = {
@@ -40,7 +37,6 @@ def profile(request):
         'orders': orders,
         'profile': profile1,
         'user_reviews': user_reviews,
-        'any_reviews': any_reviews,
     }
 
     return render(request, template, context)
