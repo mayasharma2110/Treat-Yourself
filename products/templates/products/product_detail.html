@@ -31,15 +31,6 @@
             <div class="col-12 col-md-6">
                 <div class="product-details-container">
                     <h3>Product Information</h3>
-                    <p>Price: £{{ product.price }}</p>
-                    <p>
-                        <span class="redbold">Subscribe and save: </span><span>Save money by subscribing to this item for only <span class="redbold">£{{ disc_price }}</span></span>
-                    </p>
-                    {% if product.rating %}
-                        <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  ratings)</p>
-                    {% else %}
-                        <p>No Rating: -/5 (0 ratings)</p>
-                    {% endif %}
                     <!-- allow admin to edit or delete a product -->
                     {% if request.user.is_superuser %}
                     <div class="card-action1">
@@ -50,6 +41,15 @@
                             <a href="{% url 'delete_product' product.id %}"><button class="del1" type="button">Delete</button></a>
                         </div>
                     </div>
+                    {% endif %}
+                    <p>Price: £{{ product.price }}</p>
+                    <p>
+                        <span class="redbold">Subscribe and save: </span><span>Save money by subscribing to this item for only <span class="redbold">£{{ disc_price }}</span></span>
+                    </p>
+                    {% if product.rating %}
+                        <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  ratings)</p>
+                    {% else %}
+                        <p>No Rating: -/5 (0 ratings)</p>
                     {% endif %}
                     <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     <p>{{ product.description }}</p>
@@ -91,13 +91,19 @@
                     <div class="product-reviews">
                         {% if any_reviews %}
                             {% for productreview in product_reviews %}
-                            <p class="mb-0">User: {{ productreview.user_profile }}</p>
+                            <p class="mb-0">User: {{ productreview.user_profile.user }}</p>
                             <p class="mb-0">Review: {{ productreview.review }}</p>
                             <p class="mb-0">Added/updated on: {{ productreview.date_updated }}</p>
+                            {% if request.user.is_authenticated %}
                                 <!-- Allow user who created it to edit the review -->
+                                {% if productreview.user_profile.user == user %}
                                 <a href="{% url 'edit_review' productreview.id %}"><button class="edit1" type="button">Edit</button></a>
+                                {% endif %}
                                 <!-- Allow user who created it or admin to delete the review -->
+                                {% if productreview.user_profile == request.user or request.user.is_superuser %}
                                 <a href="{% url 'delete_review' productreview.id %}"><button class="del1" type="button">Delete</button></a>
+                                {% endif %}
+                            {% endif %}
                             {% endfor %}
                             <br>
                             <!-- allow signed in users to add a review -->

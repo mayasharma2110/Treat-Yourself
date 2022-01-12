@@ -491,6 +491,15 @@ td, th {
     margin-top: 1rem;
 }
 
+/* profile */
+.order-history,.my-reviews {
+    border: 1px solid black;
+}
+
+.order-history th, .my-reviews th {
+    border-bottom: 1px solid black;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */
