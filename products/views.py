@@ -181,7 +181,7 @@ def add_review(request, product_id):
             productreview.product = product
             productreview.user_profile = profile
             productreview.save()
-            print(productreview.id)
+            # print(productreview.id)
             messages.success(request, 'Successfully added product review!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -193,7 +193,7 @@ def add_review(request, product_id):
         # if so redirect back to product page with an error message
         profile = UserProfile.objects.get(user=request.user)
         product_reviews = product.reviews.all()
-        print(product_reviews.filter(user_profile=profile).exists())
+        # print(product_reviews.filter(user_profile=profile).exists())
         if product_reviews.filter(user_profile=profile).exists():
             messages.error(request, "You have already reviewed " +
                            "this product. You can update your " +
@@ -255,19 +255,47 @@ def add_rating(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    # check if the user has already made a rating
-    # for this product previously
-    # if so redirect back to product page with an error message
-    profile = UserProfile.objects.get(user=request.user)
-    product_ratings = product.ratings.all()
-    print(product_ratings.filter(user_profile=profile).exists())
-    if product_ratings.filter(user_profile=profile).exists():
-        messages.error(request, "You have already rated " +
-                       "this product. You can update your " +
-                       "rating from your profile!")
-        return redirect(reverse('product_detail', args=[product.id]))
+    if request.method == 'POST':
+        profile = UserProfile.objects.get(user=request.user)
+        form = ProductRatingForm(request.POST)
+        form_data = {
+            'rating': int(request.POST['rating']),
+        }
+        productrating_form = ProductRatingForm(form_data)
+        # check if form is valid
+        if productrating_form.is_valid():
+            productrating = productrating_form.save(commit=False)
+            productrating.product = product
+            productrating.user_profile = profile
+            productrating.save()
+            # print(productrating.id)
+            # feed this rating into info product rating, totalrating and numberofratings fields
+            # print(product.numberofratings)
+            product.numberofratings += 1
+            product.totalrating += int(productrating.rating)
+            product.rating = round(product.totalrating/product.numberofratings, 2)
+            product.save()
+            # print(product.numberofratings)
+            # reutn user back to this product detail page
+            messages.success(request, 'Successfully added product rating!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to add product review. ' +
+                           'Please ensure the form is valid.')
     else:
-        form = ProductRatingForm()
+        # check if the user has already made a rating
+        # for this product previously
+        # if so redirect back to product page with an error message
+        profile = UserProfile.objects.get(user=request.user)
+        product_ratings = product.ratings.all()
+        # print(product_ratings.filter(user_profile=profile).exists())
+        if product_ratings.filter(user_profile=profile).exists():
+            messages.error(request, "You have already rated " +
+                        "this product. You can update your " +
+                        "rating from your profile!")
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            form = ProductRatingForm()
 
     template = 'products/add_rating.html'
     context = {
