@@ -33,26 +33,31 @@
                     <h3>Product Information</h3>
                     <!-- allow admin to edit or delete a product -->
                     {% if request.user.is_superuser %}
-                    <div class="card-action1">
-                        <div class="edit">
-                            <a href="{% url 'edit_product' product.id %}"><button class="edit1" type="button">Edit</button></a>
-                        </div>
-                        <div class="del">
-                            <a href="{% url 'delete_product' product.id %}"><button class="del1" type="button">Delete</button></a>
-                        </div>
-                    </div>
+                    <a class="text-success" href="{% url 'edit_product' product.id %}">Edit Product</a>
+                    <br>
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete Product</a>
                     {% endif %}
                     <p>Price: £{{ product.price }}</p>
                     <p>
                         <span class="redbold">Subscribe and save: </span><span>Save money by subscribing to this item for only <span class="redbold">£{{ disc_price }}</span></span>
                     </p>
+                    <p>Description: {{ product.description }}</p>
+                    <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
+                    <!-- Product Rating -->
+                    <h3>Product Rating</h3>
                     {% if product.rating %}
                         <p>Rating: {{ product.rating }}/5 ({{ product.numberofratings }}  ratings)</p>
                     {% else %}
                         <p>No Rating: -/5 (0 ratings)</p>
                     {% endif %}
-                    <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
-                    <p>{{ product.description }}</p>
+                    <!-- show if a user has already made a rating -->
+                    <div>
+                        {% if user.is_authenticated %}
+                        <p> If they have made a rating or not , if yes give info on how to edit/delete it. If not give link to add a rating.</p>
+                        {% else %}
+                        <p> Sign in to add/edit a product rating. </p>
+                        {% endif %}
+                    </div>
                     <!-- form to add products to the shoopping bag -->
                     <h3>Purchase Product</h3>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -88,6 +93,14 @@
                     </form>
                     <!-- show all product reviews -->
                     <h3>Product Reviews</h3>
+                    <!-- show if a user has already made a review -->
+                    <div>
+                        {% if user.is_authenticated %}
+                        <p> If they have made a review or not , if yes give info on how to edit/delete it. If not give link to add a review.</p>
+                        {% else %}
+                        <p> Sign in to add/edit a product reviews. </p>
+                        {% endif %}
+                    </div>
                     <div class="product-reviews">
                         {% if any_reviews %}
                             {% for productreview in product_reviews %}
@@ -104,21 +117,10 @@
                                 <a href="{% url 'delete_review' productreview.id %}"><button class="del1" type="button">Delete</button></a>
                                 {% endif %}
                             {% endif %}
-                            {% endfor %}
                             <br>
-                            <!-- allow signed in users to add a review -->
-                            {% if user.is_authenticated %}
-                                <p>If you have tried this product please add another review <a href="{% url 'add_review' product.id %}">here</a>.</p>
-                            {% else %}
-                                <p>Please sign in to review this product.</p>
-                            {% endif %}
+                            {% endfor %}
                         {% else %}
-                            <!-- allow signed in users to add a review -->
-                            {% if user.is_authenticated %}
-                                <p>Sorry there are no reviews currently, please add one if you have tried this product <a href="{% url 'add_review' product.id %}">here</a>.</p>
-                            {% else %}
-                                <p>Sorry there are no reviews currently, please sign in to review this product.</p>
-                            {% endif %}
+                            <p>Sorry there are no reviews for this product currently.</p>
                         {% endif %}
                     </div>
                     
