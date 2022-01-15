@@ -120,6 +120,7 @@ body {
     border: 2px solid black;
     color: black;
     padding: 2px 0.5rem;
+    margin-top: 1rem;
 }
 
 .register1:hover, .login1:hover, .reset1:hover {
@@ -358,6 +359,10 @@ label, select {
     margin-bottom: 1rem;
 }
 
+.review {
+    margin-bottom: 1rem;
+}
+
 /* add product */
 .add-product {
     background: #70DB93;
@@ -409,7 +414,7 @@ td, th {
     border-left: dotted 1px black;
 }
  
-.shipping-info {
+.delivery-info {
     font-weight: bold;
     font-size: 1.2rem;
     color: black;
@@ -500,39 +505,33 @@ td, th {
     border-bottom: 1px solid black;
 }
 
+/* add/edit review and add/edit rating */
+
+textarea[name='review'] {
+    margin-bottom: 1rem;
+}
+
+.back-to-product {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.add-product-review, .edit-product-review, .add-product-rating, .edit-product-rating {
+    background: #70DB93;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
+}
+
+.add-product-review:hover, .edit-product-review:hover, .add-product-rating:hover, .edit-product-rating:hover {
+    background: black;
+    border: 2px solid #70DB93;
+    color: #70DB93;
+}
+
 /* Media queries */
-
-/* Slightly larger container on xl screens */
-/* @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-} */
-
-/* fixed top navbar only on medium and up */
-/* @media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-} */
-
-/* extra large per bootstrap sizing */
-/* @media screen and (min-width: 1200px) {
-  
-} */
-
-/* large per bootstrap sizing */
-/* @media screen and (min-width: 992px) {
-    
-} */
 
 /* medium per bootstrap sizing */
 @media screen and (max-width: 991px) {
@@ -561,16 +560,3 @@ td, th {
     }
   
 }  
-
-/* small and extra small per bootstrap sizing */
-/* @media screen and (max-width: 765px) {
-
-} */
-
-/* very small per bootstrap sizing */
-/* @media screen and (max-width: 575px) {
-  
-} */
-
-
-  

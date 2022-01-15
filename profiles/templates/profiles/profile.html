@@ -25,7 +25,7 @@
             <div class="col-12 col-lg-6">
                 <!-- Defult delivery information -->
                 <h4 class="text-muted">Default Delivery Information</h4>
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                <form class="mt-3 mb-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="update-profile text-uppercase">Update Information</button>
@@ -33,7 +33,7 @@
                 <!-- Show users reviews they made -->
                 <h4 class="text-muted">My Reviews</h4>
                 {% if user_reviews %}
-                <div class="my-reviews table-responsive">
+                <div class="my-reviews table-responsive mb-3">
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
@@ -64,7 +64,7 @@
                 <!-- Show users ratings they have made -->
                 <h4 class="text-muted">My Ratings</h4>
                 {% if user_ratings %}
-                <div class="my-ratings table-responsive">
+                <div class="my-ratings table-responsive mb-3">
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
@@ -96,7 +96,7 @@
             <div class="col-12 col-lg-6">
                 <h4 class="text-muted">Order History</h4>
                 {% if orders %}
-                <div class="order-history table-responsive">
+                <div class="order-history table-responsive mb-3">
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>

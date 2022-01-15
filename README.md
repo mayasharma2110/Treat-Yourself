@@ -88,7 +88,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a returning user, I want to receive an email confirmation once I sign up to the site and I also want to be able to recover my password if I forget it.
 
-* As a returning user, I want the site to save my default shipping and billing information for easier checkout in the future (if I am registered to the site and logged in).
+* As a returning user, I want the site to save my default delivery information for easier checkout in the future (if I am registered to the site and logged in).
 
 * As a returning user, I want to rate products I have tried to help other users find good products.
 
@@ -138,7 +138,7 @@ Key features to be included based on user stories are:
 
 * The shopping bag pag will show what a user currently has in their basket and a link for them to checkout and complete thier purchase.
 
-* The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated.
+* The checkout page will allow users to enter their delivery and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated.
 
 * The checkout success page will show users details of what they have ordered.
 
@@ -176,7 +176,7 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The shopping bag pag will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
 
-* The checkout page will allow users to enter their shipping and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
+* The checkout page will allow users to enter their delivery and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
 * The checkout success page will show users details of what they have ordered. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
 
