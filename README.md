@@ -28,9 +28,14 @@ It is aimed for those who are interested in purchasing any of the above, the sit
    * [Wireframes Product Detail](#wireframes-product-detail)
    * [Wireframes Bag](#wireframes-bag)
    * [Wireframes Checkout](#wireframes-checkout)
+   * [Whireframes Checkout Success](#wireframes-checkout-success)
    * [Wireframes Profile](#wireframes-profile)
    * [Wireframes Add Product](#wireframes-add-product)
    * [Wireframes Edit Product](#wireframes-edit-product)
+   * [Wireframes Add Review](#wireframes-add-review)
+   * [Wireframes Edit Review](#wireframes-edit-review)
+   * [Wireframes Add Rating](#wireframes-add-rating)
+   * [Wireframes Edit Rating](#wireframes-edit-rating)
    * [Wireframes Comments](#wireframes-comments)
   * [Surface](#surface)
     * [Colours](#colours)
@@ -143,6 +148,14 @@ Key features to be included based on user stories are:
 
 * The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
 
+* The add review page will allow logged in users to add a review of a product.
+
+* The edit review page will allow logged in users to edit one of thier existing reviews.
+
+* The add rating page will allow logged in users to add a rating of a product.
+
+* The edit rating page will allow logged in users to edit one of thier existing ratings.
+
 ### Structure
 
 All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subgategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nutty, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site.
@@ -173,9 +186,17 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
 
+* The add review page will allow logged in users to add a review of a product. If a user has already reviewed this product they will be informed and prompted to edit their existing review.
+
+* The edit review page will allow logged in users to edit one of thier existing reviews.
+
+* The add rating page will allow logged in users to add a rating of a product (options 1 through 5). If a user has already rated this product they will be informed and prompted to edit their rated review. This data will feed into the products model rating, totalrating and numberofratings variables.
+
+* The edit rating page will allow logged in users to edit one of thier existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
+
 ### Skeleton
 
-I used pen and paper to make the wireframes for this project. The website was designed to have 11 pages - Home, Login, Register, Logout, Products, Product detail, Bag, Checkout, Profile, Add product (admin only) and Edit product (admin only). 
+I used pen and paper to make the wireframes for this project. The website was designed to have 16 pages - Home, Login, Register, Logout, Products, Product detail, Bag, Checkout, Checkout success, Profile, Add product (admin only), Edit product (admin only), Add review, Edit review, Add rating and Edit rating. 
 
 #### Wireframes Navbar
 
@@ -225,9 +246,25 @@ I used pen and paper to make the wireframes for this project. The website was de
 
 ![Add Product Wireframes](static/wireframes/add_product.jpg)  
 
-#### Wireframes Edit
+#### Wireframes Edit Product
 
 ![Edit Product Wireframes](static/wireframes/edit_product.jpg)  
+
+#### Wireframes Add Review 
+
+![Add Review Wireframes](static/wireframes/add_review.jpg)  
+
+#### Wireframes Edit Review
+
+![Edit Review Wireframes](static/wireframes/edit_review.jpg)  
+
+#### Wireframes Add Product 
+
+![Add Rating Wireframes](static/wireframes/add_rating.jpg)  
+
+#### Wireframes Edit Product
+
+![Edit Rating Wireframes](static/wireframes/edit_rating.jpg)  
 
 #### Wireframes Comments
 
