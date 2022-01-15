@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-contianer">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h2 class="page-heading">Update a product rating</h2>
+                <h3> Updating rating for: {{ rating.product.name }} </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <form method="POST" action="{% url 'edit_rating' rating.id %}" class="form mb-2">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-right">
+                        <a href="{% url 'product_detail' rating.product.id %}"><button type="button" class="back-to-product text-uppercase">Back to product</button></a>
+                        <button class="edit-product-rating text-uppercase" type="submit">Update Product Rating</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+{% endblock %}

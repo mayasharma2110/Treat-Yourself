@@ -4,10 +4,10 @@ from .models import Product, Category, ProductReview, ProductRating
 
 class ProductAdmin(admin.ModelAdmin):
 
-    readonly_fields = ('rating',
-                       'totalrating',
-                       'numberofratings',
-                       )
+    # readonly_fields = ('rating',
+    #                    'totalrating',
+    #                    'numberofratings',
+    #                    )
 
     list_display = (
         'sku',

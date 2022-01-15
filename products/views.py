@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category, ProductReview
+from .models import Product, Category, ProductReview, ProductRating
 from .forms import ProductForm, ProductReviewForm, ProductRatingForm
 from profiles.models import UserProfile
 
@@ -102,6 +102,7 @@ def add_product(request):
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
+        print(form)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added product!')
@@ -301,6 +302,42 @@ def add_rating(request, product_id):
     context = {
         'form': form,
         'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_rating(request, rating_id):
+    """ Update a rating of a product """
+
+    rating = get_object_or_404(ProductRating, pk=rating_id)
+    old_user_rating = int(rating.rating)
+    product = rating.product
+    profile = rating.user_profile
+
+    if request.method == 'POST':
+        form = ProductRatingForm(request.POST, instance=rating)
+        if form.is_valid():
+            # feed this rating into info product rating, totalrating and numberofratings fields
+            old_totalrating = product.totalrating
+            new_user_rating = int(request.POST['rating'])
+            product.totalrating = old_totalrating - old_user_rating + new_user_rating
+            product.rating = round(product.totalrating/product.numberofratings, 2)
+            product.save()
+            form.save()
+            messages.success(request, 'Successfully updated product rating!')
+            return redirect(reverse('product_detail', args=[rating.product.id]))
+        else:
+            messages.error(request, 'Failed to update product review. Please ensure the form is valid.')
+    else:
+        form = ProductRatingForm(instance=rating)
+        messages.info(request, f'You are editing your rating for {rating.product.name}')
+
+    template = 'products/edit_rating.html'
+    context = {
+        'form': form,
+        'rating': rating,
     }
 
     return render(request, template, context)
