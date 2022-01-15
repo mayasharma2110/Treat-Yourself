@@ -1,6 +1,7 @@
 from django.db import models
 from profiles.models import UserProfile
 
+
 class Category(models.Model):
 
     class Meta:
@@ -48,3 +49,27 @@ class ProductReview(models.Model):
 
     def __str__(self):
         return self.review
+
+
+class ProductRating(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True,
+                                     blank=True,
+                                     related_name="ratings")
+    product = models.ForeignKey(Product, null=False, blank=False,
+                                on_delete=models.CASCADE,
+                                related_name="ratings")
+    rating_choices = (
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5"),
+        )
+    rating = models.CharField(max_length=1, null=False, blank=False,
+                              choices=rating_choices, default="5")
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.rating

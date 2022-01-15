@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Product, Category, ProductReview
+from .models import Product, Category, ProductReview, ProductRating
 
 
 class ProductAdmin(admin.ModelAdmin):
 
-    readonly_fields = ('rating',
-                       'totalrating',
-                       'numberofratings',
-                       )
+    # readonly_fields = ('rating',
+    #                    'totalrating',
+    #                    'numberofratings',
+    #                    )
 
     list_display = (
         'sku',
@@ -43,6 +43,20 @@ class ProductReviewAdmin(admin.ModelAdmin):
     ordering = ('-date_updated',)
 
 
+class ProductRatingAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'user_profile',
+        'product',
+        'rating',
+        'date_created',
+        'date_updated',
+    )
+
+    ordering = ('-date_updated',)
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(ProductReview, ProductReviewAdmin)
+admin.site.register(ProductRating, ProductRatingAdmin)
