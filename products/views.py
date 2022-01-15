@@ -314,7 +314,6 @@ def edit_rating(request, rating_id):
     rating = get_object_or_404(ProductRating, pk=rating_id)
     old_user_rating = int(rating.rating)
     product = rating.product
-    profile = rating.user_profile
 
     if request.method == 'POST':
         form = ProductRatingForm(request.POST, instance=rating)
@@ -341,3 +340,25 @@ def edit_rating(request, rating_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_rating(request, rating_id):
+    """ Update a rating of a product """
+
+    rating = get_object_or_404(ProductRating, pk=rating_id)
+    old_user_rating = int(rating.rating)
+    product = rating.product
+    old_totalrating = product.totalrating
+
+    # feed this rating into info product rating, totalrating and numberofratings fields
+    product.totalrating = old_totalrating - old_user_rating
+    product.numberofratings -= 1
+    if product.numberofratings > 0:
+        product.rating = round(product.totalrating/product.numberofratings, 2)
+    else:
+        product.rating = 0
+    product.save()
+    rating.delete()
+    messages.success(request, 'Product rating deleted!')
+    return redirect(reverse('product_detail', args=[product.id]))
