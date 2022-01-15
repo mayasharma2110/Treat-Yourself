@@ -22,12 +22,10 @@
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {% if field.name != 'rating' and field.name != 'totalrating' and field.name != 'numberofratings' %}
-                            {% if field.name != 'image' %}
-                                {{ field | as_crispy_field }}
-                            {% else %}
-                                {{ field }}
-                            {% endif %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">

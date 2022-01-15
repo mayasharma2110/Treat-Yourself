@@ -83,11 +83,23 @@ def product_detail(request, product_id):
     else:
         any_reviews = False
 
+    # if the user logged in has rated/reviewed this product
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        product_ratings = product.ratings.all()
+        user_reviewed = product_reviews.filter(user_profile=profile).exists()
+        user_rated = product_ratings.filter(user_profile=profile).exists()
+    else:
+        user_reviewed = False
+        user_rated = False
+
     context = {
         'product': product,
         'disc_price': disc_price,
         'product_reviews': product_reviews,
         'any_reviews': any_reviews,
+        'user_reviewed': user_reviewed,
+        'user_rated': user_rated,
     }
 
     return render(request, 'products/product_detail.html', context)

@@ -43,7 +43,7 @@ class ProductReview(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE,
                                 related_name="reviews")
-    review = models.CharField(max_length=254)
+    review = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
