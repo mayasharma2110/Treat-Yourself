@@ -23,6 +23,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
+                <!-- Defult delivery information -->
                 <h4 class="text-muted">Default Delivery Information</h4>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
@@ -55,11 +56,42 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                </div>  
+                </div>
                 {% else %}
                 <!-- allow signed in users to add a review -->
                 You have not made any reviews yet, go to a product to add a review and help other users!  
-                {% endif %}      
+                {% endif %}    
+                <!-- Show users ratings they have made -->
+                <h4 class="text-muted">My Ratings</h4>
+                {% if user_ratings %}
+                <div class="my-ratings table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Rating</th>
+                                <th>Added/updated on</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for userrating in user_ratings %}
+                                <tr>
+                                    <td>{{ userrating.product }}</td>
+                                    <td>{{ userrating.rating|truncatechars:20 }}</td>
+                                    <td>{{ userrating.date_updated }}</td>
+                                    <td><a href=""><button class="edit1" type="button">Edit</button></a></td>
+                                    <td><a href=""><button class="del1" type="button">Delete</button></a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <!-- allow signed in users to add a rating -->
+                You have not made any ratings yet, go to a product to add a rating and help other users!  
+                {% endif %}  
             </div>
             <div class="col-12 col-lg-6">
                 <h4 class="text-muted">Order History</h4>

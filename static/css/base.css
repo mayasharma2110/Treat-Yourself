@@ -492,11 +492,11 @@ td, th {
 }
 
 /* profile */
-.order-history,.my-reviews {
+.order-history,.my-reviews, .my-ratings {
     border: 1px solid black;
 }
 
-.order-history th, .my-reviews th {
+.order-history th, .my-reviews th, .my-ratings th {
     border-bottom: 1px solid black;
 }
 

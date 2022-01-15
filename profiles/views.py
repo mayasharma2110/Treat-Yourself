@@ -29,7 +29,8 @@ def profile(request):
     # reviews made by user
     user_reviews = profile1.reviews.all()
 
-   
+    # ratings made by user
+    user_ratings = profile1.ratings.all()
 
     template = 'profiles/profile.html'
     context = {
@@ -37,6 +38,7 @@ def profile(request):
         'orders': orders,
         'profile': profile1,
         'user_reviews': user_reviews,
+        'user_ratings': user_ratings,
     }
 
     return render(request, template, context)
