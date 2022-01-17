@@ -119,9 +119,10 @@ body {
 
 .btn {
     border-radius: 0;
+    vertical-align: initial;
 }
 
-.register1, .login1, .reset1 {
+.register1, .login1, .reset1, .my-profile {
     background: mediumpurple;
     border: 2px solid black;
     color: black;
@@ -129,7 +130,7 @@ body {
     margin-top: 1rem;
 }
 
-.register1:hover, .login1:hover, .reset1:hover {
+.register1:hover, .login1:hover, .reset1:hover, .my-profile:hover {
     background: black;
     border: 2px solid mediumpurple;
     color: mediumpurple;
