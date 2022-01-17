@@ -46,6 +46,9 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
   * [Manual Testing](#manual-testing)
+    * [Shopping Bag](#shopping-bag)
+    * [Delivery Variable](#delivery-variable)
+    * [Discounted Price](#discounted-price)
   * [Online Validation](#online-validation)
   * [Lighthouse Validation](#lighthouse-validation) 
   * [User Stories from the UX Section](#user-stories-from-the-ux-section)
@@ -72,6 +75,8 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a first time user, I want to be able to the specific details of a product I am interested in (description, price and rating) from here I want to be able to add products to my shopping basket.
 
+* As a first time user, I want to be able read reviews of products made by other users.
+
 * As a first time user I want to be able to search for a specific term (for the name or description of a product), on filtering or searching for a term I want to see the number of results displayed.
 
 * As a first time user, I want to be able to see the total in my shopping basket at any given time.
@@ -90,7 +95,9 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a returning user, I want the site to save my default delivery information for easier checkout in the future (if I am registered to the site and logged in).
 
-* As a returning user, I want to rate products I have tried to help other users find good products.
+* As a returning user, I want to be able to rate products I have tried to help other users find good products.
+
+* As a returning user, I want to be able to review products I have tried to help other users find good products.
 
 #### Frequent User Goals
 
@@ -108,6 +115,8 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a business owner, I want to be able to manage the products (picture, price, description etc) that are displayed on the site and remove any that are not for sale anymore.
 
+* As a business owner I want to be able to delete any product reviews that contain inappropriate text or are spam.
+
 #### User Goals
 
 * To find existing and new products they may like.
@@ -116,13 +125,15 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * To have the ability to view past orders I have made from my profile.
 
-* To have the ability to rate products I have previously tried.
+* To have the ability to rate and review products I have previously tried.
 
 ### Scope
 
 Key features to be included based on user stories are:
 
 * Responsive website on mobile, tablet and laptop size devices.
+
+* There will be a consistent navigation bar across all pages showing the user links to home, products, the option to search the site, links to view products based on different categories or sorting options and their shopping bag. If the user is not logged in there will be links to register or login. If the user is logged in there will be links to logout and view their profile. If the user is logged in as an admin there will be a link to add a new product to the store.
 
 * The home page will contain a selection of the products available on the site to entice users to view the products in more detail and hopefully make a purchase.
 
@@ -158,7 +169,7 @@ Key features to be included based on user stories are:
 
 ### Structure
 
-All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subgategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nutty, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site.
+All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products, they will also be able to add new prodicts to the store. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subgategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nutty, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site. Finally there will be a banner showing the free delivery threshold to encourage users to order more products and a banner showing users that they can subscribe and save money.
 
 The website will use Materializecss grids to make the layout responsive to different devices and screen sizes.
 
@@ -170,21 +181,21 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The logout page will be a check to confirm a user definately wants to logout.
 
-* The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page.
+* The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page. Additionally admin will have quick links to edit or delete any products in the store.
 
-* The product detail page will show the description of the product with the other variables like price and rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. There will also be links for admin users to edit/delete a product from here.
+* The product detail page will show the description of the product with the other variables like price and rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. Users can also read any reviews made of a product on these pages and logged in users will have links to rate/review products, if the user has reviewed/rated the product previously they will be given information on how to edit/delete their rating/review. There will also be links for admin users to edit/delete a product from here. Admin users will also be able to delete any reviews on this page.
 
 * The shopping bag pag will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
 
 * The checkout page will allow users to enter their delivery and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
-* The checkout success page will show users details of what they have ordered. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
+* The checkout success page will show users details of what they have ordered and text that they will have received an email confirming this. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
 
-* The profile page will show a users past orders (and the option to add a previous product to their bag again of the same product type and quantity) and it will also allow then to update their default delivery information. The profile page will also list any products the user has on subscription. The profile allow them to rate the products they have tried before to help other users pick good products and also an option to add one of these products quickly and easily to thier bag.
+* The profile page will show a users past orders (and the option to add a previous product to their bag again of the same product type and quantity) and it will also allow then to update their default delivery information. The profile page will also list any products the user has rates/reviewed before with links to edit or delete these ratings/reviews should the user change their mind.
 
-* The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
+* The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete, the default values for rating, totalrating and numberofratings variables will be 0 for all new products added.
 
-* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
+* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete.
 
 * The add review page will allow logged in users to add a review of a product. If a user has already reviewed this product they will be informed and prompted to edit their existing review.
 
@@ -270,13 +281,15 @@ I used pen and paper to make the wireframes for this project. The website was de
 
 Please note there are a few changes to the final site since the wireframes were made:
 
+* On the profile page the my reviews and my ratings sections are only half width of the screen size on large screens, on smaller screens every section takes up the whole device width.
+
 ### Surface
 
 #### Colours
-I looked at pupolar sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#9370DB) to represent a luxury brand for the site. The site [here](https://www.99colors.net/name/medium-purple) helped me find triad colours of orange (#DB9370) and green (#70DB93). General text for descriptions, prices etc of products uses dark grey (#424242).
+I looked at popular sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#9370DB) to represent a luxury brand for the site. The site [here](https://www.99colors.net/name/medium-purple) helped me find triad colours of orange (#DB9370) and green (#70DB93). General text for descriptions, prices etc of products uses dark grey (#424242).
 
 #### Imagery
-I picked a selection of the product images to show on the home screen to entice users to view the products in more detail and hopefully make a purchase. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
+I chose a selection of the product images to show on the home screen to entice users to view the products in more detail and hopefully make a purchase. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
 
 ## Features
 
@@ -284,7 +297,45 @@ I picked a selection of the product images to show on the home screen to entice 
 
 * The site is responsive on mobile, tablet and laptop size devices.
 
+* The home page contains images of a selection of the products available on the site and a link to enter the store and view the specific products.
+
+* The register page allows new users to register to the site with a username, email and password.
+
+* The login page allows registered users to login with thier username or email and password.
+
+* The logout page allows logged in users to logout.
+
+* The products page allows users to quickly see the products on the site with main details including price and rating. This page also allows users to quickly add 1 of any item to their shopping bag. Additionally admin have quick links to edit or delete any products in the store from here.
+
+* The product detail page allows users to see full information of a product including the description and any user reviews that have been made. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. Logged in users have quick links to rate/review the product from this page, if the user has reviewed/rated the product previously they will be given information on how to edit/delete their rating/review. If a logged in user has created a review they are able to edit or delete it from this page. Admin also have quick links for admin users to edit/delete a product from here and also to delete any reviews on this page.
+
+* The shopping bag pag allows users to view what is currently in their basket and to update or delete any items from here. Users can only update the quantity of one-off purchases and not for subscriptions, this is on purpose. They can't add more than one subscription for the same product from either the product detail page or the bag. Also users can only add 10 of any item at a time to their bag and they can't add more than this from either the product detail page or the bag. 
+
+* The checkout page allows users to enter their delivery and billing information to complete the purchase.
+
+* The checkout success page shows a user that their purchase was successful and lets them know that they will have received an email confirming this. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
+
+* The profile page allows users to view their past orders and the option to add a previous product to their bag again of the same product type and quantity. This page also allows users to see what products they have rated/reviewed and gives them quick links to edit or delete these ratings/reviews should the user change their mind. This page also allows users to view/update their default delivery information.
+
+* The add product page allows admin users to add a new product to the store with name, category, description, price and image. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete, the default values for rating, totalrating and numberofratings variables will be 0 for all new products added.
+
+* The edit product page allows admin users to update a current product in the store. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete.
+
+* The add review page allows logged in users to add a review of a product. If a user has already reviewed this product they will be informed and prompted to edit their existing review.
+
+* The edit review page allows logged in users to edit one of thier existing reviews.
+
+* The add rating page allows logged in users to add a rating of a product (options 1 through 5). If a user has already rated this product they will be informed and prompted to edit their rated review. This data will feed into the products model rating, totalrating and numberofratings variables.
+
+* The edit rating page allows logged in users to edit one of thier existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
+
 ### Features Left to Implement
+
+* The subscription functionality only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra secrity steps and to save the users card details and billing information which is more complex than this course covers.
+
+* It would be good to allow users to choose the frequency of their subscription (monthly, every 2 months etc).
+
+* It would be good on the profile page to show the user all their active subscriptions and also include details on their next delivery date and give them the option to change this or pause/stop any subscription.
 
 ## Technologies Used
 
@@ -294,17 +345,18 @@ I picked a selection of the product images to show on the home screen to entice 
 
 * [Materializecss](https://materializecss.com/)
   * Used to help make this website responsive for different devices and to create the collapsible navbar.
-  * Used to make the cards on the home page reveal the review details for each book.
+  * Used to make the cards on the home page reveal the details for each product.
   * Used to help create the colours and style on the site. 
   * Used to validate user information in the add/edit review forms. 
+  * Used to make tables responsive on small screens.
 
-* Javascript - used to help make the site responsive to the user's input - defensive programming before deleting a review, book or genre to check if the user is sure they want to proceed.
+* Javascript - used to help make the site responsive to the user's input.
 
-* jQuery - used to help make the site responsive to the user's input - defensive programming before deleting a review, book or genre to check if the user is sure they want to proceed.
+* jQuery - used to help make the site responsive to the user's input.
 
-* [MongoDB](https://www.mongodb.com/) used to create, store and update the data used in this site.
+* [PostgreSQL](https://www.heroku.com/postgres) used to create, store and update the data used in this site.
 
-* [Python](https://www.python.org/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) - used to get data from the database in MongoDB to the live site.
+* [Python](https://www.python.org/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) - used to get data from the database in Postgres to the live site.
 
 * [Gitpod](https://www.gitpod.io/) - used to write the code for the website.
 
@@ -314,9 +366,9 @@ I picked a selection of the product images to show on the home screen to entice 
 
 * [Tinypng](https://tinypng.com/) - used to compress the images so they loaded quicker on the website.
 
-* [Django](https://www.djangoproject.com/) - used to ...
+* [Django](https://www.djangoproject.com/) - used to get the site authentication and authorisation functions up and running easily.
 
-* [AWS](https://aws.amazon.com/) - used to ... 
+* [AWS](https://aws.amazon.com/) - used to store the static files on the live website (css and media files).
 
 * [Stripe](https://stripe.com/gb) - used to facilatate the secure purchasing of products using a credit/debit card.
 
@@ -324,37 +376,43 @@ I picked a selection of the product images to show on the home screen to entice 
 
 ### Manual Testing
 
-Expected -Feature is expected to do X why the user does Y
-Testing - Tested the feature by doing Y
-Result - The feature did not respond due to A,B,C
-or
-Result - The feature acted as normally and it did Y
-Fix - I did Z to the code because something was missing
-And test user stories with relevant screenshots.
+#### Shopping Bag
 
-- There was an issue with users being able to add more than 10 of any item at a time - for example - by adding 6 of an item and then going back and adding another 5. I had to update my logic in the bag views to hadle this and return an message error if a user tries to do this by.
-- Users can only update the quantity of one-off purchases and not for subscriptions, this is on purpose. They cant add more than one subscription for the same product from either the product detail page or the bag.
-- Subscription only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra secrity steps and to save the users card details and billing information which is more complex than this course covers.
-- It would be good to allow users to choose the frequency of their subscription (monthly, every 2 months etc).
-- Issue with delivery variable in contexts.py, when changing to a decimal variable this added extra decimal places which we didnt need, from googling I gound the solution to use the code below to fix it
+There was an issue with users being able to add more than 10 of any item at a time - for example - by adding 6 of an item and then going back and adding another 5. I had to update my logic in the bag views to hadle this and return an message error if a user tries to do this by.
+> quantity = quantity_old + quantity_add
+
+> if quantity > 10: 
+
+> messages.error(request, 'Sorry, you can only add a maximum of 10 items of any one product!')
+
+#### Delivery Variable
+
+There was an issue with the delivery variable showing more than 2 decimal places on the bag page from context.py in the bag app.
+From googling I gound the solution to use the code below to fix it
 > delivery = round(delivery, 2)
-- Issue with multiplying the product price by 0.9 to get the discounted price, I had to use the below to fix this
-> round(Decimal('.90')*Decimal(product.price), 2)
+
+#### Discounted Price 
+
+There was an issue with the discounted price not showing correctly when an order was added/updated from the admin page.
+I updated the save function in the OrderLineItem class in the models.py file in the checkout app to the below to fix this
+> if self.product_type == "one-off":
+
+> self.lineitem_total = self.product.price * self.quantity
+
+> else:
+
+> self.lineitem_total = round(Decimal('.90')*Decimal(self.product.price), 2)
 
 ### Online Validation
 
 * I checked the website loads and responds as expected on Google Chrome and Microsoft Edge browsers. 
 
 * Used chrome developer tools to check responsiveness on mobile, tablet and laptop devices.  
-I also checked the website on my HP 15 inch laptop, Philips 20 inch monitor and Sony smartphone.
 
-* Used the [w3c validator](https://validator.w3.org/) to validate my html (for all pages of the website) to check for no errors or warnings. For html there was 1 warning on all pages due to the section for flash messages (shown below).
+* Used the [w3c validator](https://validator.w3.org/) to validate my html (for all pages of the website) to check for no errors. For html there was 1 error on all pages due to the navbar (shown below).
   ![HTML warning](static/testing/html-warning.PNG) <br>
-  There were additionally some extra errors/warnings due to the materializecss being used that the validator did not have access to (see below also). <br>
-  ![Other HTML warnings](static/testing/other-html-warnings.png)
 
-* Used the [jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my style.css file to check for no errors or warnings. 
-I did not validate css of the whole website as this included the imported materializecss files.
+* Used the [jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my style.css file to check for no errors. I did not validate css of the whole website as this included the imported materializecss files.
 
 * Used [Jshint](https://jshint.com/) to validate my js files and ensure no warnings or errors.
 
