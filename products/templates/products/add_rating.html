@@ -26,7 +26,7 @@
                         {{ field | as_crispy_field }}
                     {% endfor %}
                     <div class="text-right">
-                        <a href="{% url 'product_detail' product.id %}"><button type="button" class="back-to-product text-uppercase">Back to product</button></a>
+                        <a class="btn back-to-product text-uppercase" href="{% url 'product_detail' product.id %}">Back to product</a>
                         <button class="add-product-rating text-uppercase" type="submit">Add Product Rating</button>
                     </div>
                 </form>

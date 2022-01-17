@@ -75,14 +75,14 @@
                   {% endif %}
                   <p>Category: <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                 </div>
-                <a href="{% url 'add_now' product.id %}"><button class="add-now" type="button">Add now</button></a>
+                <a class="btn add-now" href="{% url 'add_now' product.id %}">Add now</a>
                 <div class="card-action">
                     {% if request.user.is_superuser %}
                     <div class="edit">
-                        <a href="{% url 'edit_product' product.id %}"><button class="edit1" type="button">Edit</button></a>
+                        <a class="btn edit1" href="{% url 'edit_product' product.id %}">Edit</a>
                     </div>
                     <div class="del">
-                        <a href="{% url 'delete_product' product.id %}"><button class="del1" type="button">Delete</button></a>
+                        <a class="btn del1" href="{% url 'delete_product' product.id %}">Delete</a>
                     </div>
                     {% endif %}
                 </div>

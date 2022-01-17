@@ -41,8 +41,7 @@
     text-align: center;
     padding: 2px 0.5rem;
     background: mediumpurple;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border: 2px solid black;
     color: black;
 }
 

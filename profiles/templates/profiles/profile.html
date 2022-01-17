@@ -50,8 +50,8 @@
                                     <td>{{ userreview.product }}</td>
                                     <td>{{ userreview.review|truncatechars:20 }}</td>
                                     <td>{{ userreview.date_updated }}</td>
-                                    <td><a href="{% url 'edit_review' userreview.id %}"><button class="edit1" type="button">Edit</button></a></td>
-                                    <td><a href="{% url 'delete_review' userreview.id %}"><button class="del1" type="button">Delete</button></a></td>
+                                    <td><a class="btn edit2" href="{% url 'edit_review' userreview.id %}">Edit</a></td>
+                                    <td><a class="btn del2" href="{% url 'delete_review' userreview.id %}">Delete</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -81,8 +81,8 @@
                                     <td>{{ userrating.product }}</td>
                                     <td>{{ userrating.rating|truncatechars:20 }}</td>
                                     <td>{{ userrating.date_updated }}</td>
-                                    <td><a href="{% url 'edit_rating' userrating.id %}"><button class="edit1" type="button">Edit</button></a></td>
-                                    <td><a href="{% url 'delete_rating' userrating.id %}"><button class="del1" type="button">Delete</button></a></td>
+                                    <td><a class="btn edit2" href="{% url 'edit_rating' userrating.id %}">Edit</a></td>
+                                    <td><a class="btn del2" href="{% url 'delete_rating' userrating.id %}">Delete</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -126,7 +126,7 @@
                                                         Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
                                                     {% endif %}
                                                     <br>
-                                                    <a class="add-again1" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}"><button class="add-again">Add product again</button></a>
+                                                    <a class="btn add-again1 add-again" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}">Add product again</a>
                                                 </li>
                                                 <br>
                                             {% endfor %}

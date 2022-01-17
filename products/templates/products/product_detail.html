@@ -88,7 +88,7 @@
                     </div>
                     <!-- add to bag or back to products -->
                     <div class="col-12">
-                        <a href="{% url 'products' %}"><button type="button" class="back-to-products text-uppercase">Back to products</button></a>
+                        <a class="btn back-to-products text-uppercase" href="{% url 'products' %}">Back to products</a>
                         <input type="submit" class="rounded-0 text-uppercase add-to-bag" value="Add to Bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -117,11 +117,11 @@
                             {% if request.user.is_authenticated %}
                                 <!-- Allow user who created it to edit the review -->
                                 {% if productreview.user_profile.user == user %}
-                                    <a href="{% url 'edit_review' productreview.id %}"><button class="edit1" type="button">Edit</button></a>
+                                    <a class="btn edit2" href="{% url 'edit_review' productreview.id %}">Edit</a>
                                 {% endif %}
                                 <!-- Allow user who created it or admin to delete the review -->
                                 {% if productreview.user_profile == request.user or request.user.is_superuser %}
-                                    <a href="{% url 'delete_review' productreview.id %}"><button class="del1" type="button">Delete</button></a>
+                                    <a class="btn del2" href="{% url 'delete_review' productreview.id %}">Delete</a>
                                 {% endif %}
                             {% endif %}
                             </div>

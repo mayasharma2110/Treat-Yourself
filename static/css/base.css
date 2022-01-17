@@ -1,4 +1,5 @@
 /* general css */
+
 html {
     height: 100%;
 }
@@ -9,6 +10,7 @@ body {
 }
 
 /* from Bulma */
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -113,7 +115,11 @@ body {
     width: 100%;
 }
 
-/* register, login and logout */
+/* buttons accross pages */
+
+.btn {
+    border-radius: 0;
+}
 
 .register1, .login1, .reset1 {
     background: mediumpurple;
@@ -129,30 +135,24 @@ body {
     color: mediumpurple;
 }
 
-.logout-yes {
+.logout-yes, .add-to-bag, .add-product-review, .edit-product-review, .add-product-rating, .edit-product-rating, .add-product, .edit-product, .checkout, .complete-order {
     background: #70DB93;
     border: 2px solid black;
     color: black;
     padding: 2px 0.5rem;
 }
 
-.logout-no {
-    background: #DB9370;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.logout-yes:hover {
+.logout-yes:hover, .add-to-bag:hover, .add-product-review:hover, .edit-product-review:hover, .add-product-rating:hover, .edit-product-rating:hover, .add-product:hover, .edit-product:hover, .checkout:hover, .complete-order:hover {
     background: black;
     border: 2px solid #70DB93;
     color: #70DB93;
 }
 
-.logout-no:hover {
-    background: black;
-    border: 2px solid #DB9370;
-    color: #DB9370;
+.logout-no, .back-to-products, .back-to-product, .back-to-bag {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+    padding: 2px 0.5rem;
 }
 
 /* toasts messages */
@@ -173,6 +173,7 @@ body {
 }
 
 /* products page */
+
 .page-heading {
     text-align: center;
     text-transform: uppercase;
@@ -196,7 +197,6 @@ body {
 }
 
 #sort-selector {
-    /* float: right; */
     border: 1px solid black;
 }
 
@@ -291,6 +291,7 @@ body {
 }
 
 /* products - back to top button */
+
 .btt-button {
     height: 42px;
     width: 42px;
@@ -317,6 +318,7 @@ body {
 }
 
 /* product detail */
+
 .card-action1 .edit, .card-action1 .del {
     display: inline-block;
 }
@@ -335,60 +337,12 @@ body {
     color: black;
 }
 
-.back-to-products {
-    background: #DB9370;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.add-to-bag {
-    background: #70DB93;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.add-to-bag:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
-}
-
 label, select {
     margin-bottom: 1rem;
 }
 
 .review {
     margin-bottom: 1rem;
-}
-
-/* add product */
-.add-product {
-    background: #70DB93;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.add-product:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
-}
-
-/* edit product */
-.edit-product {
-    background: #70DB93;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.edit-product:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
 }
 
 /* bag */
@@ -423,41 +377,6 @@ td, th {
 
 .remove-item, .update-link {
     cursor: pointer;
-}
-
-.checkout {
-    background: #70DB93;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.checkout:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
-}
-
-/* checkout */
-
-.back-to-bag {
-    background: #DB9370;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.complete-order {
-    background: #70DB93;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.complete-order:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
 }
 
 /* image field on add/edit product forms */
@@ -505,30 +424,22 @@ td, th {
     border-bottom: 1px solid black;
 }
 
-/* add/edit review and add/edit rating */
-
-textarea[name='review'] {
-    margin-bottom: 1rem;
-}
-
-.back-to-product {
-    background: #DB9370;
-    border: 2px solid black;
-    color: black;
-    padding: 2px 0.5rem;
-}
-
-.add-product-review, .edit-product-review, .add-product-rating, .edit-product-rating {
+.edit2 {
     background: #70DB93;
     border: 2px solid black;
     color: black;
-    padding: 2px 0.5rem;
 }
 
-.add-product-review:hover, .edit-product-review:hover, .add-product-rating:hover, .edit-product-rating:hover {
-    background: black;
-    border: 2px solid #70DB93;
-    color: #70DB93;
+.del2 {
+    background: #DB9370;
+    border: 2px solid black;
+    color: black;
+}
+
+/* add/edit review */
+
+textarea[name='review'] {
+    margin-bottom: 1rem;
 }
 
 /* Media queries */
