@@ -426,6 +426,23 @@ The summary table below shows these metrics.
 | Device | Page |  Performance | Accessibility  | Best Practises  | SEO |
 |---|---|---|---|---|---|
 | Desktop  |  Home | % | % | % | % |
+| Desktop  |  Register | % | % | % | % |
+| Desktop  |  Login | % | % | % | % |
+| Desktop  |  Logout | % | % | % | % |
+
+| Desktop  |  Products | % | % | % | % |
+| Desktop  |  Product Detail | % | % | % | % |
+| Desktop  |  Bag | % | % | % | % |
+| Desktop  |  Checkout | % | % | % | % |
+| Desktop  |  Checkout Success | % | % | % | % |
+| Desktop  |  Profile | % | % | % | % |
+
+| Desktop  |  Add Product | % | % | % | % |
+| Desktop  |  Edit Product | % | % | % | % |
+| Desktop  |  Add Review | % | % | % | % |
+| Desktop  |  Edit Review | % | % | % | % |
+| Desktop  |  Add Rating | % | % | % | % |
+| Desktop  |  Edit Rating | % | % | % | % |
 
 Full reports can be found below:
 
@@ -433,14 +450,12 @@ Full reports can be found below:
 * [Desktop Register](static/lighthouse/lighthouse-desktop-register.pdf)
 * [Desktop Login](static/lighthouse/lighthouse-desktop-login.pdf)
 * [Desktop Logout](static/lighthouse/lighthouse-desktop-logout.pdf)
-
 * [Desktop Products](static/lighthouse/lighthouse-desktop-products.pdf)
 * [Desktop Product Detail](static/lighthouse/lighthouse-desktop-product-detail.pdf)
 * [Desktop Bag](static/lighthouse/lighthouse-desktop-bag.pdf)
 * [Desktop Checkout](static/lighthouse/lighthouse-desktop-checkout.pdf)
 * [Desktop Checkout Success](static/lighthouse/lighthouse-desktop-checkout-success.pdf)
 * [Desktop Profile](static/lighthouse/lighthouse-desktop-profile.pdf)
-
 * [Desktop Add Product](static/lighthouse/lighthouse-desktop-add-product.pdf)
 * [Desktop Edit Product](static/lighthouse/lighthouse-desktop-edit-product.pdf)
 * [Desktop Add Review](static/lighthouse/lighthouse-desktop-add-review.pdf)
