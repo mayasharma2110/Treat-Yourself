@@ -4,7 +4,7 @@
 
 This is a website for a site selling chocolate, hot chocolate, tea and coffee.  
 
-It is aimed for those who are interested in purchasing any of the above, the site helps users pick the right products for them by having sorting options by price/ratings and also having different sections in the site for the 4 different cagetories of products.
+It is aimed for those who are interested in purchasing any of the above, the site helps users pick the right products for them by having sorting options by price/ratings and also having different sections in the site for the 4 different categories of products.
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ It is aimed for those who are interested in purchasing any of the above, the sit
    * [Wireframes Product Detail](#wireframes-product-detail)
    * [Wireframes Bag](#wireframes-bag)
    * [Wireframes Checkout](#wireframes-checkout)
-   * [Whireframes Checkout Success](#wireframes-checkout-success)
+   * [Wireframes Checkout Success](#wireframes-checkout-success)
    * [Wireframes Profile](#wireframes-profile)
    * [Wireframes Add Product](#wireframes-add-product)
    * [Wireframes Edit Product](#wireframes-edit-product)
@@ -137,37 +137,37 @@ Key features to be included based on user stories are:
 
 * The register page will allow users to create their own account for the site by entering a username, email address and password.
 
-* The login page will allow registered users to login with thier username or email and password.
+* The login page will allow registered users to login with their username or email and password.
 
-* The logout page will be a check to confirm a user definately wants to logout.
+* The logout page will be a check to confirm a user definitely wants to logout.
 
 * The products page will show the users the products with some main details like price and rating.
 
 * The product detail page will show the further details of the product like the description. 
 
-* The shopping bag pag will show what a user currently has in their basket and a link for them to checkout and complete thier purchase.
+* The shopping bag page will show what a user currently has in their basket and a link for them to checkout and complete their purchase.
 
 * The checkout page will allow users to enter their delivery and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated.
 
 * The checkout success page will show users details of what they have ordered.
 
-* The profile page will show a users past orders and it will also allow then to update their default delivery information.
+* The profile page will show a user's past orders and it will also allow then to update their default delivery information.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price.
 
-* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
+* The edit product page will be similar to the add product page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details.
 
 * The add review page will allow logged in users to add a review of a product.
 
-* The edit review page will allow logged in users to edit one of thier existing reviews.
+* The edit review page will allow logged in users to edit one of their existing reviews.
 
 * The add rating page will allow logged in users to add a rating of a product.
 
-* The edit rating page will allow logged in users to edit one of thier existing ratings.
+* The edit rating page will allow logged in users to edit one of their existing ratings.
 
 ### Structure
 
-All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products, they will also be able to add new prodicts to the store. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subgategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nutty, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site. Finally there will be a banner showing the free delivery threshold to encourage users to order more products and a banner showing users that they can subscribe and save money.
+All pages of the website will have a consistent navigation bar. The home, login and register links will be available to users who aren't yet registered and/or logged into the site. All users regardless or registration or login status will be able to view all products, view product detail pages, add products to their shopping basket, view the basket  and make a purchase. Logged in users and admin (superusers) will be able to view their profile and also logout. Admin (superusers) will be able to edit and delete products, they will also be able to add new products to the store. Below the navbar there will also be a header with links to view all products (by price, rating or category) or one of the 4 main categories of products (chocolate, hot chocolate, tea and coffee), under these 4 main categories there will be subcategories as follows: Chocolate (white, milk, dark and all), hot chocolate (classic, nutty, other, all), tea (black, white, other, all) and coffee (dark roast, light roast, medium roast, all). This header will also be displayed on all pages of the site. Finally, there will be a banner showing the free delivery threshold to encourage users to order more products and a banner showing users that they can subscribe and save money.
 
 The website will use Materializecss grids to make the layout responsive to different devices and screen sizes.
 
@@ -175,33 +175,33 @@ The website will use Materializecss grids to make the layout responsive to diffe
 
 * The register page will allow users to create their own account for the site by entering a username, email address and password. This will also contain a link for registered users to login.
 
-* The login page will allow registered users to login with thier username or email and password. This will also contain a link for unregistered users to register an account and a link for users who are registered to reset thier password if they forgot it.
+* The login page will allow registered users to login with their username or email and password. This will also contain a link for unregistered users to register an account and a link for users who are registered to reset their password if they forgot it.
 
-* The logout page will be a check to confirm a user definately wants to logout.
+* The logout page will be a check to confirm a user definitely wants to logout.
 
-* The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page. Additionally admin will have quick links to edit or delete any products in the store.
+* The products page will contain the number of products available given a certain selection or search made by the user and below it the products with some main details like price and rating. There will also be quick links for the users to add 1 of any item to their shopping basket, this can be amended on the basket page. Additionally, admin will have quick links to edit or delete any products in the store.
 
 * The product detail page will show the description of the product with the other variables like price and rating. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. Users can also read any reviews made of a product on these pages and logged in users will have links to rate/review products, if the user has reviewed/rated the product previously they will be given information on how to edit/delete their rating/review. There will also be links for admin users to edit/delete a product from here. Admin users will also be able to delete any reviews on this page.
 
-* The shopping bag pag will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
+* The shopping bag page will show what a user currently has in their basket. If the user does not have any items they will be prompted to return to the products page to add some items to the bag. If the user does have items this will be displayed on the page and they will have the ability to update the quantity of any items or remove them from the bag if they changed their mind. If the user has some items a link to checkout will also be displayed and take the user to the checkout page.
 
 * The checkout page will allow users to enter their delivery and billing information to complete the purchase, if they are logged in their default payment and delivery information will be automatically populated. If a user is logged in there will also be a default checked box if a user wants/needs to update any information on this page and save it to their profile, if a user if not registered or logged in there will be a prompt to login or register an account.
 
 * The checkout success page will show users details of what they have ordered and text that they will have received an email confirming this. There will be a link back to the products and if they are logged in there will also be a link to view their profile.
 
-* The profile page will show a users past orders (and the option to add a previous product to their bag again of the same product type and quantity) and it will also allow then to update their default delivery information. The profile page will also list any products the user has rates/reviewed before with links to edit or delete these ratings/reviews should the user change their mind.
+* The profile page will show a user's past orders (and the option to add a previous product to their bag again of the same product type and quantity) and it will also allow then to update their default delivery information. The profile page will also list any products the user has rates/reviewed before with links to edit or delete these ratings/reviews should the user change their mind.
 
 * The add product page will be available to admin only, this will allow them to enter a products name, description, picture and price. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete, the default values for rating, totalrating and numberofratings variables will be 0 for all new products added.
 
-* The edit product page will be similar to the add procut page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete.
+* The edit product page will be similar to the add product page and will be available to admin only, the only difference is that this will auto populate with the products current information and allow the admin to update any details. The ratings variables will not be shown here as this is derived based on user ratings in the database and not for admins to edit/delete.
 
 * The add review page will allow logged in users to add a review of a product. If a user has already reviewed this product they will be informed and prompted to edit their existing review.
 
-* The edit review page will allow logged in users to edit one of thier existing reviews.
+* The edit review page will allow logged in users to edit one of their existing reviews.
 
 * The add rating page will allow logged in users to add a rating of a product (options 1 through 5). If a user has already rated this product they will be informed and prompted to edit their rated review. This data will feed into the products model rating, totalrating and numberofratings variables.
 
-* The edit rating page will allow logged in users to edit one of thier existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
+* The edit rating page will allow logged in users to edit one of their existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
 
 ### Skeleton
 
@@ -284,7 +284,7 @@ Please note there are a few changes to the final site since the wireframes were 
 ### Surface
 
 #### Colours
-I looked at popular sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main color of purple (#9370DB) to represent a luxury brand for the site. The site [here](https://www.99colors.net/name/medium-purple) helped me find triad colours of orange (#DB9370) and green (#70DB93). General text for descriptions, prices etc of products uses dark grey (#424242).
+I looked at popular sites selling these products including: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Thorntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/). I chose a main colour of purple (#9370DB) to represent a luxury brand for the site. The site [here](https://www.99colors.net/name/medium-purple) helped me find triad colours of orange (#DB9370) and green (#70DB93). General text for descriptions, prices etc of products uses dark grey (#424242).
 
 #### Imagery
 I chose a selection of the product images to show on the home screen to entice users to view the products in more detail and hopefully make a purchase. For each of the 4 categories I chose images to show these specific products (chocolate, hot chocolate, tea and coffee). Further information on this is given in the credits - media section of this readme.
@@ -299,15 +299,15 @@ I chose a selection of the product images to show on the home screen to entice u
 
 * The register page allows new users to register to the site with a username, email and password.
 
-* The login page allows registered users to login with thier username or email and password.
+* The login page allows registered users to login with their username or email and password.
 
 * The logout page allows logged in users to logout.
 
-* The products page allows users to quickly see the products on the site with main details including price and rating. This page also allows users to quickly add 1 of any item to their shopping bag. Additionally admin have quick links to edit or delete any products in the store from here.
+* The products page allows users to quickly see the products on the site with main details including price and rating. This page also allows users to quickly add 1 of any item to their shopping bag. Additionally, admin have quick links to edit or delete any products in the store from here.
 
 * The product detail page allows users to see full information of a product including the description and any user reviews that have been made. From here users can select a one-off purchase and the quantity or they can subscribe to get their favourite product sent regularly to them. Logged in users have quick links to rate/review the product from this page, if the user has reviewed/rated the product previously they will be given information on how to edit/delete their rating/review. If a logged in user has created a review they are able to edit or delete it from this page. Admin also have quick links for admin users to edit/delete a product from here and also to delete any reviews on this page.
 
-* The shopping bag pag allows users to view what is currently in their basket and to update or delete any items from here. Users can only update the quantity of one-off purchases and not for subscriptions, this is on purpose. They can't add more than one subscription for the same product from either the product detail page or the bag. Also users can only add 10 of any item at a time to their bag and they can't add more than this from either the product detail page or the bag. 
+* The shopping bag page allows users to view what is currently in their basket and to update or delete any items from here. Users can only update the quantity of one-off purchases and not for subscriptions, this is on purpose. They can't add more than one subscription for the same product from either the product detail page or the bag. Also, users can only add 10 of any item at a time to their bag and they can't add more than this from either the product detail page or the bag. 
 
 * The checkout page allows users to enter their delivery and billing information to complete the purchase.
 
@@ -321,15 +321,15 @@ I chose a selection of the product images to show on the home screen to entice u
 
 * The add review page allows logged in users to add a review of a product. If a user has already reviewed this product they will be informed and prompted to edit their existing review.
 
-* The edit review page allows logged in users to edit one of thier existing reviews.
+* The edit review page allows logged in users to edit one of their existing reviews.
 
 * The add rating page allows logged in users to add a rating of a product (options 1 through 5). If a user has already rated this product they will be informed and prompted to edit their rated review. This data will feed into the products model rating, totalrating and numberofratings variables.
 
-* The edit rating page allows logged in users to edit one of thier existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
+* The edit rating page allows logged in users to edit one of their existing ratings. This data will feed into the products model rating, totalrating and numberofratings variables.
 
 ### Features Left to Implement
 
-* The subscription functionality only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra secrity steps and to save the users card details and billing information which is more complex than this course covers.
+* The subscription functionality only works on the frontend and has not been set up to take regular (in this case monthly) payments from the users card, as this would require extra security steps and to save the users card details and billing information which is more complex than this course covers.
 
 * It would be good to allow users to choose the frequency of their subscription (monthly, every 2 months etc).
 
@@ -368,7 +368,7 @@ I chose a selection of the product images to show on the home screen to entice u
 
 * [AWS](https://aws.amazon.com/) - used to store the static files on the live website (css and media files).
 
-* [Stripe](https://stripe.com/gb) - used to facilatate the secure purchasing of products using a credit/debit card.
+* [Stripe](https://stripe.com/gb) - used to facilitate the secure purchasing of products using a credit/debit card.
 
 ## Testing
 
@@ -376,7 +376,7 @@ I chose a selection of the product images to show on the home screen to entice u
 
 #### Shopping Bag
 
-There was an issue with users being able to add more than 10 of any item at a time - for example - by adding 6 of an item and then going back and adding another 5. I had to update my logic in the bag views to hadle this and return an message error if a user tries to do this by.
+There was an issue with users being able to add more than 10 of any item at a time - for example - by adding 6 of an item and then going back and adding another 5. I had to update my logic in the bag views to handle this and return a message error if a user tries to do this by.
 > quantity = quantity_old + quantity_add
 
 > if quantity > 10: 
@@ -386,7 +386,7 @@ There was an issue with users being able to add more than 10 of any item at a ti
 #### Delivery Variable
 
 There was an issue with the delivery variable showing more than 2 decimal places on the bag page from context.py in the bag app.
-From googling I gound the solution to use the code below to fix it
+From googling I found the solution to use the code below to fix it
 > delivery = round(delivery, 2)
 
 #### Discounted Price 
@@ -407,7 +407,7 @@ I updated the save function in the OrderLineItem class in the models.py file in 
 
 * Used chrome developer tools to check responsiveness on mobile, tablet and laptop devices.  
 
-* Used the [free formatter](https://www.freeformatter.com/html-validator.html) to validate my html (for all pages of the website) to check for no errors. For html there was 1 error on all pages due to the navbar (shown below), this is okay to ignore as only 1 is shown on the page depending if it is a large sreen width or not. There were also some warnings about Malformed byte sequence: “a3” which can be ignored.
+* Used the [free formatter](https://www.freeformatter.com/html-validator.html) to validate my html (for all pages of the website) to check for no errors. For html there was 1 error on all pages due to the navbar (shown below), this is okay to ignore as only 1 is shown on the page depending on if it is a large screen width or not. There were also some warnings about Malformed byte sequence: “a3” which can be ignored.
   ![HTML error](static/testing/html-error.PNG) <br>
 
 * Used the [jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my style.css file to check for no errors. I did not validate css of the whole website as this included the imported materializecss files.
@@ -455,14 +455,14 @@ Full reports can be found below:
   * As a first time user, I want to know the purpose of the site.
     * The site has a range of pictures showing products that are available on the store, which makes it clear to the user the site has something to do with chocolate, hot chocolate, tea and coffee.
     * There is a banner on the navbar which shows details on free delivery and subscribe and save making it clear this is an ecommerce site.
-    * Additionally the name of the site implies this is a site aimed at consumers.
+    * Additionally, the name of the site implies this is a site aimed at consumers.
     * The home page has a link for users to enter the site to see the products that are available.
     ![Purpose](static/testing/purpose.PNG)
 
   * As a first time user, I want to be able to see products that appeal to me by filtering on the 4 main categories of the site, the subcategories within the 4 main categories and also sorting by price or overall rating. I want to be able to quickly add a product to my basket from this page (default of 1 quantity and not on subscription).
     * The site has a consistent navigation bar on all pages. This includes options for users to filter by a certain category or subcategory.
     * On the products page to the top right there is the option for users to sort the products based on price, rating, category or name.
-    * Additionally the products page has a quick add button below each of the products so a user can add 1 of any item to their shopping bag easily.
+    * Additionally, the products page has a quick add button below each of the products so a user can add 1 of any item to their shopping bag easily.
     ![Navbar](static/testing/navbar.PNG)
     ![Sort](static/testing/sort.PNG)
     ![Quick Add](static/testing/quick-add.PNG)
@@ -486,12 +486,12 @@ Full reports can be found below:
       ![Bag Total](static/testing/bag-total.PNG)  
 
   * As a first time user, I want to be able to view my shopping basket and update the quantity of a product or remove it within the page.
-    * The user can view their shopping bag by clicking the icon in the top right of the nabvar.
-    * This shows the type or quantity of each item in their basket. Users will not be able to update the quantity of any subscriptions but will be able to remove these. For items that are not on subscription option the bag will show the current quantity and also show a form where users can update this on the pag page. From this page they can also remove any of the items in their basket.
+    * The user can view their shopping bag by clicking the icon in the top right of the navbar.
+    * This shows the type or quantity of each item in their basket. Users will not be able to update the quantity of any subscriptions but will be able to remove these. For items that are not on subscription option the bag will show the current quantity and also show a form where users can update this on the page. From this page they can also remove any of the items in their basket.
     ![Update Bag](static/testing/update-bag.PNG)  
 
   * As a first time user, I want to be able to purchase products successfully (get taken to a page which confirms the order has been successful) and see these in my profile when logged in. 
-    * From he bag page users are directed the a checkout page where they can enter their delivery and card details. Once the user successfully completes their order they are taken to a page which confirms this and notifies them they have been sent an email to their email address.
+    * From the bag page users are directed the checkout page where they can enter their delivery and card details. Once the user successfully completes their order they are taken to a page which confirms this and notifies them they have been sent an email to their email address.
     ![Checkout Success](static/testing/checkout-success.PNG)  
 
 * Returning Visitor Goals
@@ -500,16 +500,16 @@ Full reports can be found below:
     * See above points.
 
   * As a returning user, I want to be able to register for an account, log in and log out.
-    * The site contails links for the user to register for an account, login and logout under the my account section of the navbar.
+    * The site contains links for the user to register for an account, login and logout under the my account section of the navbar.
 
   * As a returning user, I want the site to save my default delivery information for easier checkout in the future (if I am registered to the site and logged in).
-    * A logged in user can view their default delivery details from their profile (under the my profile section of the navbar). Additioanlly when a logged in user goes to checkout their default details will be prepopulated. If the user is not logged in when they checkout there will be a prompt for them to login or register to save these details for next time.
+    * A logged in user can view their default delivery details from their profile (under the my profile section of the navbar). Additionally when a logged in user goes to checkout their default details will be prepopulated. If the user is not logged in when they checkout there will be a prompt for them to login or register to save these details for next time.
 
   * As a returning user, I want to be able to rate products I have tried to help other users find good products.
-    * On the product detail page of a product this will contain links for the user to add a rating. If the user has already rated this product they will be shown this and be informed they can edit or delete the rating from their profile. If a user is not logged in they will be prompted to do so so they can add/edit a rating.
+    * On the product detail page of a product this will contain links for the user to add a rating. If the user has already rated this product they will be shown this and be informed they can edit or delete the rating from their profile. If a user is not logged in they will be prompted to do so, so they can add/edit a rating.
 
   * As a returning user, I want to be able to review products I have tried to help other users find good products.
-    * On the product detail page of a product this will contain links for the user to add a review. If the user has already reviewed this product they will be shown this and be informed they can edit or delete the review from the current page or their profile. If a user is not logged in they will be prompted to do so so they can add/edit a review.
+    * On the product detail page of a product this will contain links for the user to add a review. If the user has already reviewed this product they will be shown this and be informed they can edit or delete the review from the current page or their profile. If a user is not logged in they will be prompted to do so, so they can add/edit a review.
 
 * Frequent User Goals
 
@@ -525,7 +525,7 @@ Full reports can be found below:
 * Business Goals
 
   * As a business owner, I want to help users find new products they may enjoy.
-    * This business helps users find products they may enjoy as they can filter by category/subcategory, seach the site for specific products or sort the products by their rating, price, category or name.
+    * This business helps users find products they may enjoy as they can filter by category/subcategory, search the site for specific products or sort the products by their rating, price, category or name.
 
   * As a business owner, I want to help users purchase products.
     * The site clearly shows the user how to access their bag with a shopping cart icon. From here there are clear links for the user to checkout and then complete their order after entering delivery/card details.
@@ -535,7 +535,7 @@ Full reports can be found below:
     ![Manage Products](static/testing/manage-products.PNG)  
 
   * As a business owner I want to be able to delete any product reviews that contain inappropriate text or are spam.
-    * On the product detail page of a product the admin has access to links to delete any reviews from the database. Please note that owners can't delete ratings from the website directly as this functionality is unlikely to be needed, if they wish to do so it can be done from within the django admin.
+    * On the product detail page of a product the admin has access to links to delete any reviews from the database. Please note that owners can't delete ratings from the website directly as this functionality is unlikely to be needed, if they wish to do so it can be done from within the Django admin.
 
       ![Delete Reviews](static/testing/delete-reviews.PNG)  
 
@@ -560,7 +560,7 @@ To deploy the project to a live website the below steps were followed:
 * To connect our app to Heroku we can setup an automatic deployment from our GitHub repo. Within your Heroku app go to the deployment tab and click on GitHub for the deployment method. Make sure your GitHub profile is displayed below and enter the repository name and search. Make sure your repo is displayed and click connect to this app.
 * Before enabling automatic deployment, we still have a couple more steps.
 * Click on the settings tab in your app and enter config vars as needed for your project. For this project we need SECRET_KEY, DATABASE_URL, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, EMAIL_HOST_PASS, EMAIL_HOST_USER, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET and USE_AWS (True) variables for the site to be fully functional.
-* Git add, commit and push the changes in your Gitpod (adding the requirements and Procfile files) as epxplained in the above section.
+* Git add, commit and push the changes in your Gitpod (adding the requirements and Procfile files) as explained in the above section.
 * Go back to your Heroku app and the deployment tab - now click to enable automatic deployment and then click deploy branch.
 * Heroku will now receive the code from GitHub and build your app, once it is complete you should see that your app has been successfully deployed.
 * Now the deployed site is available and should automatically update whenever changes are pushed to GitHub from Gitpod.
@@ -595,9 +595,9 @@ on your own repository to view/edit as you wish.
 
 ### Content
 
-* For each of the products on the site I had a look at popular sites [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/) to gain inspiration for the products on this site. Additioanlly these sites helped me get an idea for a good layout of the site.
+* For each of the products on the site I had a look at popular sites [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Thorntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/) to gain inspiration for the products on this site. Additionally, these sites helped me get an idea for a good layout of the site.
 
-* I used an images from online, information below in the media section.
+* I used images from online, information below in the media section.
 
 ### Media
   
@@ -635,4 +635,4 @@ on your own repository to view/edit as you wish.
 
 * Thanks to the fellow students on Slack and my friends who viewed the website and gave feedback on any improvements/changes that could be made. 
 
-* The websites that I used to gain inspiration for creating my own book review site: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Throntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/).
+* The websites that I used to gain inspiration for creating my own book review site: [Hotel Chocolat](https://www.hotelchocolat.com/uk), [Thorntons](https://www.thorntons.co.uk/), [Whittard](https://www.whittard.co.uk/) and [T2 Tea](https://www.t2tea.com/en/uk/).
