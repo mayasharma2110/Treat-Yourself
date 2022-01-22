@@ -121,14 +121,12 @@
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
                                                     {% if item.product_type == "one-off" %}
-                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})
+                                                        <p>Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (x{{ item.quantity }})</p>
                                                     {% else %}
-                                                        Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)
+                                                        <p>Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)</p>
                                                     {% endif %}
-                                                    <br>
-                                                    <a class="btn add-again1 add-again" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}">Add product again</a>
+                                                    <a class="btn mb-2 add-again1 add-again" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}">Add product again</a>
                                                 </li>
-                                                <br>
                                             {% endfor %}
                                         </ul>
                                     </td>
