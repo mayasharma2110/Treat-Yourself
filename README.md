@@ -531,9 +531,10 @@ Full reports can be found below:
 
   * As a frequent user, I want to subscribe so that I get my favourite products on a regular schedule and also save some money.
     * On the product detail page of a product this contain information of how the user can save money by subscribing to their favourite product(s). This will then be shown as a saving on the bag and checkout pages.
-    ![Subscribe1](static/testing/subscribe1.PNG)
-    ![Subscribe2](static/testing/subscribe2.PNG)
-    ![Subscribe3](static/testing/subscribe3.PNG)  
+
+      ![Subscribe1](static/testing/subscribe1.PNG)
+      ![Subscribe2](static/testing/subscribe2.PNG)
+      ![Subscribe3](static/testing/subscribe3.PNG)  
 
 * Business Goals
 
