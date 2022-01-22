@@ -93,7 +93,7 @@ class OrderLineItem(models.Model):
             self.lineitem_total = self.product.price * self.quantity
         else:
             self.lineitem_total = round(
-                                        Decimal('.90')*Decimal(self.product.price), 2)
+                                        Decimal('.90')*Decimal(self.product.price), 2)  # noqa
         super().save(*args, **kwargs)
 
     def __str__(self):

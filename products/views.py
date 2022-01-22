@@ -148,7 +148,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product.' +
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -235,12 +236,15 @@ def edit_review(request, review_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product review!')
-            return redirect(reverse('product_detail', args=[review.product.id]))
+            return redirect(reverse('product_detail',
+                                    args=[review.product.id]))
         else:
-            messages.error(request, 'Failed to update product review. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product review.' +
+                           'Please ensure the form is valid.')
     else:
         form = ProductReviewForm(instance=review)
-        messages.info(request, f'You are editing your review for {review.product.name}')
+        messages.info(request, 'You are editing your review for' +
+                      f'{review.product.name}')
 
     template = 'products/edit_review.html'
     context = {
@@ -282,11 +286,12 @@ def add_rating(request, product_id):
             productrating.user_profile = profile
             productrating.save()
             # print(productrating.id)
-            # feed this rating into info product rating, totalrating and numberofratings fields
+            # feed this rating into info product rating, totalrating
+            # and numberofratings fields
             # print(product.numberofratings)
             product.numberofratings += 1
             product.totalrating += int(productrating.rating)
-            product.rating = round(product.totalrating/product.numberofratings, 2)
+            product.rating = round(product.totalrating/product.numberofratings, 2)  # noqa
             product.save()
             # print(product.numberofratings)
             # reutn user back to this product detail page
@@ -304,8 +309,8 @@ def add_rating(request, product_id):
         # print(product_ratings.filter(user_profile=profile).exists())
         if product_ratings.filter(user_profile=profile).exists():
             messages.error(request, "You have already rated " +
-                        "this product. You can update your " +
-                        "rating from your profile!")
+                           "this product. You can update your " +
+                           "rating from your profile!")
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             form = ProductRatingForm()
@@ -330,20 +335,24 @@ def edit_rating(request, rating_id):
     if request.method == 'POST':
         form = ProductRatingForm(request.POST, instance=rating)
         if form.is_valid():
-            # feed this rating into info product rating, totalrating and numberofratings fields
+            # feed this rating into info product rating, totalrating
+            # and numberofratings fields
             old_totalrating = product.totalrating
             new_user_rating = int(request.POST['rating'])
-            product.totalrating = old_totalrating - old_user_rating + new_user_rating
-            product.rating = round(product.totalrating/product.numberofratings, 2)
+            product.totalrating = old_totalrating - old_user_rating + new_user_rating  # noqa
+            product.rating = round(product.totalrating/product.numberofratings, 2)  # noqa
             product.save()
             form.save()
             messages.success(request, 'Successfully updated product rating!')
-            return redirect(reverse('product_detail', args=[rating.product.id]))
+            return redirect(reverse('product_detail',
+                                    args=[rating.product.id]))
         else:
-            messages.error(request, 'Failed to update product review. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product review.' +
+                           'Please ensure the form is valid.')
     else:
         form = ProductRatingForm(instance=rating)
-        messages.info(request, f'You are editing your rating for {rating.product.name}')
+        messages.info(request, 'You are editing your rating for' +
+                      f'{rating.product.name}')
 
     template = 'products/edit_rating.html'
     context = {
@@ -363,7 +372,8 @@ def delete_rating(request, rating_id):
     product = rating.product
     old_totalrating = product.totalrating
 
-    # feed this rating into info product rating, totalrating and numberofratings fields
+    # feed this rating into info product rating, totalrating
+    # and numberofratings fields
     product.totalrating = old_totalrating - old_user_rating
     product.numberofratings -= 1
     if product.numberofratings > 0:

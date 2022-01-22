@@ -23,7 +23,7 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile1)
 
-    #orders made by the user
+    # orders made by the user
     orders = profile1.orders.all()
 
     # reviews made by user
