@@ -91,8 +91,6 @@ It is aimed for those who are interested in purchasing any of the above, the sit
 
 * As a returning user, I want to be able to register for an account, log in and log out.
 
-* As a returning user, I want to receive an email confirmation once I sign up to the site and I also want to be able to recover my password if I forget it.
-
 * As a returning user, I want the site to save my default delivery information for easier checkout in the future (if I am registered to the site and logged in).
 
 * As a returning user, I want to be able to rate products I have tried to help other users find good products.
@@ -409,8 +407,8 @@ I updated the save function in the OrderLineItem class in the models.py file in 
 
 * Used chrome developer tools to check responsiveness on mobile, tablet and laptop devices.  
 
-* Used the [w3c validator](https://validator.w3.org/) to validate my html (for all pages of the website) to check for no errors. For html there was 1 error on all pages due to the navbar (shown below).
-  ![HTML warning](static/testing/html-warning.PNG) <br>
+* Used the [free formatter](https://www.freeformatter.com/html-validator.html) to validate my html (for all pages of the website) to check for no errors. For html there was 1 error on all pages due to the navbar (shown below), this is okay to ignore as only 1 is shown on the page depending if it is a large sreen width or not. There were also some warnings about Malformed byte sequence: “a3” which can be ignored.
+  ![HTML error](static/testing/html-error.PNG) <br>
 
 * Used the [jigsaw validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my style.css file to check for no errors. I did not validate css of the whole website as this included the imported materializecss files.
 
@@ -431,27 +429,115 @@ The summary table below shows these metrics.
 
 Full reports can be found below:
 
+* [Desktop Home](static/lighthouse/lighthouse-desktop-home.pdf)
+* [Desktop Register](static/lighthouse/lighthouse-desktop-register.pdf)
+* [Desktop Login](static/lighthouse/lighthouse-desktop-login.pdf)
+* [Desktop Logout](static/lighthouse/lighthouse-desktop-logout.pdf)
+
+* [Desktop Products](static/lighthouse/lighthouse-desktop-products.pdf)
+* [Desktop Product Detail](static/lighthouse/lighthouse-desktop-product-detail.pdf)
+* [Desktop Bag](static/lighthouse/lighthouse-desktop-bag.pdf)
+* [Desktop Checkout](static/lighthouse/lighthouse-desktop-checkout.pdf)
+* [Desktop Checkout Success](static/lighthouse/lighthouse-desktop-checkout-success.pdf)
+* [Desktop Profile](static/lighthouse/lighthouse-desktop-profile.pdf)
+
+* [Desktop Add Product](static/lighthouse/lighthouse-desktop-add-product.pdf)
+* [Desktop Edit Product](static/lighthouse/lighthouse-desktop-edit-product.pdf)
+* [Desktop Add Review](static/lighthouse/lighthouse-desktop-add-review.pdf)
+* [Desktop Edit Review](static/lighthouse/lighthouse-desktop-edit-review.pdf)
+* [Desktop Add Rating](static/lighthouse/lighthouse-desktop-add-rating.pdf)
+* [Desktop Edit Rating](static/lighthouse/lighthouse-desktop-edit-rating.pdf)
+
 ### User Stories from the UX Section
 
 * First Time Visitor Goals  
 
-  * As a first time user, I want to ...
-    * How the site meets this user need.
+  * As a first time user, I want to know the purpose of the site.
+    * The site has a range of pictures showing products that are available on the store, which makes it clear to the user the site has something to do with chocolate, hot chocolate, tea and coffee.
+    * There is a banner on the navbar which shows details on free delivery and subscribe and save making it clear this is an ecommerce site.
+    * Additionally the name of the site implies this is a site aimed at consumers.
+    * The home page has a link for users to enter the site to see the products that are available.
+    ![Purpose](static/testing/purpose.PNG)
+
+  * As a first time user, I want to be able to see products that appeal to me by filtering on the 4 main categories of the site, the subcategories within the 4 main categories and also sorting by price or overall rating. I want to be able to quickly add a product to my basket from this page (default of 1 quantity and not on subscription).
+    * The site has a consistent navigation bar on all pages. This includes options for users to filter by a certain category or subcategory.
+    * On the products page to the top right there is the option for users to sort the products based on price, rating, category or name.
+    * Additionally the products page has a quick add button below each of the products so a user can add 1 of any item to their shopping bag easily.
+    ![Navbar](static/testing/navbar.PNG)
+    ![Sort](static/testing/sort.PNG)
+    ![Quick Add](static/testing/quick-add.PNG)
+
+  * As a first time user, I want to be able to the specific details of a product I am interested in (description, price and rating) from here I want to be able to add products to my shopping basket.
+    * By clicking on one of the products on the site a new page opens with more information on this product including the description, price options, rating and any reviews.
+
+  * As a first time user, I want to be able read reviews of products made by other users.
+    * Reviews for each product are shown on the product detail page for each product. This shows the user that made the review, the review text itself and when it was added or updated.
+
+      ![Product Reviews](static/testing/product-reviews.PNG) 
+
+  * As a first time user I want to be able to search for a specific term (for the name or description of a product), on filtering or searching for a term I want to see the number of results displayed.
+    * The site has a consistent navigation bar on all pages. This includes a search bar where users can search for a product based on its name or description. The results matching the search are shown to the user and on the top left side of the page the number of results are displayed. There is also a link for the user to go back and view all products on  the site.
+
+      ![Search Bar](static/testing/search-bar.PNG)  
+
+  * As a first time user, I want to be able to see the total in my shopping basket at any given time.
+    * If a user has some items in their basket the icon in the navbar will be coloured green and show the total cost of items in their bag (excluding delivery). If there are no items this will not be highlighted.
+
+      ![Bag Total](static/testing/bag-total.PNG)  
+
+  * As a first time user, I want to be able to view my shopping basket and update the quantity of a product or remove it within the page.
+    * The user can view their shopping bag by clicking the icon in the top right of the nabvar.
+    * This shows the type or quantity of each item in their basket. Users will not be able to update the quantity of any subscriptions but will be able to remove these. For items that are not on subscription option the bag will show the current quantity and also show a form where users can update this on the pag page. From this page they can also remove any of the items in their basket.
+    ![Update Bag](static/testing/update-bag.PNG)  
+
+  * As a first time user, I want to be able to purchase products successfully (get taken to a page which confirms the order has been successful) and see these in my profile when logged in. 
+    * From he bag page users are directed the a checkout page where they can enter their delivery and card details. Once the user successfully completes their order they are taken to a page which confirms this and notifies them they have been sent an email to their email address.
+    ![Checkout Success](static/testing/checkout-success.PNG)  
 
 * Returning Visitor Goals
 
-  * As a returning user, I want to ...
-    * How the site meets this user need.
+  * As a returning user, I have similar needs of a first time user.
+    * See above points.
+
+  * As a returning user, I want to be able to register for an account, log in and log out.
+    * The site contails links for the user to register for an account, login and logout under the my account section of the navbar.
+
+  * As a returning user, I want the site to save my default delivery information for easier checkout in the future (if I am registered to the site and logged in).
+    * A logged in user can view their default delivery details from their profile (under the my profile section of the navbar). Additioanlly when a logged in user goes to checkout their default details will be prepopulated. If the user is not logged in when they checkout there will be a prompt for them to login or register to save these details for next time.
+
+  * As a returning user, I want to be able to rate products I have tried to help other users find good products.
+    * On the product detail page of a product this will contain links for the user to add a rating. If the user has already rated this product they will be shown this and be informed they can edit or delete the rating from their profile. If a user is not logged in they will be prompted to do so so they can add/edit a rating.
+
+  * As a returning user, I want to be able to review products I have tried to help other users find good products.
+    * On the product detail page of a product this will contain links for the user to add a review. If the user has already reviewed this product they will be shown this and be informed they can edit or delete the review from the current page or their profile. If a user is not logged in they will be prompted to do so so they can add/edit a review.
 
 * Frequent User Goals
-    
-  * As a frequent user, I want to ...
-    * How the site meets this user need.
+
+  * As a frequent user, I have similar needs of a first time and returning user.
+    * See above points.
+
+  * As a frequent user, I want to subscribe so that I get my favourite products on a regular schedule and also save some money.
+    * On the product detail page of a product this contain information of how the user can save money by subscribing to their favourite product(s). This will then be shown as a saving on the bag and checkout pages.
+    ![Subscribe1](static/testing/subscribe1.PNG)
+    ![Subscribe2](static/testing/subscribe2.PNG)
+    ![Subscribe3](static/testing/subscribe3.PNG)  
 
 * Business Goals
 
-  * As a business owner, I want to ...
-    * How the site meets this business need.
+  * As a business owner, I want to help users find new products they may enjoy.
+    * This business helps users find products they may enjoy as they can filter by category/subcategory, seach the site for specific products or sort the products by their rating, price, category or name.
+
+  * As a business owner, I want to help users purchase products.
+    * The site clearly shows the user how to access their bag with a shopping cart icon. From here there are clear links for the user to checkout and then complete their order after entering delivery/card details.
+
+  * As a business owner, I want to be able to manage the products (picture, price, description etc) that are displayed on the site and remove any that are not for sale anymore.
+    * From the products or product detail pages the admin users can edit or delete any products in the store.
+    ![Manage Products](static/testing/manage-products.PNG)  
+
+  * As a business owner I want to be able to delete any product reviews that contain inappropriate text or are spam.
+    * On the product detail page of a product the admin has access to links to delete any reviews from the database. Please note that owners can't delete ratings from the website directly as this functionality is unlikely to be needed, if they wish to do so it can be done from within the django admin.
+
+      ![Delete Reviews](static/testing/delete-reviews.PNG)  
 
 ## Deployment
 
@@ -469,12 +555,11 @@ To deploy the project to a live website the below steps were followed:
 * Go to Heroku.com and log in (if not registered you must create an account first).
 * Make sure your project has a file specifying which applications are needed to run your site, use the below code to automatically generate this
 > pip3 freeze --local > requirements.txt
-* Also make sure you have a Procfile which tells Heroku which file runs the app (in our case it is app.py), use the below code to generate this. The Procfile may add a blank line which can cause issues so check and remove this if needed.
->  echo web: python app.py > Procfile (note that this has no extension)
+* Also make sure you have a Procfile which tells Heroku which file runs the app. The Procfile may add a blank line which can cause issues so check and remove this if needed.
 * In Heroku click on create a new app. The Heroku app name must be unique and generally uses - instead of spaces and all lowercase letters. Then select the region closest to you and create app.
 * To connect our app to Heroku we can setup an automatic deployment from our GitHub repo. Within your Heroku app go to the deployment tab and click on GitHub for the deployment method. Make sure your GitHub profile is displayed below and enter the repository name and search. Make sure your repo is displayed and click connect to this app.
 * Before enabling automatic deployment, we still have a couple more steps.
-* Click on the settings tab in your app and click on reveal config vars, you can then enter the information that is in the hidden env.py file. Typically, you need to include IP, PORT, SECRET_KEY, MONGO_URI and MONGO_DBNAME.
+* Click on the settings tab in your app and enter config vars as needed for your project. For this project we need SECRET_KEY, DATABASE_URL, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, EMAIL_HOST_PASS, EMAIL_HOST_USER, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET and USE_AWS (True) variables for the site to be fully functional.
 * Git add, commit and push the changes in your Gitpod (adding the requirements and Procfile files) as epxplained in the above section.
 * Go back to your Heroku app and the deployment tab - now click to enable automatic deployment and then click deploy branch.
 * Heroku will now receive the code from GitHub and build your app, once it is complete you should see that your app has been successfully deployed.
@@ -515,9 +600,31 @@ on your own repository to view/edit as you wish.
 * I used an images from online, information below in the media section.
 
 ### Media
-
-* I found the following image online from [xxx](xxx), this is the file static/images/xxx.jpg. The owner of the image is xxx and their page on the site is [here](xxx). Please note I did some cropping to the original image but no other changes were made.
   
+  * I found the following images online from [Pexels](https://www.pexels.com/): 
+  * home-chocolate - owner Polina Tankilevitch [image link here](https://www.pexels.com/photo/close-up-photo-of-assorted-chocolates-4110101/)
+  * home-hot-chocolate - owner Ecrin [image link here](https://www.pexels.com/photo/dawn-woman-caffeine-coffee-7994277/)
+  * home-tea - owner Julia Sakelli [image link here](https://www.pexels.com/photo/teacup-with-tea-905485/)
+  * home-coffee - owner Gagan Cambow [image link here](https://www.pexels.com/photo/cup-of-delicious-coffee-with-froth-on-breakfast-in-cafeteria-1170659/)
+  * milk-chocolate-1 - owner Vie Studio [image link here](https://www.pexels.com/photo/food-dark-bar-broken-6167332/)
+  * dark-chocolate-1 - owner Eva Elijas [image link here](https://www.pexels.com/photo/food-wood-coffee-dark-6261615/)
+  * white-chocolate-1 - owner Elli [image link here](https://www.pexels.com/photo/milk-chocolates-1854664/)
+
+* I found the following images online from [Unsplash](https://unsplash.com/): 
+  * classic-hot-chocolate - owner Maddi Bazzocco [image link here](https://unsplash.com/photos/MjZq7A2RJxQ )
+  * peanut-butter-hot-chocolate-1 - owner Tetiana Bykovets [image link here](https://unsplash.com/photos/Ht7ZhGt2UXg)
+  * chilli-hot-chocolate-1 - owner Robin Thang [image link here](https://unsplash.com/photos/In-qzXa-po8)
+  * breakfast-tea - owner Debby Hudson [image link here](https://unsplash.com/photos/ahDojo_mq34)
+  * white-chocolate-tea - owner Suhyeon Choi [image link here](https://unsplash.com/photos/4Ia348kvX7A)
+  * berry-tea - owner Sixteen Miles Out [image link here](https://unsplash.com/photos/Rw3KOyU94eo)
+  * dark-coffee-1 - owner SnapbyThree MY [image link here](https://unsplash.com/photos/g6e641CiHFQ)
+  * medium-coffee-1 - owner Jeremy Yap [image link here](https://unsplash.com/photos/jn-HaGWe4yw)
+  * light-coffee-1 - owner Jen P. [image link here](https://unsplash.com/photos/FoG8lotg7AA)
+
+* I used the following image (noimage) from Code Institute [image link here](https://github.com/Code-Institute-Solutions/boutique_ado_images/tree/master/pics).
+
+* Please note I did minor editing (cropping only) to some of these photos.
+
 ### Acknowledgments
 
 * Code Institute for teaching me the basics of HTML, CSS, Materializecss, JavaScript, jQuery, Python, MongoDB, Flask, Django, AWS and Stripe to allow me to create this website.
