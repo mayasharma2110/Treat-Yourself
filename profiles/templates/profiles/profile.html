@@ -125,7 +125,7 @@
                                                     {% else %}
                                                         <p>Item: <a href="{% url 'product_detail' item.product.id %}" target="_blank">{{ item.product.name }}</a> (Monthly Subscription)</p>
                                                     {% endif %}
-                                                    <a class="btn mb-2 add-again1 add-again" id="addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}">Add product again</a>
+                                                    <a class="btn mb-2 add-again1 add-again" id="{{order.order_number}}{{item.product_type}}addagain_{{ item.product.id }}" data-type="{{ item.product_type }},{{ item.quantity }}">Add product again</a>
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -153,7 +153,7 @@
         // Add again on click
         $('.add-again1').click(function(e) {
             var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('addagain_')[1];
+            var itemId = $(this).attr('id').split('_')[1];
             var product_type = $(this).data('type').split(',')[0];
             var quantity = $(this).data('type').split(',')[1];
             var url = `/bag/add_again/${itemId}/`;
