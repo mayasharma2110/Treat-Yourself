@@ -425,24 +425,22 @@ The summary table below shows these metrics.
 
 | Device | Page |  Performance | Accessibility  | Best Practises  | SEO |
 |---|---|---|---|---|---|
-| Desktop  |  Home | % | % | % | % |
-| Desktop  |  Register | % | % | % | % |
-| Desktop  |  Login | % | % | % | % |
-| Desktop  |  Logout | % | % | % | % |
-
-| Desktop  |  Products | % | % | % | % |
-| Desktop  |  Product Detail | % | % | % | % |
-| Desktop  |  Bag | % | % | % | % |
-| Desktop  |  Checkout | % | % | % | % |
-| Desktop  |  Checkout Success | % | % | % | % |
-| Desktop  |  Profile | % | % | % | % |
-
-| Desktop  |  Add Product | % | % | % | % |
-| Desktop  |  Edit Product | % | % | % | % |
-| Desktop  |  Add Review | % | % | % | % |
-| Desktop  |  Edit Review | % | % | % | % |
-| Desktop  |  Add Rating | % | % | % | % |
-| Desktop  |  Edit Rating | % | % | % | % |
+| Desktop  |  Home | 66% | 81% | 93% | 100% |
+| Desktop  |  Register | 99% | 82% | 93% | 100% |
+| Desktop  |  Login | 99% | 82% | 93% | 100% |
+| Desktop  |  Logout | 99% | 79% | 93% | 100% |
+| Desktop  |  Products | 95% | 81% | 93% | 100% |
+| Desktop  |  Product Detail | 97% | 81% | 87% | 100% |
+| Desktop  |  Bag | 95% | 82% | 93% | 100% |
+| Desktop  |  Checkout | 87% | 82% | 93% | 100% |
+| Desktop  |  Checkout Success | 97% | 82% | 93% | 100% |
+| Desktop  |  Profile | 97% | 81% | 93% | 100% |
+| Desktop  |  Add Product | 99% | 71% | 93% | 100% |
+| Desktop  |  Edit Product | 95% | 62% | 93% | 90% |
+| Desktop  |  Add Review | 99% | 79% | 93% | 100% |
+| Desktop  |  Edit Review | 99% | 79% | 93% | 100% |
+| Desktop  |  Add Rating | 99% | 79% | 93% | 100% |
+| Desktop  |  Edit Rating | 99% | 79% | 93% | 100% |
 
 Full reports can be found below:
 
