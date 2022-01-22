@@ -26,6 +26,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="order-confirmation-wrapper p-3 border">
+                    <!-- order info -->
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Order Info:</small>
@@ -48,6 +49,7 @@
                             <p class="mb-0">{{ order.date }}</p>
                         </div>
                     </div>
+                    <!-- order items -->
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Order Items:</small>
@@ -69,6 +71,7 @@
                         </div>
                     </div>
                     {% endfor %}
+                    <!-- delivery -->
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Delivery Details:</small>
@@ -151,6 +154,7 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </div>
                     </div>
+                    <!-- billing -->
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Billing Info:</small>

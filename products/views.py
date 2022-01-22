@@ -73,6 +73,7 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    # derive discounted price for the product
     disc_price = round(Decimal('.90')*Decimal(product.price), 2)
 
     # reviews for the product
@@ -114,14 +115,16 @@ def add_product(request):
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        print(form)
+        # check if form is valid
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # if form is not valid
         else:
             messages.error(request, 'Failed to add product. ' +
                            'Please ensure the form is valid.')
+    # get form
     else:
         form = ProductForm()
 
@@ -143,13 +146,16 @@ def edit_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
+        # check if form is valid
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # form is not valid
         else:
             messages.error(request, 'Failed to update product.' +
                            'Please ensure the form is valid.')
+    # get the form
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -170,6 +176,7 @@ def delete_product(request, product_id):
         messages.error(request, 'Sorry, only admin can delete a product.')
         return redirect(reverse('home'))
 
+    # get the product and delete it
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
@@ -195,9 +202,9 @@ def add_review(request, product_id):
             productreview.product = product
             productreview.user_profile = profile
             productreview.save()
-            # print(productreview.id)
             messages.success(request, 'Successfully added product review!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # form is not valid
         else:
             messages.error(request, 'Failed to add product review. ' +
                            'Please ensure the form is valid.')
@@ -207,7 +214,6 @@ def add_review(request, product_id):
         # if so redirect back to product page with an error message
         profile = UserProfile.objects.get(user=request.user)
         product_reviews = product.reviews.all()
-        # print(product_reviews.filter(user_profile=profile).exists())
         if product_reviews.filter(user_profile=profile).exists():
             messages.error(request, "You have already reviewed " +
                            "this product. You can update your " +
@@ -233,14 +239,17 @@ def edit_review(request, review_id):
 
     if request.method == 'POST':
         form = ProductReviewForm(request.POST, instance=review)
+        # check if form is valid
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product review!')
             return redirect(reverse('product_detail',
                                     args=[review.product.id]))
+        # form is not valid
         else:
             messages.error(request, 'Failed to update product review.' +
                            'Please ensure the form is valid.')
+    # get form
     else:
         form = ProductReviewForm(instance=review)
         messages.info(request, 'You are editing your review for' +
@@ -259,6 +268,7 @@ def edit_review(request, review_id):
 def delete_review(request, review_id):
     """ Delete a review of a product """
 
+    # get the review and delete it
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
     review.delete()
@@ -285,18 +295,16 @@ def add_rating(request, product_id):
             productrating.product = product
             productrating.user_profile = profile
             productrating.save()
-            # print(productrating.id)
             # feed this rating into info product rating, totalrating
             # and numberofratings fields
-            # print(product.numberofratings)
             product.numberofratings += 1
             product.totalrating += int(productrating.rating)
             product.rating = round(product.totalrating/product.numberofratings, 2)  # noqa
             product.save()
-            # print(product.numberofratings)
-            # reutn user back to this product detail page
+            # return user back to this product detail page
             messages.success(request, 'Successfully added product rating!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # form is not valid
         else:
             messages.error(request, 'Failed to add product review. ' +
                            'Please ensure the form is valid.')
@@ -306,7 +314,6 @@ def add_rating(request, product_id):
         # if so redirect back to product page with an error message
         profile = UserProfile.objects.get(user=request.user)
         product_ratings = product.ratings.all()
-        # print(product_ratings.filter(user_profile=profile).exists())
         if product_ratings.filter(user_profile=profile).exists():
             messages.error(request, "You have already rated " +
                            "this product. You can update your " +
@@ -334,6 +341,7 @@ def edit_rating(request, rating_id):
 
     if request.method == 'POST':
         form = ProductRatingForm(request.POST, instance=rating)
+        # check if form is valid
         if form.is_valid():
             # feed this rating into info product rating, totalrating
             # and numberofratings fields
@@ -346,9 +354,11 @@ def edit_rating(request, rating_id):
             messages.success(request, 'Successfully updated product rating!')
             return redirect(reverse('product_detail',
                                     args=[rating.product.id]))
+        # form is not valid
         else:
             messages.error(request, 'Failed to update product review.' +
                            'Please ensure the form is valid.')
+    # get the form
     else:
         form = ProductRatingForm(instance=rating)
         messages.info(request, 'You are editing your rating for' +
@@ -367,6 +377,7 @@ def edit_rating(request, rating_id):
 def delete_rating(request, rating_id):
     """ Update a rating of a product """
 
+    # get the rating and delete it
     rating = get_object_or_404(ProductRating, pk=rating_id)
     old_user_rating = int(rating.rating)
     product = rating.product

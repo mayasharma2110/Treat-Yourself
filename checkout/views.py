@@ -38,6 +38,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    # get bag and form data
     if request.method == "POST":
         bag = request.session.get('bag', {})
         form_data = {
@@ -52,6 +53,7 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
+        # check if form is valid
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -77,14 +79,16 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
+            # order was successful
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                             args=[order.order_number]))
+        # if form is not valid
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
+    # no items in bag
     else:
         bag = request.session.get('bag', {})
         if not bag:
@@ -92,6 +96,7 @@ def checkout(request):
                            "the moment")
             return redirect(reverse('products'))
 
+        # bag and stripe details
         current_bag = bag_contents(request)
         total = current_bag["grand_total"]
         stripe_total = round(total * 100)
@@ -101,6 +106,8 @@ def checkout(request):
                 currency=settings.STRIPE_CURRENCY,
         )
 
+        # if user is logged in get their details
+        # to pre populate form
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -124,6 +131,7 @@ def checkout(request):
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
+    # return checkout template
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -169,6 +177,7 @@ def checkout_success(request, order_number):
     if 'bag' in request.session:
         del request.session['bag']
 
+    # return checkout success template
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

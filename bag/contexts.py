@@ -33,8 +33,6 @@ def bag_contents(request):
                 'disc_price': disc_price,
                 'subtotal': subtotal,
             })
-    # print(bag_items[0]['price'])
-    # print(bag_items[0]['disc_price'])
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal(settings.STANDARD_DELIVERY)

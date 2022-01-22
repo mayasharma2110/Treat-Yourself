@@ -59,7 +59,6 @@ def add_to_bag(request, item_id):
                          f'{product.name} to your bag.')
 
     request.session['bag'] = bag
-    # print(request.session['bag'])
     return redirect(redirect_url)
 
 
@@ -103,7 +102,6 @@ def add_now(request, item_id):
                          'to your bag.')
 
     request.session['bag'] = bag
-    # print(request.session['bag'])
     return redirect(reverse('products'))
 
 
@@ -113,8 +111,6 @@ def add_again(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
-    # print(f'req post is {request.POST}')
-
     product_type = request.POST['product_type']
     quantity = int(request.POST['quantity'])
 
@@ -122,10 +118,6 @@ def add_again(request, item_id):
         type_messages = "monthly subscription of"
     else:
         type_messages = ""
-
-    # print(item_id)
-    # print(product_type)
-    # print(quantity)
 
     # item id is already in bag
     if item_id in list(bag.keys()):
@@ -163,7 +155,6 @@ def add_again(request, item_id):
                          f'{product.name} to your bag.')
 
     request.session['bag'] = bag
-    # print(request.session['bag'])
     return HttpResponse(status=200)
 
 
@@ -182,7 +173,6 @@ def adjust_bag(request, item_id):
                      f'to {quantity} in your bag.')
 
     request.session['bag'] = bag
-    # print(request.session['bag'])
     return redirect(redirect_url)
 
 
