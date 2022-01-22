@@ -31,8 +31,7 @@
   {% include "socialaccount/snippets/login_extra.html" %}
 
   {% else %}
-  <p>{% blocktrans %}Don't have an account yet, register for one 
-  <a href="{{ signup_url }}">here</a>.{% endblocktrans %}</p>
+  <p>{% blocktrans %}Don't have an account yet, <a href="{{ signup_url }}">register for one here</a>.{% endblocktrans %}</p>
   {% endif %}
 
   <form class="login" method="POST" action="{% url 'account_login' %}">
